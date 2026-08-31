@@ -1,0 +1,114 @@
+export const profile = {
+  name: "Anmol Raj",
+  title: "Full Stack Developer | AI Integration",
+  location: "Jaipur, Rajasthan, India",
+  origin: "East Champaran, Bihar",
+  phone: "+91-9110145107",
+  email: "araj97855@gmail.com",
+  linkedin: "https://www.linkedin.com/in/raj-anmol/",
+  github: "https://github.com/Raj-Anmol",
+  summary: "Computer Science undergraduate specializing in full-stack web development using the MERN stack (MongoDB, Express.js, React, Node.js). Skilled in architecting RESTful APIs, building real-time applications with Socket.io, and managing complex frontend state using Redux Toolkit. Experienced in integrating cloud services, JWT authentication workflows, and optimizing database performance. Passionate about AI integration in web applications.",
+  profileImage: "/profile.png",
+};
+
+export const education = [
+  {
+    degree: "Bachelor of Technology (B.Tech) in Computer Science",
+    institution: "Jagannath University",
+    location: "Jaipur, Rajasthan",
+    period: "Jul 2023 – Jul 2027 (Expected)",
+  },
+];
+
+export const experience = [
+  {
+    role: "Artificial Intelligence Intern",
+    company: "Edunet Foundation (AICTE × IBM SkillsBuild)",
+    period: "May 11, 2026 – Jun 21, 2026 (6 weeks)",
+    location: "Remote",
+    bullets: [
+      "Completed 6-week intensive training on AI models, cloud workflows, and system deployment",
+      "Developed full-stack web interfaces integrated with backend AI services for real-time data processing",
+      "Implemented API endpoint handlers and connected client-side components to IBM cloud infrastructure",
+    ],
+    certificateUrl: "https://drive.google.com/file/d/17cCJ57TTcNw7Rq38QXAGQbhB98EarZcx/view?usp=drivesdk",
+  },
+  {
+    role: "Emerging Technologies Intern",
+    company: "Edunet Foundation (AICTE × IBM SkillsBuild)",
+    period: "May 15, 2026 – Jun 12, 2026 (4 weeks)",
+    location: "Remote",
+    bullets: [
+      "Engineered capstone project utilizing IBM Cloud, IBM BOB, and Agentic AI workflow models",
+      "Developed RESTful microservices with automated request routing, input validation, and structured error logging",
+      "Participated in technical reviews and verified cloud deployment pipelines for seamless execution",
+    ],
+    certificateUrl: "https://drive.google.com/file/d/1djgOPfvq_09919SodRx6Sja-kN1OR6q9/view?usp=drivesdk",
+  },
+];
+
+export const projects = [
+  {
+    id: "ai-student-travel-planner",
+    name: "AI Student Travel Planner",
+    tagline: "Budget-first travel planning for students — instant smart expense breakdown",
+    description: "A lightweight Streamlit web app where students enter budget and trip duration to get an instant, rule-based expense allocation across Stay (35%), Food (30%), Transport (20%), and Emergency Buffer (15%). Built with Python, Streamlit, and Pandas — zero external API dependencies.",
+    tech: ["Python", "Streamlit", "Pandas", "Streamlit Cloud"],
+    image: "https://placehold.co/1280x720/0f0f0f/6366f1?text=AI+Travel+Planner",
+    liveUrl: "https://ai-student-travel-planner-nyqx4lam9g4elezp3ppcyd.streamlit.app/",
+    githubUrl: "https://github.com/Raj-Anmol/AI-Student-Travel-Planner",
+    featured: true,
+  },
+  {
+    id: "krishi-seva-center",
+    name: "Krishi Seva Center",
+    tagline: "AI-powered farmer platform: disease detection, live weather, mandi prices, bilingual advisory",
+    description: "Full-stack React + FastAPI application for Indian farmers. Features: AI crop disease detection (8 crops, Hindi/English), live Patna weather via Open-Meteo API, real-time mandi commodity prices, farm health analytics, bilingual UI, nearby agri-shop locator, FAQ, scan history. Deployed on Vercel (frontend) and Render (backend).",
+    tech: ["React 19", "Vite", "FastAPI", "Python", "Open-Meteo API", "Vercel", "Render"],
+    image: "https://placehold.co/1280x720/0f0f0f/22c55e?text=Krishi+Seva+Center",
+    liveUrl: "https://krishi-seva-center.vercel.app/",
+    githubUrl: "https://github.com/Raj-Anmol/krishi-seva-center",
+    featured: true,
+  },
+];
+
+export const skills = {
+  languages: ["JavaScript (ES6+)", "TypeScript", "HTML5", "CSS3", "SQL", "Python"],
+  frontend: ["React.js", "Redux Toolkit", "Tailwind CSS", "Context API", "Bootstrap", "Streamlit"],
+  backend: ["Node.js", "Express.js", "FastAPI", "RESTful APIs", "JWT Authentication", "WebSockets (Socket.io)"],
+  databases: ["MongoDB", "Mongoose ORM", "PostgreSQL"],
+  cloudTools: ["Cloudinary", "IBM Cloud", "Git", "GitHub", "Postman", "Vercel", "Render", "NPM", "VS Code"],
+};
+
+export const certificates = [
+  {
+    name: "Artificial Intelligence Internship",
+    issuer: "Edunet Foundation × AICTE × IBM SkillsBuild",
+    period: "6 Weeks | May–Jun 2026",
+    verifyUrl: "https://drive.google.com/file/d/17cCJ57TTcNw7Rq38QXAGQbhB98EarZcx/view?usp=drivesdk",
+  },
+  {
+    name: "Emerging Technologies Internship",
+    issuer: "Edunet Foundation × AICTE × IBM SkillsBuild",
+    period: "4 Weeks | May–Jun 2026",
+    verifyUrl: "https://drive.google.com/file/d/1djgOPfvq_09919SodRx6Sja-kN1OR6q9/view?usp=drivesdk",
+  },
+];
+
+export const siteConfig = {
+  name: "Anmol Raj",
+  description: "Full Stack Developer | AI Integration — Building scalable web applications with MERN stack and AI-powered solutions",
+  url: "https://anmolraj.vercel.app",
+  ogImage: "/profile.png",
+  keywords: [
+    "Full Stack Developer",
+    "AI Integration",
+    "MERN Stack",
+    "React",
+    "Node.js",
+    "TypeScript",
+    "Python",
+    "Machine Learning",
+    "Web Development",
+  ],
+};

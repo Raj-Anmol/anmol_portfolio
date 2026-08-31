@@ -1,0 +1,23 @@
+{
+  "name": "Anmol Raj | Full Stack Developer",
+  "short_name": "Anmol Raj",
+  "description": "Full Stack Developer | AI Integration Specialist - Portfolio",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#080808",
+  "theme_color": "#080808",
+  "icons": [
+    {
+      "src": "/profile.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/profile.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
