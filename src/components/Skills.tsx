@@ -11,7 +11,6 @@ const skillCategories = [
     color: "text-primary",
     bgColor: "bg-primary/10",
     borderColor: "border-primary/20",
-    proficiencyColor: "bg-primary",
   },
   {
     key: "frontend",
@@ -20,7 +19,6 @@ const skillCategories = [
     color: "text-blue-400",
     bgColor: "bg-blue-400/10",
     borderColor: "border-blue-400/20",
-    proficiencyColor: "bg-blue-500",
   },
   {
     key: "backend",
@@ -29,7 +27,6 @@ const skillCategories = [
     color: "text-green-400",
     bgColor: "bg-green-400/10",
     borderColor: "border-green-400/20",
-    proficiencyColor: "bg-green-500",
   },
   {
     key: "databases",
@@ -38,7 +35,6 @@ const skillCategories = [
     color: "text-orange-400",
     bgColor: "bg-orange-400/10",
     borderColor: "border-orange-400/20",
-    proficiencyColor: "bg-orange-500",
   },
   {
     key: "cloudTools",
@@ -47,7 +43,6 @@ const skillCategories = [
     color: "text-purple-400",
     bgColor: "bg-purple-400/10",
     borderColor: "border-purple-400/20",
-    proficiencyColor: "bg-purple-500",
   },
 ] as const;
 
@@ -55,41 +50,38 @@ export function Skills() {
   return (
     <section
       id="skills"
-      className="py-20 sm:py-28 px-4 sm:px-6 lg:px-8"
+      className="py-12 sm:py-16 px-4 sm:px-6 lg:px-8"
       aria-labelledby="skills-heading"
     >
       <div className="max-w-7xl mx-auto">
-        <header className="text-center mb-16">
-          <h2 id="skills-heading" className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
+        <header className="text-center mb-10">
+          <h2 id="skills-heading" className="text-2xl sm:text-3xl font-bold text-foreground mb-4">
             Technical Skills
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Proficient in modern web technologies with a focus on the MERN stack and AI integration.
+          <p className="text-sm text-muted-foreground max-w-2xl mx-auto">
+            Proficient in MERN stack, AI integration, and cloud technologies.
           </p>
         </header>
 
-        <div className="space-y-10">
+        <div className="space-y-8">
           {skillCategories.map((category, catIndex) => {
             const categorySkills = skills[category.key as keyof typeof skills];
             return (
               <div key={category.key} className="animate-in" style={{ animationDelay: `${catIndex * 100}ms` }}>
-                <div className="flex items-center gap-3 mb-6">
-                  <div className={cn("p-3 rounded-xl", category.bgColor, category.borderColor)}>
-                    <category.icon className={cn("h-6 w-6", category.color)} />
+                <div className="flex items-center gap-3 mb-4">
+                  <div className={cn("p-2.5 rounded-lg", category.bgColor, category.borderColor)}>
+                    <category.icon className={cn("h-5 w-5", category.color)} />
                   </div>
-                  <h3 className="text-2xl font-bold text-foreground">{category.label}</h3>
-                  <span className="text-sm text-muted-foreground font-medium px-3 py-1 bg-muted rounded-full">
-                    {categorySkills.length} skills
-                  </span>
+                  <h3 className="text-lg font-bold text-foreground">{category.label}</h3>
                 </div>
 
-                <div className="flex flex-wrap gap-3">
+                <div className="flex flex-wrap gap-2">
                   {categorySkills.map((skill, skillIndex) => (
                     <Badge
                       key={skillIndex}
                       variant="outline"
                       className={cn(
-                        "text-sm px-3 py-1.5 sm:text-base sm:px-4 sm:py-2 hover:bg-primary/10 hover:border-primary/50 hover:text-primary transition-all duration-200",
+                        "text-xs px-2.5 py-1 hover:bg-primary/10 hover:border-primary/50 hover:text-primary transition-all duration-200",
                         "border-border"
                       )}
                     >
@@ -100,38 +92,6 @@ export function Skills() {
               </div>
             );
           })}
-        </div>
-
-        <div className="mt-16 p-8 bg-card rounded-2xl border border-border">
-          <h3 className="text-xl font-bold text-foreground mb-6 text-center">
-            Proficiency Overview
-          </h3>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-6">
-            {skillCategories.map((category, index) => (
-              <div key={category.key} className="animate-in" style={{ animationDelay: `${index * 100}ms` }}>
-                <div className="flex justify-between text-sm mb-2">
-                  <span className="font-medium text-foreground">{category.label}</span>
-                  <span className="text-muted-foreground">
-                    {skills[category.key as keyof typeof skills].length} skills
-                  </span>
-                </div>
-                <div className="h-2 bg-muted rounded-full overflow-hidden">
-                  <div
-                    className={cn(
-                      "h-full rounded-full transition-all duration-1000 ease-out",
-                      category.proficiencyColor
-                    )}
-                    style={{ width: "80%" }}
-                    role="progressbar"
-                    aria-valuenow={80}
-                    aria-valuemin={0}
-                    aria-valuemax={100}
-                    aria-label={`${category.label} proficiency`}
-                  />
-                </div>
-              </div>
-            ))}
-          </div>
         </div>
       </div>
     </section>

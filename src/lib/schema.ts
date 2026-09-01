@@ -10,7 +10,6 @@ export function generatePersonSchema() {
     url: siteConfig.url,
     image: `${siteConfig.url}${profile.profileImage}`,
     email: profile.email,
-    telephone: profile.phone,
     address: {
       "@type": "PostalAddress",
       addressLocality: "Jaipur",

@@ -4,6 +4,9 @@ import { ThemeProvider } from "next-themes";
 import Script from "next/script";
 import "./globals.css";
 import { generateAllSchemas } from "@/lib/schema";
+import { Navbar } from "@/components/Navbar";
+import { Footer } from "@/components/Footer";
+import ScrollLock from "@/components/ScrollLock";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -118,14 +121,17 @@ export default function RootLayout({
           strategy="lazyOnload"
         />
       </head>
-      <body className={`${inter.variable} ${jetbrainsMono.variable} min-h-screen bg-background font-sans antialiased`}>
+      <body className={`${inter.variable} ${jetbrainsMono.variable} min-h-screen bg-background font-sans antialiased overflow-x-hidden`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"
           enableSystem
           disableTransitionOnChange
         >
+          <ScrollLock />
+          <Navbar />
           {children}
+          <Footer />
         </ThemeProvider>
       </body>
     </html>

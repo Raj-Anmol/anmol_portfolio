@@ -3,13 +3,12 @@ export const profile = {
   title: "Full Stack Developer | AI Integration",
   location: "Jaipur, Rajasthan, India",
   origin: "East Champaran, Bihar",
-  phone: "+91-9110145107",
   email: "araj97855@gmail.com",
   linkedin: "https://www.linkedin.com/in/raj-anmol/",
   github: "https://github.com/Raj-Anmol",
-  summary: "Computer Science undergraduate specializing in full-stack web development using the MERN stack (MongoDB, Express.js, React, Node.js). Skilled in architecting RESTful APIs, building real-time applications with Socket.io, and managing complex frontend state using Redux Toolkit. Experienced in integrating cloud services, JWT authentication workflows, and optimizing database performance. Passionate about AI integration in web applications.",
+  summary: "Full Stack Developer specializing in the MERN stack, with a focus on integrating AI into production web applications. Skilled in RESTful APIs, real-time systems, and cloud deployment.",
   profileImage: "/profile.png",
-  resumeUrl: "/resume/Anmol_Raj_Resume.pdf",
+  resumeUrl: "/resume/Anmol-Raj-Resume.pdf",
 };
 
 export const education = [
@@ -55,10 +54,11 @@ export const projects = [
     tagline: "Budget-first travel planning for students — instant smart expense breakdown",
     description: "A lightweight Streamlit web app where students enter budget and trip duration to get an instant, rule-based expense allocation across Stay (35%), Food (30%), Transport (20%), and Emergency Buffer (15%). Built with Python, Streamlit, and Pandas — zero external API dependencies.",
     tech: ["Python", "Streamlit", "Pandas", "Streamlit Cloud"],
-    image: "/project-image/student-travel-planner.png",
-    ogImage: "/project-image/student-travel-planner.png",
+    image: "/project-image/ai-student-travel-planner.png",
+    ogImage: "/project-image/ai-student-travel-planner.png",
     liveUrl: "https://ai-student-travel-planner-nyqx4lam9g4elezp3ppcyd.streamlit.app/",
     githubUrl: "https://github.com/Raj-Anmol/AI-Student-Travel-Planner",
+    caseStudyUrl: "/projects/ai-student-travel-planner",
     featured: true,
   },
   {
@@ -67,10 +67,11 @@ export const projects = [
     tagline: "AI-powered farmer platform: disease detection, live weather, mandi prices, bilingual advisory",
     description: "Full-stack React + FastAPI application for Indian farmers. Features: AI crop disease detection (8 crops, Hindi/English), live Patna weather via Open-Meteo API, real-time mandi commodity prices, farm health analytics, bilingual UI, nearby agri-shop locator, FAQ, scan history. Deployed on Vercel (frontend) and Render (backend).",
     tech: ["React 19", "Vite", "FastAPI", "Python", "Open-Meteo API", "Vercel", "Render"],
-    image: "/project-image/krishi.png",
-    ogImage: "/project-image/krishi.png",
+    image: "/project-image/krishi-seva-center.png",
+    ogImage: "/project-image/krishi-seva-center.png",
     liveUrl: "https://krishi-seva-center.vercel.app/",
     githubUrl: "https://github.com/Raj-Anmol/krishi-seva-center",
+    caseStudyUrl: "/projects/krishi-seva-center",
     featured: true,
   },
 ];

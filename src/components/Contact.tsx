@@ -2,7 +2,9 @@ import { cn } from "@/lib/utils";
 import { profile } from "@/lib/constants";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Mail, Phone, MapPin, Link, GitBranch, ExternalLink, Send } from "lucide-react";
+import { Mail, MapPin, ExternalLink, Send, FileText } from "lucide-react";
+import { GithubIcon } from "@/components/icons/GithubIcon";
+import { LinkedinIcon } from "@/components/icons/LinkedinIcon";
 
 const contactItems = [
   {
@@ -14,16 +16,6 @@ const contactItems = [
     bgColor: "bg-primary/10",
     borderColor: "border-primary/20",
     description: "Best way to reach me",
-  },
-  {
-    label: "Phone",
-    value: profile.phone,
-    href: `tel:${profile.phone.replace(/\D/g, "")}`,
-    icon: Phone,
-    color: "text-green-400",
-    bgColor: "bg-green-400/10",
-    borderColor: "border-green-400/20",
-    description: "Available for calls",
   },
   {
     label: "Location",
@@ -40,7 +32,7 @@ const contactItems = [
     label: "LinkedIn",
     value: "Connect with me",
     href: profile.linkedin,
-    icon: Link,
+    icon: LinkedinIcon,
     color: "text-blue-400",
     bgColor: "bg-blue-400/10",
     borderColor: "border-blue-400/20",
@@ -51,11 +43,22 @@ const contactItems = [
     label: "GitHub",
     value: "View my code",
     href: profile.github,
-    icon: GitBranch,
+    icon: GithubIcon,
     color: "text-purple-400",
     bgColor: "bg-purple-400/10",
     borderColor: "border-purple-400/20",
     description: "Projects & contributions",
+    external: true,
+  },
+  {
+    label: "Resume",
+    value: "View PDF",
+    href: profile.resumeUrl,
+    icon: FileText,
+    color: "text-emerald-400",
+    bgColor: "bg-emerald-400/10",
+    borderColor: "border-emerald-400/20",
+    description: "View my full CV (PDF)",
     external: true,
   },
 ];
@@ -64,20 +67,20 @@ export function Contact() {
   return (
     <section
       id="contact"
-      className="py-20 sm:py-28 px-4 sm:px-6 lg:px-8"
+      className="py-12 sm:py-16 px-4 sm:px-6 lg:px-8"
       aria-labelledby="contact-heading"
     >
       <div className="max-w-7xl mx-auto">
-        <header className="text-center mb-16">
-          <h2 id="contact-heading" className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
+        <header className="text-center mb-10">
+          <h2 id="contact-heading" className="text-2xl sm:text-3xl font-bold text-foreground mb-4">
             Get In Touch
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Currently open to full-time opportunities and freelance projects. Feel free to reach out!
+          <p className="text-sm text-muted-foreground max-w-2xl mx-auto">
+            Open to full-time opportunities. Feel free to reach out!
           </p>
         </header>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-4xl mx-auto mb-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 max-w-4xl mx-auto mb-10">
           {contactItems.map((item, index) => (
             <Card
               key={item.label}
@@ -87,73 +90,54 @@ export function Contact() {
               )}
               style={{ animationDelay: `${index * 100}ms` }}
             >
-              <CardContent className="p-6">
-                <div className="flex items-start gap-4">
-                  <div className={cn("p-4 rounded-xl flex-shrink-0", item.bgColor, item.borderColor)}>
-                    <item.icon className={cn("h-6 w-6", item.color)} />
+              <CardContent className="p-3.5 sm:p-5">
+                <div className="flex items-start gap-3 sm:gap-4">
+                  <div className={cn("p-2.5 sm:p-3.5 rounded-xl flex-shrink-0", item.bgColor, item.borderColor)}>
+                    <item.icon className={cn("h-5 w-5 sm:h-6 sm:w-6", item.color)} />
                   </div>
                   <div className="flex-1 min-w-0">
-                    <h3 className="font-semibold text-foreground">{item.label}</h3>
-                    <p className="text-sm text-muted-foreground mt-1">{item.description}</p>
-                    <div className="mt-3">
+                    <h3 className="text-sm sm:text-base font-semibold text-foreground">{item.label}</h3>
+                    <p className="text-xs sm:text-sm text-muted-foreground mt-0.5 sm:mt-1">{item.description}</p>
+                    <div className="mt-2 sm:mt-3">
                       {item.external ? (
                         <Button
                           variant="ghost"
                           size="sm"
-                          className="gap-1 h-auto px-3 py-1.5 text-muted-foreground hover:text-foreground"
+                          className="gap-1 h-auto px-2.5 py-1 sm:px-3 sm:py-1.5 text-muted-foreground hover:text-foreground"
                           asChild
                         >
                           <a
                             href={item.href}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="flex items-center gap-1 text-sm"
+                            className="flex items-center gap-1 text-xs sm:text-sm"
                           >
-                            {item.value}
-                            <ExternalLink className="h-3 w-3" />
+                            <span className="truncate">{item.value}</span>
+                            <ExternalLink className="h-3 w-3 flex-shrink-0" />
                           </a>
                         </Button>
                       ) : (
                         <a
                           href={item.href}
-                          className="text-primary hover:underline text-sm font-medium flex items-center gap-1"
+                          className="text-primary hover:underline text-xs sm:text-sm font-medium flex items-center gap-1"
                         >
-                          {item.value}
-                          <Send className="h-3 w-3" />
+                          <span className="truncate">{item.value}</span>
+                          <Send className="h-3 w-3 flex-shrink-0" />
                         </a>
                       )}
                     </div>
                   </div>
                 </div>
               </CardContent>
-              </Card>
+            </Card>
           ))}
         </div>
 
-        <div className="text-center p-8 bg-card rounded-2xl border border-border">
-          <h3 className="text-xl font-bold text-foreground mb-4">Availability</h3>
-          <div className="flex flex-wrap items-center justify-center gap-4 text-sm text-muted-foreground mb-6">
-            <span className="flex items-center gap-2 px-4 py-2 bg-green-500/10 border border-green-500/20 rounded-full">
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-500 opacity-75" />
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500" />
-              </span>
-              Open to Opportunities
-            </span>
-            <span className="flex items-center gap-2 px-4 py-2 bg-blue-500/10 border border-blue-500/20 rounded-full">
-              Full-time & Contract
-            </span>
-            <span className="flex items-center gap-2 px-4 py-2 bg-purple-500/10 border border-purple-500/20 rounded-full">
-              Remote / Hybrid / On-site
-            </span>
-          </div>
-          <p className="text-muted-foreground mb-6 max-w-md mx-auto">
-            I'm actively looking for Full Stack Developer roles with AI integration focus. Let's build something amazing together!
-          </p>
+        <div className="text-center mt-10">
           <Button
             size="lg"
             asChild
-            className="gap-2"
+            className="gap-2 w-full sm:w-auto"
           >
             <a href={`mailto:${profile.email}?subject=Job Opportunity - Full Stack Developer`}>
               <Send className="h-4 w-4" />

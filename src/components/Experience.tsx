@@ -7,63 +7,63 @@ export function Experience() {
   return (
     <section
       id="experience"
-      className="py-20 sm:py-28 px-4 sm:px-6 lg:px-8"
+      className="py-12 sm:py-16 px-4 sm:px-6 lg:px-8"
       aria-labelledby="experience-heading"
     >
       <div className="max-w-7xl mx-auto">
-        <header className="text-center mb-16">
-          <h2 id="experience-heading" className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
+        <header className="text-center mb-10">
+          <h2 id="experience-heading" className="text-2xl sm:text-3xl font-bold text-foreground mb-4">
             Experience
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Professional internships and hands-on experience with AI, cloud technologies, and full-stack development.
+          <p className="text-sm text-muted-foreground max-w-2xl mx-auto">
+            Internships in AI, cloud, and full-stack development.
           </p>
         </header>
 
         <div className="relative">
           <div className="absolute left-4 sm:left-8 top-0 bottom-0 w-0.5 bg-border" aria-hidden="true" />
           
-          <div className="space-y-12">
+          <div className="space-y-8">
             {experience.map((exp, index) => (
               <article
                 key={index}
                 className="relative pl-10 sm:pl-16 animate-in"
                 style={{ animationDelay: `${index * 100}ms` }}
               >
-                <div className="absolute left-0 top-2">
-                  <div className="relative flex h-12 w-12 items-center justify-center rounded-full bg-primary text-primary-foreground z-10">
+                <div className="absolute left-0 top-1">
+                  <div className="relative flex h-10 w-10 items-center justify-center rounded-full bg-primary text-primary-foreground z-10">
                     {index === 0 ? (
-                      <Award className="h-6 w-6" />
+                      <Award className="h-5 w-5" />
                     ) : (
-                      <Building2 className="h-6 w-6" />
+                      <Building2 className="h-5 w-5" />
                     )}
                   </div>
-                  <div className="absolute left-1/2 top-10 bottom-0 w-0.5 bg-border -translate-x-1/2" aria-hidden="true" />
+                  <div className="absolute left-1/2 top-8 bottom-0 w-0.5 bg-border -translate-x-1/2" aria-hidden="true" />
                 </div>
 
-                <div className="bg-card rounded-xl border border-border p-6 hover:border-primary/50 transition-colors">
-                  <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 mb-4">
+                <div className="bg-card rounded-xl border border-border p-5 hover:border-primary/50 transition-colors">
+                  <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3 mb-3">
                     <div>
-                      <h3 className="text-xl font-bold text-foreground">{exp.role}</h3>
-                      <p className="text-primary font-medium mt-1">{exp.company}</p>
+                      <h3 className="text-lg font-bold text-foreground">{exp.role}</h3>
+                      <p className="text-primary font-medium text-sm mt-0.5">{exp.company}</p>
                     </div>
-                    <div className="flex items-center gap-4 text-sm text-muted-foreground flex-wrap">
+                    <div className="flex items-center gap-3 text-xs text-muted-foreground flex-wrap">
                       <span className="flex items-center gap-1">
-                        <Clock className="h-4 w-4" />
+                        <Clock className="h-3.5 w-3.5" />
                         {exp.period}
                       </span>
                       <span className="flex items-center gap-1">
-                        <MapPin className="h-4 w-4" />
+                        <MapPin className="h-3.5 w-3.5" />
                         {exp.location}
                       </span>
                     </div>
                   </div>
 
-                  <ul className="space-y-3 mb-6">
+                  <ul className="space-y-2 mb-4">
                     {exp.bullets.map((bullet, bulletIndex) => (
-                      <li key={bulletIndex} className="flex items-start gap-3 text-muted-foreground leading-relaxed">
-                        <span className="flex-shrink-0 mt-2 h-1.5 w-1.5 rounded-full bg-primary" />
-                        <span className="text-base">{bullet}</span>
+                      <li key={bulletIndex} className="flex items-start gap-2 text-muted-foreground leading-relaxed text-sm">
+                        <span className="flex-shrink-0 mt-1.5 h-1 w-1 rounded-full bg-primary" />
+                        <span>{bullet}</span>
                       </li>
                     ))}
                   </ul>
@@ -87,8 +87,8 @@ export function Experience() {
               </article>
             ))}
 
-            <div className="absolute left-4 sm:left-8 bottom-0 h-12 w-12 -translate-x-1/2 translate-y-1/2 rounded-full bg-background border-2 border-border flex items-center justify-center">
-              <Award className="h-5 w-5 text-muted-foreground" />
+            <div className="absolute left-4 sm:left-8 bottom-0 h-10 w-10 -translate-x-1/2 translate-y-1/2 rounded-full bg-background border-2 border-border flex items-center justify-center">
+              <Award className="h-4 w-4 text-muted-foreground" />
             </div>
           </div>
         </div>
