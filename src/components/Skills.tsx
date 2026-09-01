@@ -11,6 +11,7 @@ const skillCategories = [
     color: "text-primary",
     bgColor: "bg-primary/10",
     borderColor: "border-primary/20",
+    proficiencyColor: "bg-primary",
   },
   {
     key: "frontend",
@@ -19,6 +20,7 @@ const skillCategories = [
     color: "text-blue-400",
     bgColor: "bg-blue-400/10",
     borderColor: "border-blue-400/20",
+    proficiencyColor: "bg-blue-500",
   },
   {
     key: "backend",
@@ -27,6 +29,7 @@ const skillCategories = [
     color: "text-green-400",
     bgColor: "bg-green-400/10",
     borderColor: "border-green-400/20",
+    proficiencyColor: "bg-green-500",
   },
   {
     key: "databases",
@@ -35,6 +38,7 @@ const skillCategories = [
     color: "text-orange-400",
     bgColor: "bg-orange-400/10",
     borderColor: "border-orange-400/20",
+    proficiencyColor: "bg-orange-500",
   },
   {
     key: "cloudTools",
@@ -43,6 +47,7 @@ const skillCategories = [
     color: "text-purple-400",
     bgColor: "bg-purple-400/10",
     borderColor: "border-purple-400/20",
+    proficiencyColor: "bg-purple-500",
   },
 ] as const;
 
@@ -84,7 +89,7 @@ export function Skills() {
                       key={skillIndex}
                       variant="outline"
                       className={cn(
-                        "text-base px-4 py-2 hover:bg-primary/10 hover:border-primary/50 hover:text-primary transition-all duration-200",
+                        "text-sm px-3 py-1.5 sm:text-base sm:px-4 sm:py-2 hover:bg-primary/10 hover:border-primary/50 hover:text-primary transition-all duration-200",
                         "border-border"
                       )}
                     >
@@ -102,30 +107,26 @@ export function Skills() {
             Proficiency Overview
           </h3>
           <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-6">
-            {[
-              { name: "JavaScript/TypeScript", level: 90, color: "primary" },
-              { name: "React & Ecosystem", level: 85, color: "blue" },
-              { name: "Node.js/Express", level: 80, color: "green" },
-              { name: "Databases", level: 75, color: "orange" },
-              { name: "Cloud & DevOps", level: 70, color: "purple" },
-            ].map((item, index) => (
-              <div key={item.name} className="animate-in" style={{ animationDelay: `${index * 100}ms` }}>
+            {skillCategories.map((category, index) => (
+              <div key={category.key} className="animate-in" style={{ animationDelay: `${index * 100}ms` }}>
                 <div className="flex justify-between text-sm mb-2">
-                  <span className="font-medium text-foreground">{item.name}</span>
-                  <span className="text-muted-foreground">{item.level}%</span>
+                  <span className="font-medium text-foreground">{category.label}</span>
+                  <span className="text-muted-foreground">
+                    {skills[category.key as keyof typeof skills].length} skills
+                  </span>
                 </div>
                 <div className="h-2 bg-muted rounded-full overflow-hidden">
                   <div
                     className={cn(
                       "h-full rounded-full transition-all duration-1000 ease-out",
-                      `bg-${item.color}-500`
+                      category.proficiencyColor
                     )}
-                    style={{ width: `${item.level}%` }}
+                    style={{ width: "80%" }}
                     role="progressbar"
-                    aria-valuenow={item.level}
+                    aria-valuenow={80}
                     aria-valuemin={0}
                     aria-valuemax={100}
-                    aria-label={`${item.name} proficiency`}
+                    aria-label={`${category.label} proficiency`}
                   />
                 </div>
               </div>

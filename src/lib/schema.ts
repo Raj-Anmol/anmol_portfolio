@@ -1,6 +1,7 @@
 import { profile, projects, certificates, siteConfig } from "./constants";
 
 export function generatePersonSchema() {
+  const certificateUrls = certificates.map((cert) => cert.verifyUrl);
   return {
     "@context": "https://schema.org",
     "@type": "Person",
@@ -18,9 +19,13 @@ export function generatePersonSchema() {
     },
     alumniOf: {
       "@type": "EducationalOrganization",
-      name: "Jagannath University",
+      name: siteConfig.university.name,
+      url: siteConfig.university.url,
+      "@id": siteConfig.university.url,
     },
     sameAs: [profile.linkedin, profile.github],
+    hasCredential: certificateUrls,
+    resumeUrl: `${siteConfig.url}${profile.resumeUrl}`,
     knowsAbout: [
       "Full Stack Development",
       "MERN Stack",
@@ -67,6 +72,7 @@ export function generateProjectSchemas() {
     codeRepository: project.githubUrl,
     applicationCategory: "DeveloperApplication",
     operatingSystem: "Web",
+    image: project.ogImage ? `${siteConfig.url}${project.ogImage}` : undefined,
     offers: {
       "@type": "Offer",
       price: "0",

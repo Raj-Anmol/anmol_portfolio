@@ -40,7 +40,7 @@ export function Projects() {
               style={{ animationDelay: `${index * 100}ms` }}
             >
               <Card className="h-full border-border hover:border-primary/50 transition-colors overflow-hidden">
-                <div className="relative aspect-video overflow-hidden">
+                <div className="relative aspect-[4/3] overflow-hidden">
                   <Image
                     src={project.image}
                     alt={`${project.name} - Project screenshot`}
@@ -114,28 +114,6 @@ export function Projects() {
                         {tech}
                       </Badge>
                     ))}
-                  </div>
-
-                  <div className="pt-2 border-t border-border flex items-center justify-between">
-                    <span className="text-xs text-muted-foreground">
-                      Tech: {project.tech.slice(0, 3).join(", ")}{project.tech.length > 3 ? "..." : ""}
-                    </span>
-                    <Button
-                      variant="ghost"
-                      size="sm"
-                      asChild
-                      className="gap-1 h-auto px-3 py-1.5"
-                    >
-                      <a
-                        href={project.githubUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center gap-1 text-xs"
-                      >
-                        <GitBranch className="h-3 w-3" />
-                        Code
-                      </a>
-                    </Button>
                   </div>
                 </CardContent>
               </Card>

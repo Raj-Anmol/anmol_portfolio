@@ -9,6 +9,7 @@ export const profile = {
   github: "https://github.com/Raj-Anmol",
   summary: "Computer Science undergraduate specializing in full-stack web development using the MERN stack (MongoDB, Express.js, React, Node.js). Skilled in architecting RESTful APIs, building real-time applications with Socket.io, and managing complex frontend state using Redux Toolkit. Experienced in integrating cloud services, JWT authentication workflows, and optimizing database performance. Passionate about AI integration in web applications.",
   profileImage: "/profile.png",
+  resumeUrl: "/resume/Anmol_Raj_Resume.pdf",
 };
 
 export const education = [
@@ -54,7 +55,8 @@ export const projects = [
     tagline: "Budget-first travel planning for students — instant smart expense breakdown",
     description: "A lightweight Streamlit web app where students enter budget and trip duration to get an instant, rule-based expense allocation across Stay (35%), Food (30%), Transport (20%), and Emergency Buffer (15%). Built with Python, Streamlit, and Pandas — zero external API dependencies.",
     tech: ["Python", "Streamlit", "Pandas", "Streamlit Cloud"],
-    image: "https://placehold.co/1280x720/0f0f0f/6366f1?text=AI+Travel+Planner",
+    image: "/project-image/student-travel-planner.png",
+    ogImage: "/project-image/student-travel-planner.png",
     liveUrl: "https://ai-student-travel-planner-nyqx4lam9g4elezp3ppcyd.streamlit.app/",
     githubUrl: "https://github.com/Raj-Anmol/AI-Student-Travel-Planner",
     featured: true,
@@ -65,7 +67,8 @@ export const projects = [
     tagline: "AI-powered farmer platform: disease detection, live weather, mandi prices, bilingual advisory",
     description: "Full-stack React + FastAPI application for Indian farmers. Features: AI crop disease detection (8 crops, Hindi/English), live Patna weather via Open-Meteo API, real-time mandi commodity prices, farm health analytics, bilingual UI, nearby agri-shop locator, FAQ, scan history. Deployed on Vercel (frontend) and Render (backend).",
     tech: ["React 19", "Vite", "FastAPI", "Python", "Open-Meteo API", "Vercel", "Render"],
-    image: "https://placehold.co/1280x720/0f0f0f/22c55e?text=Krishi+Seva+Center",
+    image: "/project-image/krishi.png",
+    ogImage: "/project-image/krishi.png",
     liveUrl: "https://krishi-seva-center.vercel.app/",
     githubUrl: "https://github.com/Raj-Anmol/krishi-seva-center",
     featured: true,
@@ -111,4 +114,9 @@ export const siteConfig = {
     "Machine Learning",
     "Web Development",
   ],
+  university: {
+    name: "Jagannath University",
+    url: "https://www.jagannathuniversity.org/",
+    location: "https://maps.app.goo.gl/mZndMdJXAeTUZnmM8",
+  },
 };

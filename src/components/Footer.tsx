@@ -1,6 +1,15 @@
+"use client";
+
 import { profile, siteConfig } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 import { GitBranch, Link, Mail, Heart, Code } from "lucide-react";
+
+const scrollToSection = (href: string) => {
+  const element = document.querySelector(href);
+  if (element) {
+    element.scrollIntoView({ behavior: "smooth" });
+  }
+};
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
@@ -65,7 +74,11 @@ export function Footer() {
                   <li key={link.label}>
                     <a
                       href={link.href}
-                      className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        scrollToSection(link.href);
+                      }}
+                      className="text-sm text-muted-foreground hover:text-primary transition-colors cursor-pointer"
                     >
                       {link.label}
                     </a>

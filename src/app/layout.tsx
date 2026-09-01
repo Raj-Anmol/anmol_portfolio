@@ -1,10 +1,9 @@
 import type { Metadata, Viewport } from "next";
 import { Inter, JetBrains_Mono } from "next/font/google";
 import { ThemeProvider } from "next-themes";
+import Script from "next/script";
 import "./globals.css";
 import { generateAllSchemas } from "@/lib/schema";
-
-export const metadataBase = new URL("https://anmolraj.vercel.app");
 
 const inter = Inter({
   subsets: ["latin"],
@@ -20,6 +19,7 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://anmolraj.vercel.app"),
   title: {
     default: "Anmol Raj | Full Stack Developer & AI Integration Specialist",
     template: "%s | Anmol Raj",
@@ -111,9 +111,11 @@ export default function RootLayout({
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="apple-touch-icon" href="/profile.png" />
         <link rel="manifest" href="/manifest.json" />
-        <script
+        <Script
+          id="json-ld"
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(schemas) }}
+          strategy="lazyOnload"
         />
       </head>
       <body className={`${inter.variable} ${jetbrainsMono.variable} min-h-screen bg-background font-sans antialiased`}>

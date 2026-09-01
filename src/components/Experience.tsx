@@ -21,13 +21,13 @@ export function Experience() {
         </header>
 
         <div className="relative">
-          <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-border" aria-hidden="true" />
+          <div className="absolute left-4 sm:left-8 top-0 bottom-0 w-0.5 bg-border" aria-hidden="true" />
           
           <div className="space-y-12">
             {experience.map((exp, index) => (
               <article
                 key={index}
-                className="relative pl-16 animate-in"
+                className="relative pl-10 sm:pl-16 animate-in"
                 style={{ animationDelay: `${index * 100}ms` }}
               >
                 <div className="absolute left-0 top-2">
@@ -38,7 +38,7 @@ export function Experience() {
                       <Building2 className="h-6 w-6" />
                     )}
                   </div>
-                  <div className="absolute left-1/2 top-12 bottom-0 w-0.5 bg-border -translate-x-1/2" aria-hidden="true" />
+                  <div className="absolute left-1/2 top-10 bottom-0 w-0.5 bg-border -translate-x-1/2" aria-hidden="true" />
                 </div>
 
                 <div className="bg-card rounded-xl border border-border p-6 hover:border-primary/50 transition-colors">
@@ -87,7 +87,7 @@ export function Experience() {
               </article>
             ))}
 
-            <div className="absolute left-0 bottom-0 h-12 w-12 -translate-x-1/2 translate-y-1/2 rounded-full bg-background border-2 border-border flex items-center justify-center">
+            <div className="absolute left-4 sm:left-8 bottom-0 h-12 w-12 -translate-x-1/2 translate-y-1/2 rounded-full bg-background border-2 border-border flex items-center justify-center">
               <Award className="h-5 w-5 text-muted-foreground" />
             </div>
           </div>

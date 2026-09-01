@@ -28,12 +28,13 @@ const contactItems = [
   {
     label: "Location",
     value: profile.location,
-    href: "#",
+    href: "https://maps.app.goo.gl/mZndMdJXAeTUZnmM8",
     icon: MapPin,
     color: "text-orange-400",
     bgColor: "bg-orange-400/10",
     borderColor: "border-orange-400/20",
     description: "Jaipur, Rajasthan",
+    external: true,
   },
   {
     label: "LinkedIn",

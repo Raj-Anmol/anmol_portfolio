@@ -23,7 +23,7 @@ export function Hero() {
       <div className="max-w-7xl mx-auto w-full">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           <div className="text-center lg:text-left animate-in" style={{ animationDelay: "100ms" }}>
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm font-medium mb-6">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm font-medium mb-6" aria-live="polite">
               <span className="relative flex h-2 w-2">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75" />
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-primary" />
@@ -99,9 +99,9 @@ export function Hero() {
           </div>
 
           <div className="relative animate-in" style={{ animationDelay: "200ms" }}>
-            <div className="relative w-full max-w-md mx-auto">
+            <div className="relative w-full max-w-xs sm:max-w-md mx-auto">
               <div className="absolute -inset-4 bg-gradient-to-r from-primary/20 via-transparent to-secondary/20 rounded-full blur-3xl" />
-              <div className="relative aspect-square max-w-md mx-auto">
+              <div className="relative aspect-square max-w-xs sm:max-w-md mx-auto">
                 <Image
                   src={profile.profileImage}
                   alt="Anmol Raj - Full Stack Developer"
