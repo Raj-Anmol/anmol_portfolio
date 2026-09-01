@@ -22,7 +22,7 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://anmolraj.vercel.app"),
+  metadataBase: new URL("https://anmol-raj.vercel.app"),
   title: {
     default: "Anmol Raj | Full Stack Developer & AI Integration Specialist",
     template: "%s | Anmol Raj",
@@ -61,7 +61,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_IN",
-    url: "https://anmolraj.vercel.app",
+    url: "https://anmol-raj.vercel.app",
     siteName: "Anmol Raj | Portfolio",
     title: "Anmol Raj | Full Stack Developer & AI Integration Specialist",
     description:

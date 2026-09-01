@@ -1,6 +1,6 @@
 /** @type {import('next-sitemap').IConfig} */
 module.exports = {
-  siteUrl: "https://anmolraj.vercel.app",
+  siteUrl: "https://anmol-raj.vercel.app",
   generateRobotsTxt: true,
   generateIndexSitemap: true,
   exclude: ["/server-sitemap.xml"],
@@ -12,7 +12,7 @@ module.exports = {
       },
     ],
     additionalSitemaps: [
-      "https://anmolraj.vercel.app/sitemap.xml",
+      "https://anmol-raj.vercel.app/sitemap.xml",
     ],
   },
   transform: async (config, path) => {

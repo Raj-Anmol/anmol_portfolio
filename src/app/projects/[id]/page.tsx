@@ -37,7 +37,7 @@ export async function generateMetadata({ params }: PageProps) {
     openGraph: {
       title: `${project.name} - Case Study | Anmol Raj`,
       description: project.description,
-      url: `https://anmolraj.vercel.app/projects/${project.id}`,
+      url: `https://anmol-raj.vercel.app/projects/${project.id}`,
     },
   };
 }

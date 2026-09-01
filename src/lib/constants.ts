@@ -102,7 +102,7 @@ export const certificates = [
 export const siteConfig = {
   name: "Anmol Raj",
   description: "Full Stack Developer | AI Integration — Building scalable web applications with MERN stack and AI-powered solutions",
-  url: "https://anmolraj.vercel.app",
+  url: "https://anmol-raj.vercel.app",
   ogImage: "/profile.png",
   keywords: [
     "Full Stack Developer",
