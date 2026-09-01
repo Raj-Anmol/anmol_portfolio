@@ -96,8 +96,6 @@ anmol-portfolio/
 │   │   └── krishi-seva-center.webp
 │   └── resume/                # Resume PDFs
 │       └── Anmol-Raj-Resume.pdf
-├── scripts/                   # Utility scripts
-│   └── optimize-images.mjs   # Image optimization script (sharp)
 ├── next.config.ts             # Next.js configuration
 ├── tailwind.config.ts          # Tailwind CSS configuration
 ├── tsconfig.json              # TypeScript configuration
@@ -150,7 +148,6 @@ anmol-portfolio/
 | `npm run start` | Start production server |
 | `npm run lint` | Run ESLint for code quality |
 | `npm run sitemap` | Generate sitemap only |
-| `npm run optimize:images` | Optimize all images using `sharp` |
 
 ---
 
@@ -179,8 +176,8 @@ Edit `src/data/projectDetails.ts` to add:
 
 ### Update Project Screenshots
 
-1. Add new screenshot to `public/project-image/`
-2. Run `npm run optimize:images` to generate WebP + optimized PNG
+1. Add new screenshot to `public/project-image/` (PNG format)
+2. Optionally create a WebP version for better compression
 3. Update project image path in `src/lib/constants.ts`
 
 ### Update Theme Colors
