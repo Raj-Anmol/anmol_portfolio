@@ -84,7 +84,10 @@ export const metadata: Metadata = {
     creator: "@raj_anmol",
   },
   verification: {
-    google: "google-site-verification-code",
+    google: "g3XOkDO7c1-0SjIwYe_759-Wg8HL00b-ekp0OvXqnsg",
+    other: {
+      "msvalidate.01": "E1A977D8ED3A378668EFBC93FED06673",
+    },
   },
   category: "technology",
 };
