@@ -10,12 +10,13 @@ const contactItems = [
   {
     label: "Email",
     value: profile.email,
-    href: `mailto:${profile.email}`,
+    href: `https://mail.google.com/mail/?view=cm&fs=1&to=${profile.email}`,
     icon: Mail,
     color: "text-primary",
     bgColor: "bg-primary/10",
     borderColor: "border-primary/20",
     description: "Best way to reach me",
+    external: true,
   },
   {
     label: "Location",
@@ -139,7 +140,11 @@ export function Contact() {
             asChild
             className="gap-2 w-full sm:w-auto"
           >
-            <a href={`mailto:${profile.email}?subject=Job Opportunity - Full Stack Developer`}>
+            <a
+              href={`https://mail.google.com/mail/?view=cm&fs=1&to=${profile.email}`}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <Send className="h-4 w-4" />
               Send me an Email
             </a>
