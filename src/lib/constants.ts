@@ -45,6 +45,18 @@ export const experience = [
     ],
     certificateUrl: "https://drive.google.com/file/d/1djgOPfvq_09919SodRx6Sja-kN1OR6q9/view?usp=drivesdk",
   },
+  {
+    role: "Web Development Intern",
+    company: "ApexPlanet Software Pvt. Ltd. (AICTE x MSME)",
+    period: "Dec 11, 2025 - Jan 24, 2026",
+    location: "Remote",
+    bullets: [
+      "Completed virtual internship in Web Development using HTML, CSS, and JavaScript",
+      "Developed responsive web interfaces and client-side logic",
+      "Built modular front-end components adhering to web standards",
+    ],
+    certificateUrl: "https://drive.google.com/file/d/APSPL2524992/view",
+  },
 ];
 
 export const projects = [
@@ -96,6 +108,12 @@ export const certificates = [
     issuer: "Edunet Foundation × AICTE × IBM SkillsBuild",
     period: "4 Weeks | May–Jun 2026",
     verifyUrl: "https://drive.google.com/file/d/1djgOPfvq_09919SodRx6Sja-kN1OR6q9/view?usp=drivesdk",
+  },
+  {
+    name: "Web Development Internship",
+    issuer: "ApexPlanet Software Pvt. Ltd. × AICTE × MSME",
+    period: "6 Weeks | Dec 2025 – Jan 2026",
+    verifyUrl: "https://drive.google.com/file/d/APSPL2524992/view",
   },
 ];
 
