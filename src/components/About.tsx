@@ -1,5 +1,9 @@
+"use client";
+
+import { motion, type Variants } from "motion/react";
 import { cn } from "@/lib/utils";
 import { profile, education } from "@/lib/constants";
+import { GithubActivity } from "@/components/GithubActivity";
 import { MapPin, GraduationCap, Calendar } from "lucide-react";
 
 export function About() {
@@ -127,6 +131,8 @@ export function About() {
                 ))}
               </div>
             </div>
+
+            <GithubActivity />
           </div>
         </div>
       </div>
