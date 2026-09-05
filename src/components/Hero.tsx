@@ -8,6 +8,7 @@ import { AnimatedCounter } from "@/components/ui/animated-counter";
 import { ArrowRight, Mail, MapPin, Eye, Briefcase } from "lucide-react";
 import { GithubIcon } from "@/components/icons/GithubIcon";
 import { LinkedinIcon } from "@/components/icons/LinkedinIcon";
+import { ResumeCounter } from "@/components/ResumeCounter";
 import { profile, stats } from "@/lib/constants";
 
 const BLUR_DATA_URL =
@@ -115,6 +116,10 @@ export function Hero() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="View Resume PDF in new tab"
+                  onClick={() => {
+                    fetch("/api/resume-download", { method: "POST" }).catch(() => {});
+                    window.dispatchEvent(new CustomEvent("resume-downloaded"));
+                  }}
                 >
                   <Eye className="h-4 w-4" />
                   <span className="sm:inline">View Resume</span>
@@ -145,6 +150,13 @@ export function Hero() {
                   </div>
                 </div>
               ))}
+            </motion.div>
+
+            <motion.div
+              variants={itemVariants}
+              className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3 mb-6"
+            >
+              <ResumeCounter />
             </motion.div>
 
             <motion.div
