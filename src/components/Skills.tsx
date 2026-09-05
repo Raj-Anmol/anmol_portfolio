@@ -1,3 +1,6 @@
+"use client";
+
+import { motion, type Variants } from "motion/react";
 import { cn } from "@/lib/utils";
 import { skills } from "@/lib/constants";
 import { Badge } from "@/components/ui/badge";
@@ -46,6 +49,22 @@ const skillCategories = [
   },
 ] as const;
 
+const containerVariants: Variants = {
+  hidden: {},
+  visible: {
+    transition: { staggerChildren: 0.1, delayChildren: 0.05 },
+  },
+};
+
+const categoryVariants: Variants = {
+  hidden: { opacity: 0, y: 25 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.5, ease: [0.21, 0.47, 0.32, 0.98] },
+  },
+};
+
 export function Skills() {
   return (
     <section
@@ -63,11 +82,21 @@ export function Skills() {
           </p>
         </header>
 
-        <div className="space-y-8">
-          {skillCategories.map((category, catIndex) => {
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-40px" }}
+          variants={containerVariants}
+          className="space-y-8"
+        >
+          {skillCategories.map((category) => {
             const categorySkills = skills[category.key as keyof typeof skills];
             return (
-              <div key={category.key} className="animate-in" style={{ animationDelay: `${catIndex * 100}ms` }}>
+              <motion.div
+                key={category.key}
+                variants={categoryVariants}
+                className="border border-border bg-card/80 backdrop-blur-sm rounded-xl p-5 hover:border-primary/50 transition-colors"
+              >
                 <div className="flex items-center gap-3 mb-4">
                   <div className={cn("p-2.5 rounded-lg", category.bgColor, category.borderColor)}>
                     <category.icon className={cn("h-5 w-5", category.color)} />
@@ -89,10 +118,10 @@ export function Skills() {
                     </Badge>
                   ))}
                 </div>
-              </div>
+              </motion.div>
             );
           })}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

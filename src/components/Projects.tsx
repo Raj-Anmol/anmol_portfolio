@@ -2,13 +2,22 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { cn } from "@/lib/utils";
+import { motion, type Variants } from "motion/react";
 import { projects, profile } from "@/lib/constants";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { ExternalLink, Code, ArrowRight } from "lucide-react";
 import { GithubIcon } from "@/components/icons/GithubIcon";
+
+const itemVariants: Variants = {
+  hidden: { opacity: 0, y: 25 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.5, ease: [0.21, 0.47, 0.32, 0.98] },
+  },
+};
 
 export function Projects() {
   return (
@@ -27,14 +36,24 @@ export function Projects() {
           </p>
         </header>
 
-        <div className="grid md:grid-cols-2 gap-6">
-          {projects.map((project, index) => (
-            <article
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-40px" }}
+          variants={{
+            hidden: {},
+            visible: { transition: { staggerChildren: 0.1, delayChildren: 0.05 } },
+          }}
+          className="grid md:grid-cols-2 gap-6"
+        >
+          {projects.map((project) => (
+            <motion.article
               key={project.id}
-              className="group animate-in"
-              style={{ animationDelay: `${index * 100}ms` }}
+              variants={itemVariants}
+              whileHover={{ y: -5, scale: 1.01 }}
+              className="group"
             >
-              <Card className="h-full border-border hover:border-primary/50 transition-colors overflow-hidden">
+              <Card className="h-full border-border bg-card/80 backdrop-blur-sm hover:border-primary/50 transition-colors overflow-hidden">
                 <div className="relative aspect-[16/10] overflow-hidden">
                   <Image
                     src={project.image}
@@ -125,9 +144,9 @@ export function Projects() {
                   </Button>
                 </CardContent>
               </Card>
-            </article>
+            </motion.article>
           ))}
-        </div>
+        </motion.div>
 
         <div className="text-center mt-8">
           <Button

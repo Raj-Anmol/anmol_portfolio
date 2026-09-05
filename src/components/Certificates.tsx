@@ -1,9 +1,27 @@
-import { cn } from "@/lib/utils";
+"use client";
+
+import { motion, type Variants } from "motion/react";
 import { certificates } from "@/lib/constants";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Award, Clock, Building2, ExternalLink, CheckCircle, FileText } from "lucide-react";
+
+const containerVariants: Variants = {
+  hidden: {},
+  visible: {
+    transition: { staggerChildren: 0.1, delayChildren: 0.05 },
+  },
+};
+
+const itemVariants: Variants = {
+  hidden: { opacity: 0, y: 25 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.5, ease: [0.21, 0.47, 0.32, 0.98] },
+  },
+};
 
 export function Certificates() {
   return (
@@ -22,14 +40,20 @@ export function Certificates() {
           </p>
         </header>
 
-        <div className="grid md:grid-cols-2 gap-6">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-40px" }}
+          variants={containerVariants}
+          className="grid md:grid-cols-2 gap-6"
+        >
           {certificates.map((cert, index) => (
-            <article
+            <motion.article
               key={index}
-              className="animate-in"
-              style={{ animationDelay: `${index * 100}ms` }}
+              variants={itemVariants}
+              whileHover={{ y: -5, scale: 1.01 }}
             >
-              <Card className="h-full border-border hover:border-primary/50 transition-colors">
+              <Card className="h-full border-border bg-card/80 backdrop-blur-sm hover:border-primary/50 transition-colors">
                 <CardHeader className="pb-3">
                   <div className="flex items-center justify-between mb-3">
                     <div className="p-2.5 bg-primary/10 rounded-lg text-primary">
@@ -69,6 +93,15 @@ export function Certificates() {
                               "API Endpoint Development",
                               "Real-time Data Processing",
                             ]
+                          : cert.name.includes("Web Development")
+                          ? [
+                              "HTML5 Semantic Markup",
+                              "CSS3 Responsive Layouts",
+                              "JavaScript (ES6+)",
+                              "DOM Manipulation",
+                              "Modular Front-End Components",
+                              "Web Standards & Accessibility",
+                            ]
                           : [
                               "Agentic AI Workflows",
                               "IBM Cloud & IBM BOB",
@@ -104,19 +137,19 @@ export function Certificates() {
                   </Button>
                 </CardContent>
               </Card>
-            </article>
+            </motion.article>
           ))}
-        </div>
+        </motion.div>
 
         <div className="mt-10 p-5 bg-card rounded-2xl border border-border text-center">
           <div className="flex items-center justify-center gap-3 text-primary mb-3">
             <Award className="h-6 w-6" />
-            <span className="text-xl font-bold">2</span>
+            <span className="text-xl font-bold">{certificates.length}</span>
             <Award className="h-6 w-6" />
           </div>
           <h3 className="text-lg font-bold text-foreground mb-2">Verified Internship Certificates</h3>
           <p className="text-muted-foreground mb-4 max-w-md mx-auto text-sm">
-            Both certificates are officially verified and accessible via Google Drive links provided by Edunet Foundation × AICTE × IBM SkillsBuild.
+            All certificates are officially verified and accessible via Google Drive links provided by the issuing organizations.
           </p>
           <div className="flex flex-wrap items-center justify-center gap-3 text-xs text-muted-foreground">
             <span className="flex items-center gap-1">

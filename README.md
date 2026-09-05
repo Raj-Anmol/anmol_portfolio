@@ -2,7 +2,7 @@
 
 A modern, responsive, and SEO-optimized portfolio website showcasing professional experience, projects, skills, and certifications for a **Full Stack Developer** specializing in **AI integration**.
 
-Built with **Next.js 14**, **TypeScript**, and **Tailwind CSS** — designed to be recruiter-friendly, fast-loading, and accessible across all devices.
+Built with **Next.js 16**, **TypeScript**, and **Tailwind CSS v4** — designed to be recruiter-friendly, fast-loading, and accessible across all devices.
 
 ---
 
@@ -20,6 +20,8 @@ Built with **Next.js 14**, **TypeScript**, and **Tailwind CSS** — designed to 
 | ♿ **Accessible** | WCAG 2.1 AA compliant, keyboard navigation, screen reader friendly |
 | 🌐 **Multi-Page Architecture** | Each section has its own URL (`/about`, `/projects`, `/contact`, etc.) |
 | 📊 **Real Project Data** | Detailed case studies with problem, solution, features, challenges |
+| 🎬 **Scroll Animations** | Smooth fade/translate reveal on scroll powered by Framer Motion |
+| 🪄 **Interactive Cards** | Hover-driven lift & scale effects on project, skill, and certificate cards |
 
 ---
 
@@ -31,6 +33,7 @@ Built with **Next.js 14**, **TypeScript**, and **Tailwind CSS** — designed to 
 | **Language** | [TypeScript](https://www.typescriptlang.org/) |
 | **Styling** | [Tailwind CSS v4](https://tailwindcss.com/) |
 | **UI Components** | [shadcn/ui](https://ui.shadcn.com/) (Radix UI primitives) |
+| **UI / Animation** | [motion](https://motion.dev/) (Framer Motion) |
 | **Icons** | [Lucide React](https://lucide.dev/) + Custom SVG components |
 | **Theme** | [next-themes](https://github.com/pacocoursey/next-themes) |
 | **Image Processing** | [sharp](https://sharp.pixelplumbing.com/) |
@@ -291,6 +294,7 @@ Feel free to use this as a template for your own portfolio!
 
 - [Next.js](https://nextjs.org) — React framework
 - [Tailwind CSS](https://tailwindcss.com) — Utility-first CSS
+- [motion](https://motion.dev/) — Animation library (formerly Framer Motion)
 - [shadcn/ui](https://ui.shadcn.com) — Beautiful UI components
 - [Vercel](https://vercel.com) — Hosting & deployment
 - [Lucide](https://lucide.dev) — Icon library

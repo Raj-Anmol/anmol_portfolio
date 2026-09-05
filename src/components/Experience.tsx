@@ -1,7 +1,26 @@
+"use client";
+
+import { motion, type Variants } from "motion/react";
 import { cn } from "@/lib/utils";
 import { experience } from "@/lib/constants";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Clock, MapPin, Award, Building2 } from "lucide-react";
+
+const containerVariants: Variants = {
+  hidden: {},
+  visible: {
+    transition: { staggerChildren: 0.12, delayChildren: 0.05 },
+  },
+};
+
+const itemVariants: Variants = {
+  hidden: { opacity: 0, y: 25 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.55, ease: [0.21, 0.47, 0.32, 0.98] },
+  },
+};
 
 export function Experience() {
   return (
@@ -22,13 +41,20 @@ export function Experience() {
 
         <div className="relative">
           <div className="absolute left-4 sm:left-8 top-0 bottom-0 w-0.5 bg-border" aria-hidden="true" />
-          
-          <div className="space-y-8">
+
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-40px" }}
+            variants={containerVariants}
+            className="space-y-8"
+          >
             {experience.map((exp, index) => (
-              <article
+              <motion.article
                 key={index}
-                className="relative pl-10 sm:pl-16 animate-in"
-                style={{ animationDelay: `${index * 100}ms` }}
+                variants={itemVariants}
+                whileHover={{ y: -5, scale: 1.01 }}
+                className="relative pl-10 sm:pl-16"
               >
                 <div className="absolute left-0 top-1">
                   <div className="relative flex h-10 w-10 items-center justify-center rounded-full bg-primary text-primary-foreground z-10">
@@ -41,7 +67,7 @@ export function Experience() {
                   <div className="absolute left-1/2 top-8 bottom-0 w-0.5 bg-border -translate-x-1/2" aria-hidden="true" />
                 </div>
 
-                <div className="bg-card rounded-xl border border-border p-5 hover:border-primary/50 transition-colors">
+                <div className="bg-card rounded-xl border border-border backdrop-blur-sm p-5 hover:border-primary/50 transition-colors">
                   <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3 mb-3">
                     <div>
                       <h3 className="text-lg font-bold text-foreground">{exp.role}</h3>
@@ -84,13 +110,13 @@ export function Experience() {
                     </a>
                   </Button>
                 </div>
-              </article>
+              </motion.article>
             ))}
 
             <div className="absolute left-4 sm:left-8 bottom-0 h-10 w-10 -translate-x-1/2 translate-y-1/2 rounded-full bg-background border-2 border-border flex items-center justify-center">
               <Award className="h-4 w-4 text-muted-foreground" />
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>
