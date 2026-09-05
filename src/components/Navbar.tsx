@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/button";
 import { Eye, Search } from "lucide-react";
 import { GithubIcon } from "@/components/icons/GithubIcon";
 import { LinkedinIcon } from "@/components/icons/LinkedinIcon";
-import { profile } from "@/lib/constants";
+import { profile, socialLinks } from "@/lib/constants";
 import { ThemeToggle } from "@/components/ThemeToggle";
 
 const navItems = [
@@ -121,6 +121,42 @@ export function Navbar() {
                 aria-label="GitHub"
               >
                 <GithubIcon className="h-3.5 w-3.5" />
+              </a>
+              <a
+                href={socialLinks.twitter}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-1.5 rounded-lg bg-muted/50 text-muted-foreground hover:bg-primary/10 hover:text-primary transition-all"
+                aria-label="Twitter"
+              >
+                Twitter
+              </a>
+              <a
+                href={socialLinks.instagram}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-1.5 rounded-lg bg-muted/50 text-muted-foreground hover:bg-primary/10 hover:text-primary transition-all"
+                aria-label="Instagram"
+              >
+                Instagram
+              </a>
+              <a
+                href={socialLinks.facebook}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-1.5 rounded-lg bg-muted/50 text-muted-foreground hover:bg-primary/10 hover:text-primary transition-all"
+                aria-label="Facebook"
+              >
+                Facebook
+              </a>
+              <a
+                href={socialLinks.youtube}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-1.5 rounded-lg bg-muted/50 text-muted-foreground hover:bg-primary/10 hover:text-primary transition-all"
+                aria-label="YouTube"
+              >
+                YouTube
               </a>
             </div>
             <ThemeToggle />

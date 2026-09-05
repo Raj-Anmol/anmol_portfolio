@@ -115,7 +115,7 @@ export function Footer() {
             </div>
             <div className="flex items-center gap-2.5">
               <a
-                href={profile.linkedin}
+                href={socialLinks.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-1.5 rounded-lg bg-muted/50 text-muted-foreground hover:bg-primary/10 hover:text-primary transition-all"
@@ -124,13 +124,40 @@ export function Footer() {
                 <LinkedinIcon className="h-3.5 w-3.5" />
               </a>
               <a
-                href={profile.github}
+                href={socialLinks.twitter}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-1.5 rounded-lg bg-muted/50 text-muted-foreground hover:bg-primary/10 hover:text-primary transition-all"
-                aria-label="GitHub"
+                aria-label="Twitter"
               >
-                <GithubIcon className="h-3.5 w-3.5" />
+                Twitter
+              </a>
+              <a
+                href={socialLinks.instagram}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-1.5 rounded-lg bg-muted/50 text-muted-foreground hover:bg-primary/10 hover:text-primary transition-all"
+                aria-label="Instagram"
+              >
+                Instagram
+              </a>
+              <a
+                href={socialLinks.facebook}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-1.5 rounded-lg bg-muted/50 text-muted-foreground hover:bg-primary/10 hover:text-primary transition-all"
+                aria-label="Facebook"
+              >
+                Facebook
+              </a>
+              <a
+                href={socialLinks.youtube}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-1.5 rounded-lg bg-muted/50 text-muted-foreground hover:bg-primary/10 hover:text-primary transition-all"
+                aria-label="YouTube"
+              >
+                YouTube
               </a>
             </div>
           </div>
