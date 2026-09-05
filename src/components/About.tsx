@@ -132,22 +132,13 @@ export function About() {
               </div>
             </div>
             <div className="mt-4 flex items-center gap-3">
-              <p className="text-xs text-muted-foreground">
+<p className="text-xs text-muted-foreground">
                 Connect on:
                 <a href={socialLinks.linkedin} target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
                   LinkedIn
                 </a>
                 <a href={socialLinks.github} target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
                   GitHub
-                </a>
-                <a href={socialLinks.twitter} target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
-                  Twitter
-                </a>
-                <a href={socialLinks.instagram} target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
-                  Instagram
-                </a>
-                <a href={socialLinks.youtube} target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
-                  YouTube
                 </a>
               </p>
             </div>

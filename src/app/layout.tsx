@@ -4,7 +4,7 @@ import { ThemeProvider } from "next-themes";
 import Script from "next/script";
 import "./globals.css";
 import { generateAllSchemas } from "@/lib/schema";
-import { socialLinks } from "@/lib/constants";
+
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import ScrollLock from "@/components/ScrollLock";
@@ -85,15 +85,7 @@ export const metadata: Metadata = {
       },
     ],
   },
-  twitter: {
-    card: "summary_large_image",
-    title: "Anmol Raj | Full Stack Developer & AI Integration Specialist",
-    description:
-      "Computer Science undergraduate specializing in full-stack web development using MERN stack. Skilled in architecting RESTful APIs, building real-time applications, and integrating AI/ML models.",
-    images: ["/profile.png"],
-    creator: "@Rajanmolpaglu",
-    site: "@Rajanmolpaglu",
-  },
+  
   alternates: {
     canonical: "https://anmol-raj.vercel.app",
     types: {

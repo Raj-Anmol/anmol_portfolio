@@ -6,7 +6,6 @@ import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Eye, Search } from "lucide-react";
-import { socialLinks } from "@/lib/constants";
 import { GithubIcon } from "@/components/icons/GithubIcon";
 import { LinkedinIcon } from "@/components/icons/LinkedinIcon";
 import { profile } from "@/lib/constants";
@@ -106,132 +105,26 @@ export function Navbar() {
             </button>
             <div className="flex items-center gap-2">
               <a
-                href={socialLinks.twitter}
+                href={profile.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-1.5 rounded-lg bg-muted/50 text-muted-foreground hover:bg-primary/10 hover:text-primary transition-all"
-                aria-label="Twitter"
+                aria-label="LinkedIn"
               >
-<div className="flex items-center gap-2">
-              <a
-                href={socialLinks.twitter}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-1.5 rounded-lg bg-muted/50 text-muted-foreground hover:bg-primary/10 hover:text-primary transition-all"
-                aria-label="Twitter"
-              >
-                Twitter
+                <LinkedinIcon className="h-3.5 w-3.5" />
               </a>
               <a
-                href={socialLinks.instagram}
+                href={profile.github}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-1.5 rounded-lg bg-muted/50 text-muted-foreground hover:bg-primary/10 hover:text-primary transition-all"
-                aria-label="Instagram"
+                aria-label="GitHub"
               >
-                Instagram
-              </a>
-              <a
-                href={socialLinks.facebook}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-1.5 rounded-lg bg-muted/50 text-muted-foreground hover:bg-primary/10 hover:text-primary transition-all"
-                aria-label="Facebook"
-              >
-                Facebook
-              </a>
-              <a
-                href={socialLinks.youtube}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-1.5 rounded-lg bg-muted/50 text-muted-foreground hover:bg-primary/10 hover:text-primary transition-all"
-                aria-label="YouTube"
-              >
-                YouTube
-              </a>
-</div>
-              </a>
-              <a
-                href={socialLinks.instagram}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-1.5 rounded-lg bg-muted/50 text-muted-foreground hover:bg-primary/10 hover:text-primary transition-all"
-                aria-label="Instagram"
-              >
-                <span className="absolute inset-0" />
-                <svg
-                  className="relative h-3.5 w-3.5 inline-block"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <polygon points="21.5 1.5 18.5 22 1.5 22 1.5 1.5 21.5 1.5"></polygon>
-                  <circle cx="12" cy="12" r="10"></circle>
-                  <line x1="2" y1="12" x2="22" y2="12"></line>
-                  <path d="M12 2a10 10 0 1 1 10 10"></path>
-                </svg>
-              </a>
-              <a
-                href={socialLinks.facebook}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-1.5 rounded-lg bg-muted/50 text-muted-foreground hover:bg-primary/10 hover:text-primary transition-all"
-                aria-label="Facebook"
-              >
-                <svg
-                  className="relative h-3.5 w-3.5 inline-block"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <path d="M18 2h-3a5 5 0 0 0-5 5v3h7v-3a5 5 0 0 0-5-5H18z"></path>
-                  <path d="M18 2H6a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2h7a2 2 0 0 0 2-2H18Z"></path>
-                </svg>
-              </a>
-              <a
-                href={socialLinks.youtube}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-1.5 rounded-lg bg-muted/50 text-muted-foreground hover:bg-primary/10 hover:text-primary transition-all"
-                aria-label="YouTube"
-              >
-                <svg
-                  className="relative h-3.5 w-3.5 inline-block"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2L8.01 1.5a2.78 2.78 0 0 0-1.94 2L5.51 4l4.5 4.5L1.84 6l.66 6L22.54 6z"></path>
-                  <path d="M13.73 4h1.5a2 2 0 0 1 2 2.18l.37 1.33.08.08.37-.13a2 2 0 0 1 2.12-2.06l.37-.13h1.5a2 2 0 0 1 2 2.18v1.13a2 2 0 0 1-.88 1.85l-.37.12.08.08-.37.13a2 2 0 0 1-2.12 2.06l-.37.13h-1.5a2 2 0 0 1-2-2.18V4.18a2 2 0 0 1 .88-1.85l.37-.12.08-.08.37.13a2 2 0 0 1 2.12-2.06l.37.13h1.5a2 2 0 0 1 2 2.18v8.66a2 2 0 0 1-.88 1.85l-.37.12.08.08-.37.13a2 2 0 0 1-2.12-2.06l-.37-.13h-1.5a2 2 0 0 1-2-2.18z"></path>
-                </svg>
+                <GithubIcon className="h-3.5 w-3.5" />
               </a>
             </div>
-            <Button
-              variant="outline"
-              size="sm"
-              asChild
-              className="ml-2 gap-2 border-primary/50 text-primary hover:bg-primary hover:text-primary-foreground"
-            >
-              <a
-                href={profile.resumeUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="View Resume PDF in new tab"
-              >
-                <Eye className="h-3.5 w-3.5" />
-                Resume
-              </a>
-            </Button>
-          </div>
+            <ThemeToggle />
+</div>
 
           <div className="flex md:hidden items-center gap-1">
             <ThemeToggle />

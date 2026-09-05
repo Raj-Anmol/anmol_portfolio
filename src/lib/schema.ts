@@ -5,10 +5,6 @@ export function generatePersonSchema() {
   const sameAs = [
     profile.linkedin,
     profile.github,
-    socialLinks.twitter,
-    socialLinks.instagram,
-    socialLinks.facebook,
-    socialLinks.youtube,
   ].filter(Boolean);
 
   return {
