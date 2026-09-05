@@ -9,6 +9,7 @@ import { Footer } from "@/components/Footer";
 import ScrollLock from "@/components/ScrollLock";
 import { CommandPalette } from "@/components/CommandPalette";
 import { ScrollProgress } from "@/components/ScrollProgress";
+import { VisitorCounter } from "@/components/VisitorCounter";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -138,6 +139,7 @@ export default function RootLayout({
         <Navbar />
         {children}
         <Footer />
+        <VisitorCounter />
         <CommandPalette />
         </ThemeProvider>
       </body>
