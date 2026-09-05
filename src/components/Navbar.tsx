@@ -147,7 +147,7 @@ export function Navbar() {
         </div>
 
         {mobileMenuOpen && (
-          <div className="md:hidden absolute right-4 top-16 mt-1 w-fit min-w-[140px] bg-black border border-border rounded-lg shadow-2xl p-2 z-50 animate-in">
+          <div className="md:hidden absolute right-0 top-0 w-fit min-w-[140px] bg-black border border-border rounded-lg shadow-2xl p-2 z-50 animate-in">
             <div className="flex flex-col items-end gap-1">
               {navItems.map((item) => {
                 const active = isActive(item.href);
