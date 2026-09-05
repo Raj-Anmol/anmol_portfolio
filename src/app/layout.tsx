@@ -4,6 +4,7 @@ import { ThemeProvider } from "next-themes";
 import Script from "next/script";
 import "./globals.css";
 import { generateAllSchemas } from "@/lib/schema";
+import { profile } from "@/lib/constants";
 
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
@@ -52,8 +53,8 @@ export const metadata: Metadata = {
   ],
   authors: [
     { name: "Anmol Raj", url: "https://anmol-raj.vercel.app" },
-    { name: "Anmol Raj", url: socialLinks.linkedin },
-    { name: "Anmol Raj", url: socialLinks.github },
+    { name: "Anmol Raj", url: profile.linkedin },
+    { name: "Anmol Raj", url: profile.github },
   ],
   creator: "Anmol Raj",
   publisher: "Anmol Raj",
