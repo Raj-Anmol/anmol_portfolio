@@ -32,6 +32,11 @@ Built with **Next.js 16**, **TypeScript**, and **Tailwind CSS v4** — designed 
 | 🌓 **Theme Toggle** | Animated sun/moon morph with persistent dark/light mode |
 | 🚧 **Branded 404** | Custom not-found page with animated graphics |
 | ⏳ **Loading Skeleton** | Route-level shimmer loading state |
+| 👀 **Live Visitor Counter** | Bottom-left floating counter backed by Vercel KV with green pulse |
+| 📄 **Resume Download Counter** | Real-time count of resume views with smooth increment animation |
+| 📊 **GitHub Activity Graph** | 90-day contribution heatmap from GitHub GraphQL API with 1hr cache |
+| 🟢 **Availability Badge** | Smooth ping-pulse "Available for hire" status indicator |
+| ♿ **Reduced Motion** | All animations respect `prefers-reduced-motion` for accessibility |
 
 ---
 
@@ -48,6 +53,8 @@ Built with **Next.js 16**, **TypeScript**, and **Tailwind CSS v4** — designed 
 | **Command Palette** | [cmdk](https://cmdk.paco.me/) |
 | **Toasts** | [sonner](https://sonner.emilkowal.ski/) |
 | **Email Delivery** | [Resend](https://resend.com/) (optional) |
+| **Storage** | [Vercel KV](https://vercel.com/docs/storage/vercel-kv) (optional) |
+| **GitHub API** | [GitHub GraphQL](https://docs.github.com/en/graphql) (optional) |
 | **Icons** | [Lucide React](https://lucide.dev/) + Custom SVG components |
 | **Theme** | [next-themes](https://github.com/pacocoursey/next-themes) |
 | **Image Processing** | [sharp](https://sharp.pixelplumbing.com/) |
@@ -191,6 +198,26 @@ Edit `src/data/projectDetails.ts` to add:
 - Challenges faced
 - Key learnings
 
+### Optional Environment Variables (`.env.local`)
+
+All optional — the portfolio works fully without them, just with fallback values.
+
+```bash
+# Resend (contact form email delivery)
+RESEND_API_KEY=re_xxxxxxxxxxxx
+CONTACT_TO_EMAIL=araj97855@gmail.com
+CONTACT_FROM_EMAIL=Portfolio <noreply@yourdomain.com>
+
+# Vercel KV (visitor counter, resume downloads)
+KV_REST_API_URL=https://...
+KV_REST_API_TOKEN=...
+
+# GitHub (live contribution graph; falls back to demo data without it)
+GITHUB_TOKEN=ghp_xxxxxxxxxxxx
+```
+
+On Vercel: project settings → Environment Variables, paste the same keys.
+
 ### Update Project Screenshots
 
 1. Add new screenshot to `public/project-image/` (PNG format)
@@ -316,6 +343,8 @@ Feel free to use this as a template for your own portfolio!
 - [cmdk](https://cmdk.paco.me) — Command palette
 - [react-hook-form](https://react-hook-form.com) + [zod](https://zod.dev) — Form validation
 - [Resend](https://resend.com) — Email delivery
+- [Vercel KV](https://vercel.com/docs/storage/vercel-kv) — Visitor and resume counters
+- [GitHub GraphQL](https://docs.github.com/en/graphql) — Live contribution graph
 
 ---
 
