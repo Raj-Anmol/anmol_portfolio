@@ -89,11 +89,11 @@ export const projects = [
 ];
 
 export const skills = {
-  languages: ["JavaScript (ES6+)", "TypeScript", "HTML5", "CSS3", "SQL", "Python"],
-  frontend: ["React.js", "Redux Toolkit", "Tailwind CSS", "Context API", "Bootstrap", "Streamlit"],
-  backend: ["Node.js", "Express.js", "FastAPI", "RESTful APIs", "JWT Authentication", "WebSockets (Socket.io)"],
-  databases: ["MongoDB", "Mongoose ORM", "PostgreSQL"],
-  cloudTools: ["Cloudinary", "IBM Cloud", "Git", "GitHub", "Postman", "Vercel", "Render", "NPM", "VS Code"],
+  languages: { items: ["JavaScript (ES6+)", "TypeScript", "HTML5", "CSS3", "SQL", "Python"], level: 5 },
+  frontend: { items: ["React.js", "Redux Toolkit", "Tailwind CSS", "Context API", "Bootstrap", "Streamlit"], level: 5 },
+  backend: { items: ["Node.js", "Express.js", "FastAPI", "RESTful APIs", "JWT Authentication", "WebSockets (Socket.io)"], level: 4 },
+  databases: { items: ["MongoDB", "Mongoose ORM", "PostgreSQL"], level: 4 },
+  cloudTools: { items: ["Cloudinary", "IBM Cloud", "Git", "GitHub", "Postman", "Vercel", "Render", "NPM", "VS Code"], level: 4 },
 };
 
 export const certificates = [

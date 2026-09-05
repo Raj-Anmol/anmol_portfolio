@@ -51,9 +51,7 @@ const skillCategories = [
 
 const containerVariants: Variants = {
   hidden: {},
-  visible: {
-    transition: { staggerChildren: 0.1, delayChildren: 0.05 },
-  },
+  visible: { transition: { staggerChildren: 0.1, delayChildren: 0.05 } },
 };
 
 const categoryVariants: Variants = {
@@ -61,9 +59,29 @@ const categoryVariants: Variants = {
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.5, ease: [0.21, 0.47, 0.32, 0.98] },
+    transition: { duration: 0.5, ease: "easeOut" },
   },
 };
+
+function ProficiencyDots({ level, color }: { level: number; color: string }) {
+  return (
+    <div className="flex items-center gap-1" aria-label={`Proficiency: ${level} out of 5`}>
+      {[1, 2, 3, 4, 5].map((i) => (
+        <motion.span
+          key={i}
+          initial={{ scale: 0 }}
+          whileInView={{ scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.3 + i * 0.05, type: "spring", stiffness: 300 }}
+          className={cn(
+            "h-1.5 w-1.5 rounded-full",
+            i <= level ? color.replace("text-", "bg-") : "bg-muted"
+          )}
+        />
+      ))}
+    </div>
+  );
+}
 
 export function Skills() {
   return (
@@ -90,27 +108,30 @@ export function Skills() {
           className="space-y-8"
         >
           {skillCategories.map((category) => {
-            const categorySkills = skills[category.key as keyof typeof skills];
+            const data = skills[category.key as keyof typeof skills];
             return (
               <motion.div
                 key={category.key}
                 variants={categoryVariants}
                 className="border border-border bg-card/80 backdrop-blur-sm rounded-xl p-5 hover:border-primary/50 transition-colors"
               >
-                <div className="flex items-center gap-3 mb-4">
-                  <div className={cn("p-2.5 rounded-lg", category.bgColor, category.borderColor)}>
-                    <category.icon className={cn("h-5 w-5", category.color)} />
+                <div className="flex items-center justify-between gap-3 mb-4 flex-wrap">
+                  <div className="flex items-center gap-3">
+                    <div className={cn("p-2.5 rounded-lg", category.bgColor, category.borderColor)}>
+                      <category.icon className={cn("h-5 w-5", category.color)} />
+                    </div>
+                    <h3 className="text-lg font-bold text-foreground">{category.label}</h3>
                   </div>
-                  <h3 className="text-lg font-bold text-foreground">{category.label}</h3>
+                  <ProficiencyDots level={data.level} color={category.color} />
                 </div>
 
                 <div className="flex flex-wrap gap-2">
-                  {categorySkills.map((skill, skillIndex) => (
+                  {data.items.map((skill, skillIndex) => (
                     <Badge
                       key={skillIndex}
                       variant="outline"
                       className={cn(
-                        "text-xs px-2.5 py-1 hover:bg-primary/10 hover:border-primary/50 hover:text-primary transition-all duration-200",
+                        "text-xs px-2.5 py-1 hover:bg-primary/10 hover:border-primary/50 hover:text-primary transition-all duration-200 cursor-default",
                         "border-border"
                       )}
                     >
