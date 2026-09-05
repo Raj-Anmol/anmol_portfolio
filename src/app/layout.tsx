@@ -7,6 +7,7 @@ import { generateAllSchemas } from "@/lib/schema";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import ScrollLock from "@/components/ScrollLock";
+import { CommandPalette } from "@/components/CommandPalette";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -131,10 +132,11 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <ScrollLock />
-          <Navbar />
-          {children}
-          <Footer />
+        <ScrollLock />
+        <Navbar />
+        {children}
+        <Footer />
+        <CommandPalette />
         </ThemeProvider>
       </body>
     </html>

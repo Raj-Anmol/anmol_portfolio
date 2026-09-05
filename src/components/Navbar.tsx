@@ -5,7 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
-import { Eye } from "lucide-react";
+import { Eye, Search } from "lucide-react";
 import { profile } from "@/lib/constants";
 
 const navItems = [
@@ -87,6 +87,18 @@ export function Navbar() {
                 </Link>
               );
             })}
+            <button
+              onClick={() => {
+                const event = new KeyboardEvent("keydown", { key: "k", metaKey: true, ctrlKey: true });
+                document.dispatchEvent(event);
+              }}
+              className="hidden md:inline-flex items-center gap-2 h-8 px-3 text-xs text-muted-foreground border border-border rounded-md hover:border-primary/50 hover:text-foreground transition-colors"
+              aria-label="Open command palette"
+            >
+              <Search className="h-3.5 w-3.5" />
+              <span>Quick search</span>
+              <kbd className="ml-1 px-1.5 py-0.5 text-[10px] font-mono border border-border rounded">⌘K</kbd>
+            </button>
             <Button
               variant="outline"
               size="sm"
@@ -106,6 +118,16 @@ export function Navbar() {
           </div>
 
           <div className="flex md:hidden items-center gap-2">
+            <button
+              onClick={() => {
+                const event = new KeyboardEvent("keydown", { key: "k", metaKey: true, ctrlKey: true });
+                document.dispatchEvent(event);
+              }}
+              className="h-9 w-9 rounded-md flex items-center justify-center text-muted-foreground hover:text-foreground hover:bg-muted/50"
+              aria-label="Open command palette"
+            >
+              <Search className="h-4 w-4" />
+            </button>
             <Button
               variant="ghost"
               size="icon"
