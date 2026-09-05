@@ -15,10 +15,6 @@ export const profile = {
 export const socialLinks = {
   linkedin: "https://www.linkedin.com/in/raj-anmol/",
   github: "https://github.com/Raj-Anmol",
-  twitter: "https://x.com/Rajanmolpaglu",
-  instagram: "https://www.instagram.com/raj_anmol_573/",
-  facebook: "https://www.facebook.com/profile.php?id=100035297446012",
-  youtube: "https://www.youtube.com/@anmolrajcreations8880",
   email: "mailto:araj97855@gmail.com",
 };
 

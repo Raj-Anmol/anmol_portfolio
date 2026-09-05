@@ -115,7 +115,7 @@ export function Footer() {
             </div>
             <div className="flex items-center gap-2.5">
               <a
-                href={socialLinks.linkedin}
+                href={profile.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-1.5 rounded-lg bg-muted/50 text-muted-foreground hover:bg-primary/10 hover:text-primary transition-all"
@@ -124,40 +124,13 @@ export function Footer() {
                 <LinkedinIcon className="h-3.5 w-3.5" />
               </a>
               <a
-                href={socialLinks.twitter}
+                href={profile.github}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-1.5 rounded-lg bg-muted/50 text-muted-foreground hover:bg-primary/10 hover:text-primary transition-all"
-                aria-label="Twitter"
+                aria-label="GitHub"
               >
-                Twitter
-              </a>
-              <a
-                href={socialLinks.instagram}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-1.5 rounded-lg bg-muted/50 text-muted-foreground hover:bg-primary/10 hover:text-primary transition-all"
-                aria-label="Instagram"
-              >
-                Instagram
-              </a>
-              <a
-                href={socialLinks.facebook}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-1.5 rounded-lg bg-muted/50 text-muted-foreground hover:bg-primary/10 hover:text-primary transition-all"
-                aria-label="Facebook"
-              >
-                Facebook
-              </a>
-              <a
-                href={socialLinks.youtube}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-1.5 rounded-lg bg-muted/50 text-muted-foreground hover:bg-primary/10 hover:text-primary transition-all"
-                aria-label="YouTube"
-              >
-                YouTube
+                <GithubIcon className="h-3.5 w-3.5" />
               </a>
             </div>
           </div>

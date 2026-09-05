@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/button";
 import { Eye, Search } from "lucide-react";
 import { GithubIcon } from "@/components/icons/GithubIcon";
 import { LinkedinIcon } from "@/components/icons/LinkedinIcon";
-import { profile, socialLinks } from "@/lib/constants";
+import { profile } from "@/lib/constants";
 import { ThemeToggle } from "@/components/ThemeToggle";
 
 const navItems = [
@@ -96,15 +96,40 @@ export function Navbar() {
                 const event = new KeyboardEvent("keydown", { key: "k", metaKey: true, ctrlKey: true });
                 document.dispatchEvent(event);
               }}
-              className="h-9 w-9 rounded-md flex items-center justify-center text-muted-foreground hover:text-foreground hover:bg-muted/50"
+              className="hidden md:inline-flex items-center gap-2 h-8 px-3 text-xs text-muted-foreground border border-border rounded-md hover:border-primary/50 hover:text-foreground transition-colors"
               aria-label="Open command palette"
             >
-              <Search className="h-4 w-4" />
+              <Search className="h-3.5 w-3.5" />
+              <span>Quick search</span>
+              <kbd className="ml-1 px-1.5 py-0.5 text-[10px] font-mono border border-border rounded">⌘K</kbd>
             </button>
-            <Button
-              variant="ghost"
-              size="icon"
+            <div className="flex items-center gap-2">
+              <a
+                href={profile.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-1.5 rounded-lg bg-muted/50 text-muted-foreground hover:bg-primary/10 hover:text-primary transition-all"
+                aria-label="LinkedIn"
+              >
+                <LinkedinIcon className="h-3.5 w-3.5" />
+              </a>
+              <a
+                href={profile.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-1.5 rounded-lg bg-muted/50 text-muted-foreground hover:bg-primary/10 hover:text-primary transition-all"
+                aria-label="GitHub"
+              >
+                <GithubIcon className="h-3.5 w-3.5" />
+              </a>
+            </div>
+          </div>
+
+          <div className="flex md:hidden items-center gap-1">
+            <ThemeToggle />
+            <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="h-9 w-9 rounded-md flex items-center justify-center text-muted-foreground hover:text-foreground hover:bg-muted/50"
               aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
               aria-expanded={mobileMenuOpen}
             >
@@ -117,7 +142,7 @@ export function Navbar() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
                 </svg>
               )}
-            </Button>
+            </button>
           </div>
         </div>
 
