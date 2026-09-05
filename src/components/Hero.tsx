@@ -9,6 +9,7 @@ import { ArrowRight, Mail, MapPin, Eye, Briefcase } from "lucide-react";
 import { GithubIcon } from "@/components/icons/GithubIcon";
 import { LinkedinIcon } from "@/components/icons/LinkedinIcon";
 import { ResumeCounter } from "@/components/ResumeCounter";
+import { AvailabilityBadge } from "@/components/AvailabilityBadge";
 import { profile, stats } from "@/lib/constants";
 
 const BLUR_DATA_URL =
@@ -156,6 +157,7 @@ export function Hero() {
               variants={itemVariants}
               className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3 mb-6"
             >
+              <AvailabilityBadge size="sm" />
               <ResumeCounter />
             </motion.div>
 
