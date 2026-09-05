@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { profile } from "@/lib/constants";
 import {
   ArrowLeft,
   ExternalLink,
@@ -39,6 +40,7 @@ export async function generateMetadata({ params }: PageProps) {
       description: project.description,
       url: `https://anmol-raj.vercel.app/projects/${project.id}`,
     },
+    authors: [profile.name],
   };
 }
 
@@ -87,6 +89,9 @@ export default async function ProjectCaseStudy({ params }: PageProps) {
           <h1 className="text-3xl sm:text-4xl font-bold text-foreground mb-3 text-balance">
             {project.name}
           </h1>
+          <p className="text-base sm:text-lg text-muted-foreground leading-relaxed mb-4">
+            By {profile.name}
+          </p>
           <p className="text-base sm:text-lg text-muted-foreground leading-relaxed max-w-3xl">
             {project.tagline}
           </p>
