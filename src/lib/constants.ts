@@ -117,6 +117,13 @@ export const certificates = [
   },
 ];
 
+export const stats = [
+  { value: 3, suffix: "+", label: "Internships" },
+  { value: 8, suffix: "+", label: "Projects" },
+  { value: 12, suffix: "+", label: "Tech Stacks" },
+  { value: 500, suffix: "+", label: "GitHub Contributions" },
+];
+
 export const siteConfig = {
   name: "Anmol Raj",
   description: "Full Stack Developer | AI Integration — Building scalable web applications with MERN stack and AI-powered solutions",
