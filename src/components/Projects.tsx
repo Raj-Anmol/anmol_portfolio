@@ -7,6 +7,7 @@ import { projects, profile } from "@/lib/constants";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { SpotlightCard } from "@/components/ui/spotlight-card";
 import { ExternalLink, Code, ArrowRight } from "lucide-react";
 import { GithubIcon } from "@/components/icons/GithubIcon";
 
@@ -53,7 +54,10 @@ export function Projects() {
               whileHover={{ y: -5, scale: 1.01 }}
               className="group"
             >
-              <Card className="h-full border-border bg-card/80 backdrop-blur-sm hover:border-primary/50 transition-colors overflow-hidden">
+              <SpotlightCard className="h-full rounded-xl">
+                <Card className="h-full border-border bg-card/80 backdrop-blur-sm hover:border-primary/50 transition-colors overflow-hidden">
+
+
                 <div className="relative aspect-[16/10] overflow-hidden">
                   <Image
                     src={project.image}
@@ -143,7 +147,8 @@ export function Projects() {
                     </Link>
                   </Button>
                 </CardContent>
-              </Card>
+                </Card>
+              </SpotlightCard>
             </motion.article>
           ))}
         </motion.div>
