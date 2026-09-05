@@ -10,7 +10,7 @@ Built with **Next.js 16**, **TypeScript**, and **Tailwind CSS v4** — designed 
 
 | Feature | Description |
 |---------|-------------|
-| 🎨 **Modern Dark Theme** | Professional dark color scheme with indigo & green accents |
+| 🎨 **Modern Dark Theme** | Professional dark color scheme with indigo & green accents + light mode toggle |
 | 📱 **Fully Responsive** | Mobile-first design, works perfectly from 320px to 4K displays |
 | ⚡ **Static Generation** | Pre-rendered pages for optimal performance and SEO |
 | 🔍 **SEO Optimized** | JSON-LD structured data, sitemap.xml, robots.txt, meta tags |
@@ -22,6 +22,16 @@ Built with **Next.js 16**, **TypeScript**, and **Tailwind CSS v4** — designed 
 | 📊 **Real Project Data** | Detailed case studies with problem, solution, features, challenges |
 | 🎬 **Scroll Animations** | Smooth fade/translate reveal on scroll powered by Framer Motion |
 | 🪄 **Interactive Cards** | Hover-driven lift & scale effects on project, skill, and certificate cards |
+| ⌨️ **Command Palette** | `⌘K` / `Ctrl+K` quick navigation (Linear/Vercel-style) with keyboard support |
+| 📊 **Animated Counters** | Hero stats with count-up animation on scroll into view |
+| 🔦 **Spotlight Cards** | Mouse-follow radial gradient on project cards |
+| 📈 **Scroll Progress** | Top progress bar that fills as you scroll |
+| ✨ **Word Reveal** | Hero heading reveals word-by-word on load |
+| 📋 **Contact Form** | Real form with zod validation + optional Resend email delivery |
+| 🎯 **Skill Proficiency** | 1-5 dot proficiency scale per skill category |
+| 🌓 **Theme Toggle** | Animated sun/moon morph with persistent dark/light mode |
+| 🚧 **Branded 404** | Custom not-found page with animated graphics |
+| ⏳ **Loading Skeleton** | Route-level shimmer loading state |
 
 ---
 
@@ -34,6 +44,10 @@ Built with **Next.js 16**, **TypeScript**, and **Tailwind CSS v4** — designed 
 | **Styling** | [Tailwind CSS v4](https://tailwindcss.com/) |
 | **UI Components** | [shadcn/ui](https://ui.shadcn.com/) (Radix UI primitives) |
 | **UI / Animation** | [motion](https://motion.dev/) (Framer Motion) |
+| **Forms & Validation** | [react-hook-form](https://react-hook-form.com/) + [zod](https://zod.dev/) |
+| **Command Palette** | [cmdk](https://cmdk.paco.me/) |
+| **Toasts** | [sonner](https://sonner.emilkowal.ski/) |
+| **Email Delivery** | [Resend](https://resend.com/) (optional) |
 | **Icons** | [Lucide React](https://lucide.dev/) + Custom SVG components |
 | **Theme** | [next-themes](https://github.com/pacocoursey/next-themes) |
 | **Image Processing** | [sharp](https://sharp.pixelplumbing.com/) |
@@ -299,6 +313,9 @@ Feel free to use this as a template for your own portfolio!
 - [Vercel](https://vercel.com) — Hosting & deployment
 - [Lucide](https://lucide.dev) — Icon library
 - [sharp](https://sharp.pixelplumbing.com) — Image processing
+- [cmdk](https://cmdk.paco.me) — Command palette
+- [react-hook-form](https://react-hook-form.com) + [zod](https://zod.dev) — Form validation
+- [Resend](https://resend.com) — Email delivery
 
 ---
 
