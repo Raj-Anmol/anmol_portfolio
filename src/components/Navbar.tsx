@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Eye, Search } from "lucide-react";
+import { ThemeToggle } from "@/components/ThemeToggle";
 import { profile } from "@/lib/constants";
 
 const navItems = [
@@ -87,6 +88,7 @@ export function Navbar() {
                 </Link>
               );
             })}
+            <ThemeToggle />
             <button
               onClick={() => {
                 const event = new KeyboardEvent("keydown", { key: "k", metaKey: true, ctrlKey: true });
@@ -117,7 +119,8 @@ export function Navbar() {
             </Button>
           </div>
 
-          <div className="flex md:hidden items-center gap-2">
+          <div className="flex md:hidden items-center gap-1">
+            <ThemeToggle />
             <button
               onClick={() => {
                 const event = new KeyboardEvent("keydown", { key: "k", metaKey: true, ctrlKey: true });
