@@ -4,6 +4,7 @@ import { ThemeProvider } from "next-themes";
 import Script from "next/script";
 import "./globals.css";
 import { generateAllSchemas } from "@/lib/schema";
+import { socialLinks } from "@/lib/constants";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import ScrollLock from "@/components/ScrollLock";
@@ -34,6 +35,7 @@ export const metadata: Metadata = {
     "Computer Science undergraduate specializing in full-stack web development using MERN stack. Skilled in architecting RESTful APIs, building real-time applications, and integrating AI/ML models. Open to full-time opportunities.",
   keywords: [
     "Anmol Raj",
+    "Anmol",
     "Full Stack Developer",
     "AI Integration",
     "MERN Stack",
@@ -46,8 +48,13 @@ export const metadata: Metadata = {
     "Jagannath University",
     "Edunet Foundation",
     "IBM SkillsBuild",
+    "Raj-Anmol",
   ],
-  authors: [{ name: "Anmol Raj", url: "https://github.com/Raj-Anmol" }],
+  authors: [
+    { name: "Anmol Raj", url: "https://anmol-raj.vercel.app" },
+    { name: "Anmol Raj", url: socialLinks.linkedin },
+    { name: "Anmol Raj", url: socialLinks.github },
+  ],
   creator: "Anmol Raj",
   publisher: "Anmol Raj",
   robots: {
@@ -84,7 +91,19 @@ export const metadata: Metadata = {
     description:
       "Computer Science undergraduate specializing in full-stack web development using MERN stack. Skilled in architecting RESTful APIs, building real-time applications, and integrating AI/ML models.",
     images: ["/profile.png"],
-    creator: "@raj_anmol",
+    creator: "@Rajanmolpaglu",
+    site: "@Rajanmolpaglu",
+  },
+  alternates: {
+    canonical: "https://anmol-raj.vercel.app",
+    types: {
+      "application/rss+xml": "https://anmol-raj.vercel.app/rss.xml",
+    },
+  },
+  other: {
+    "profile:first_name": "Anmol",
+    "profile:last_name": "Raj",
+    "profile:username": "Raj-Anmol",
   },
   verification: {
     google: "g3XOkDO7c1-0SjIwYe_759-Wg8HL00b-ekp0OvXqnsg",

@@ -1,20 +1,46 @@
-import { profile, projects, certificates, siteConfig } from "./constants";
+import { profile, projects, certificates, siteConfig, socialLinks } from "./constants";
 
 export function generatePersonSchema() {
   const certificateUrls = certificates.map((cert) => cert.verifyUrl);
+  const sameAs = [
+    profile.linkedin,
+    profile.github,
+    socialLinks.twitter,
+    socialLinks.instagram,
+    socialLinks.facebook,
+    socialLinks.youtube,
+  ].filter(Boolean);
+
   return {
     "@context": "https://schema.org",
     "@type": "Person",
+    "@id": `${siteConfig.url}#person`,
     name: profile.name,
+    alternateName: ["Anmol Raj", "Anmol"],
     jobTitle: profile.title,
+    description: profile.summary,
     url: siteConfig.url,
-    image: `${siteConfig.url}${profile.profileImage}`,
-    email: profile.email,
+    image: {
+      "@type": "ImageObject",
+      url: `${siteConfig.url}${profile.profileImage}`,
+      width: 512,
+      height: 512,
+    },
+    email: `mailto:${profile.email}`,
+    telephone: profile.phone || undefined,
     address: {
       "@type": "PostalAddress",
       addressLocality: "Jaipur",
       addressRegion: "Rajasthan",
       addressCountry: "IN",
+    },
+    homeLocation: {
+      "@type": "Place",
+      name: profile.origin,
+    },
+    worksFor: {
+      "@type": "Organization",
+      name: "Freelance / Open to Opportunities",
     },
     alumniOf: {
       "@type": "EducationalOrganization",
@@ -22,20 +48,39 @@ export function generatePersonSchema() {
       url: siteConfig.university.url,
       "@id": siteConfig.university.url,
     },
-    sameAs: [profile.linkedin, profile.github],
-    hasCredential: certificateUrls,
-    resumeUrl: `${siteConfig.url}${profile.resumeUrl}`,
+    sameAs,
+    hasCredential: certificateUrls.map((url) => ({
+      "@type": "EducationalOccupationalCredential",
+      url,
+    })),
     knowsAbout: [
       "Full Stack Development",
       "MERN Stack",
       "AI Integration",
+      "Machine Learning",
       "React",
+      "Next.js",
       "Node.js",
       "TypeScript",
       "Python",
       "MongoDB",
+      "PostgreSQL",
       "RESTful APIs",
+      "WebSockets",
+      "Cloud Deployment",
     ],
+    knowsLanguage: ["en", "hi"],
+    nationality: {
+      "@type": "Country",
+      name: "India",
+    },
+    contactPoint: {
+      "@type": "ContactPoint",
+      contactType: "professional inquiries",
+      email: profile.email,
+      url: siteConfig.url,
+      availableLanguage: ["English", "Hindi"],
+    },
   };
 }
 
@@ -43,20 +88,20 @@ export function generateWebsiteSchema() {
   return {
     "@context": "https://schema.org",
     "@type": "WebSite",
+    "@id": `${siteConfig.url}#website`,
     name: siteConfig.name,
     url: siteConfig.url,
     description: siteConfig.description,
+    inLanguage: "en-IN",
     publisher: {
       "@type": "Person",
+      "@id": `${siteConfig.url}#person`,
       name: profile.name,
     },
-    potentialAction: {
-      "@type": "SearchAction",
-      target: {
-        "@type": "EntryPoint",
-        urlTemplate: `${siteConfig.url}/search?q={search_term_string}`,
-      },
-      "query-input": "required name=search_term_string",
+    author: {
+      "@type": "Person",
+      "@id": `${siteConfig.url}#person`,
+      name: profile.name,
     },
   };
 }
@@ -80,6 +125,7 @@ export function generateProjectSchemas() {
     },
     author: {
       "@type": "Person",
+      "@id": `${siteConfig.url}#person`,
       name: profile.name,
       url: siteConfig.url,
     },
@@ -103,9 +149,24 @@ export function generateCertificateSchemas() {
     credentialIdentifier: cert.verifyUrl,
     subject: {
       "@type": "Person",
+      "@id": `${siteConfig.url}#person`,
       name: profile.name,
+      url: siteConfig.url,
     },
   }));
+}
+
+export function generateBreadcrumbSchema(items: { name: string; url: string }[]) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: items.map((item, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      name: item.name,
+      item: item.url,
+    })),
+  };
 }
 
 export function generateAllSchemas() {
