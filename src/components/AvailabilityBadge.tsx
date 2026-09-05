@@ -2,6 +2,7 @@
 
 import { motion } from "motion/react";
 import { cn } from "@/lib/utils";
+import { useReducedMotion } from "@/lib/hooks/use-reduced-motion";
 
 type Status = "available" | "busy" | "meeting";
 
@@ -38,6 +39,7 @@ export function AvailabilityBadge({
 }: AvailabilityBadgeProps) {
   const config = statusConfig[status];
   const text = label || config.defaultLabel;
+  const reducedMotion = useReducedMotion();
 
   return (
     <div
@@ -52,19 +54,18 @@ export function AvailabilityBadge({
       aria-label={text}
     >
       <span className="relative flex h-2 w-2">
-        <motion.span
-          animate={{
-            scale: [1, 2, 2],
-            opacity: [0.7, 0, 0],
-          }}
-          transition={{
-            duration: 2,
-            repeat: Infinity,
-            ease: "easeOut",
-          }}
-          className={cn("absolute inline-flex h-full w-full rounded-full", config.ring)}
-        />
-        <span className={cn("relative inline-flex rounded-full h-2 w-2", config.color)} />
+        {reducedMotion ? (
+          <span className={cn("relative inline-flex rounded-full h-2 w-2", config.color)} />
+        ) : (
+          <>
+            <motion.span
+              animate={{ scale: [1, 2, 2], opacity: [0.7, 0, 0] }}
+              transition={{ duration: 2, repeat: Infinity, ease: "easeOut" }}
+              className={cn("absolute inline-flex h-full w-full rounded-full", config.ring)}
+            />
+            <span className={cn("relative inline-flex rounded-full h-2 w-2", config.color)} />
+          </>
+        )}
       </span>
       <span className="font-medium">{text}</span>
     </div>
