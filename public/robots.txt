@@ -1,9 +1,3 @@
-# *
 User-agent: *
 Allow: /
-
-# Host
-Host: https://anmol-raj.vercel.app
-
-# Sitemaps
 Sitemap: https://anmol-raj.vercel.app/sitemap.xml

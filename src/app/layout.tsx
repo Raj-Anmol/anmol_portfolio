@@ -145,6 +145,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(schemas) }}
           strategy="lazyOnload"
         />
+        <link rel="robots.txt" href="/robots.txt" className="d-none" />
       </head>
       <body className={`${inter.variable} ${jetbrainsMono.variable} min-h-screen bg-background font-sans antialiased overflow-x-hidden`}>
         <ThemeProvider

@@ -1,0 +1,13 @@
+# anmol-raj.com
+
+By Anmol Raj.
+All rights reserved.
+
+---
+
+Founders
+--------
+* Anmol Raj (Founder & Full Stack Developer)
+
+---
+Generated using humans.txt-style metadata for transparency.
