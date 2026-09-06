@@ -8,7 +8,7 @@ import { AnimatedCounter } from "@/components/ui/animated-counter";
 import { ArrowRight, Mail, MapPin, Eye, Briefcase } from "lucide-react";
 import { GithubIcon } from "@/components/icons/GithubIcon";
 import { LinkedinIcon } from "@/components/icons/LinkedinIcon";
-import { ResumeCounter } from "@/components/ResumeCounter";
+
 import { AvailabilityBadge } from "@/components/AvailabilityBadge";
 import { profile, stats } from "@/lib/constants";
 
@@ -106,26 +106,6 @@ export function Hero() {
                   <ArrowRight className="h-4 w-4" />
                 </Link>
               </Button>
-              <Button
-                size="lg"
-                variant="secondary"
-                asChild
-                className="gap-2 w-full sm:w-auto"
-              >
-                <a
-                  href={profile.resumeUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="View Resume PDF in new tab"
-                  onClick={() => {
-                    fetch("/api/resume-download", { method: "POST" }).catch(() => {});
-                    window.dispatchEvent(new CustomEvent("resume-downloaded"));
-                  }}
-                >
-                  <Eye className="h-4 w-4" />
-                  <span className="sm:inline">View Resume</span>
-                </a>
-              </Button>
               <Button asChild size="lg" variant="outline" className="gap-2 w-full sm:w-auto">
                 <Link href="/contact">
                   <Mail className="h-4 w-4" />
@@ -158,7 +138,6 @@ export function Hero() {
               className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3 mb-6"
             >
               <AvailabilityBadge size="sm" />
-              <ResumeCounter />
             </motion.div>
 
             <motion.div
