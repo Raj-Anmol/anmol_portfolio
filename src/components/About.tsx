@@ -6,6 +6,43 @@ import { profile, education, socialLinks } from "@/lib/constants";
 import { GithubActivity } from "@/components/GithubActivity";
 import { MapPin, GraduationCap, Calendar } from "lucide-react";
 
+export function FAQ() {
+  const faqs = [
+    {
+      question: "How can I contact you?",
+      answer: "You can reach me at araj97855@gmail.com or via the social links above. I also respond to messages through LinkedIn and GitHub."
+    },
+    {
+      question: "Where is your resume PDF?",
+      answer: "My resume is available for download at /resume/Anmol-Raj-Resume.pdf. You can also download it from the Hero section of this portfolio."
+    },
+    {
+      question: "What is your availability for hire?",
+      answer: "I'm currently available for freelance projects and full-time positions. Please check the 'Available for hire' badge in the header or contact me directly."
+    },
+    {
+      question: "What tech stack do you work with?",
+      answer: "I specialize in the MERN stack (MongoDB, Express, React, Node.js) with additional expertise in AI/ML integration, TypeScript, Python, and cloud deployment on Vercel and Render."
+    }
+  ];
+
+  return (
+    <div className="space-y-6">
+      <h3 className="text-lg font-semibold text-foreground mb-3">Frequently Asked Questions</h3>
+      {faqs.map((faq, index) => (
+        <details key={index} className="bg-card rounded-xl border border-border p-4">
+          <summary className="cursor-pointer text-primary hover:text-primary/90 transition-colors flex items-center gap-2">
+            <span className="text-sm">{faq.question}</span>
+          </summary>
+          <p className="text-muted-foreground text-sm mt-2 line-clamp-3">
+            {faq.answer}
+          </p>
+        </details>
+      ))}
+    </div>
+  );
+}
+
 export function About() {
   return (
     <section
