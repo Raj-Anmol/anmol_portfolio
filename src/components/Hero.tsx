@@ -170,10 +170,22 @@ export function Hero() {
           ))}
         </div>
 
-        <div className="flex flex-col items-center gap-1 text-muted-foreground/60">
+        <button
+          type="button"
+          onClick={() => {
+            const nextSection = document.getElementById("about");
+            if (nextSection) {
+              nextSection.scrollIntoView({ behavior: "smooth", block: "start" });
+            } else {
+              window.scrollBy({ top: window.innerHeight, behavior: "smooth" });
+            }
+          }}
+          className="flex flex-col items-center gap-1 text-muted-foreground/60 hover:text-foreground/90 transition-colors duration-300 focus:outline-none focus-visible:text-foreground"
+          aria-label="Scroll to next section"
+        >
           <span className="text-[10px] sm:text-xs tracking-[0.3em] uppercase">Scroll</span>
           <ChevronDown className="h-4 w-4 animate-bounce" />
-        </div>
+        </button>
       </motion.div>
     </section>
   );
