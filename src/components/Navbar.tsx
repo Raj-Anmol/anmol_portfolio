@@ -37,8 +37,15 @@ export function Navbar() {
   }, []);
 
   useEffect(() => {
-    setMobileMenuOpen(false);
-  }, [pathname]);
+    const handleClick = (e: MouseEvent) => {
+      const target = e.target as HTMLDivElement;
+      if (mobileMenuOpen && target && !target.closest('nav')) {
+        setMobileMenuOpen(false);
+      }
+    };
+    document.addEventListener('click', handleClick);
+    return () => document.removeEventListener('click', handleClick);
+  }, [mobileMenuOpen]);
 
   const isActive = (href: string) => {
     if (href === "/") return pathname === "/";
@@ -148,45 +155,48 @@ export function Navbar() {
         </div>
 
         {mobileMenuOpen && (
-          <div className="md:hidden absolute right-0 top-0 w-fit min-w-[140px] bg-black border border-border rounded-lg shadow-2xl p-2 z-50 animate-in">
-            <button
-              onClick={() => setMobileMenuOpen(false)}
-              className="absolute right-2 top-2 z-10 text-white hover:text-gray-300 rounded-lg p-1 transition-colors"
-              aria-label="Close menu"
-            >
-              Close
-            </button>
-            <div className="flex flex-col items-end gap-1">
-{navItems.map((item) => {
-                const active = isActive(item.href);
-                return (
-                  <Link
-                    key={item.label}
-                    href={item.href}
-                    onClick={() => setMobileMenuOpen(false)}
-                    className={cn(
-                      "px-3 py-1.5 text-sm font-medium transition-colors rounded-md w-full text-right",
-                      active
-                        ? "text-primary bg-primary/10"
-                        : "text-muted-foreground hover:text-foreground hover:bg-muted/50"
-                    )}
-                    aria-current={active ? "page" : undefined}
-                  >
-                    {item.label}
-                  </Link>
-                );
-              })}
-              <a
-                href={profile.resumeUrl}
-                target="_blank"
-                rel="noopener noreferrer"
+          <div className="fixed inset-0 z-40 overflow-y-auto">
+            <div className="fixed inset-0 bg-black/50" aria-hidden="true" />
+            <div className="md:hidden absolute right-0 top-0 w-fit min-w-[140px] bg-black border border-border rounded-lg shadow-2xl p-2 z-50 animate-in">
+              <button
                 onClick={() => setMobileMenuOpen(false)}
-                className="mt-2 inline-flex items-center justify-end gap-1.5 px-3 py-1.5 text-xs font-medium rounded-md border border-primary/50 text-primary hover:bg-primary/10 w-full"
-                aria-label="View Resume PDF in new tab"
+                className="absolute right-2 top-2 z-10 text-white hover:text-gray-300 rounded-lg p-1 transition-colors"
+                aria-label="Close menu"
               >
-                <Eye className="h-4 w-4" />
-                View Resume
-              </a>
+                Close
+              </button>
+              <div className="flex flex-col items-end gap-1">
+                {navItems.map((item) => {
+                  const active = isActive(item.href);
+                  return (
+                    <Link
+                      key={item.label}
+                      href={item.href}
+                      onClick={() => setMobileMenuOpen(false)}
+                      className={cn(
+                        "px-3 py-1.5 text-sm font-medium transition-colors rounded-md w-full text-right",
+                        active
+                          ? "text-primary bg-primary/10"
+                          : "text-muted-foreground hover:text-foreground hover:bg-muted/50"
+                        )}
+                      aria-current={active ? "page" : undefined}
+                    >
+                      {item.label}
+                    </Link>
+                  );
+                })}
+                <a
+                  href={profile.resumeUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="mt-2 inline-flex items-center justify-end gap-1.5 px-3 py-1.5 text-xs font-medium rounded-md border border-primary/50 text-primary hover:bg-primary/10 w-full"
+                  aria-label="View Resume PDF in new tab"
+                >
+                  <Eye className="h-4 w-4" />
+                  View Resume
+                </a>
+              </div>
             </div>
           </div>
         )}
