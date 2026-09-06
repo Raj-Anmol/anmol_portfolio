@@ -145,10 +145,10 @@ export function Hero() {
               key={stat.label}
               className="flex flex-col items-center justify-center text-center p-2"
             >
-              <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground drop-shadow-[0_0_10px_rgba(255,255,255,0.15)] tabular-nums">
+              <div className="text-sm sm:text-base md:text-lg font-bold text-foreground drop-shadow-[0_0_10px_rgba(255,255,255,0.15)] tabular-nums">
                 <AnimatedCounter value={stat.value} suffix={stat.suffix} />
               </div>
-              <div className="text-[10px] sm:text-xs text-muted-foreground uppercase tracking-wider mt-1">
+              <div className="text-xs sm:text-xs text-muted-foreground uppercase tracking-wider mt-1">
                 {stat.label}
               </div>
             </div>
