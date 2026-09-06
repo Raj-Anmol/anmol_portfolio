@@ -158,13 +158,6 @@ export function Navbar() {
           <div className="fixed inset-0 z-40 overflow-y-auto">
             <div className="fixed inset-0 bg-black/50" aria-hidden="true" />
             <div className="md:hidden absolute right-0 top-0 w-fit min-w-[140px] bg-black border border-border rounded-lg shadow-2xl p-2 z-50 animate-in">
-              <button
-                onClick={() => setMobileMenuOpen(false)}
-                className="absolute right-2 top-2 z-10 text-white hover:text-gray-300 rounded-lg p-1 transition-colors"
-                aria-label="Close menu"
-              >
-                Close
-              </button>
               <div className="flex flex-col items-end gap-1">
                 {navItems.map((item) => {
                   const active = isActive(item.href);
