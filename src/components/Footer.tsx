@@ -17,6 +17,7 @@ const quickLinksRight = [
   { label: "Skills", href: "/skills" },
   { label: "Education", href: "/education" },
   { label: "Certificates", href: "/certificates" },
+  { label: "FAQ", href: "/faq" },
   { label: "Contact", href: "/contact" },
 ];
 
