@@ -127,9 +127,10 @@ export const certificates = [
 ];
 
 export const stats = [
-  { value: 3, suffix: "+", label: "Internships" },
-  { value: 2, suffix: "+", label: "Projects" },
-  { value: 22, suffix: "+", label: "Tech Stacks" },
+  { value: 4, suffix: "+", label: "Projects Built" },
+  { value: 3, suffix: "", label: "Internships" },
+  { value: 4, suffix: "", label: "SaaS Shipped" },
+  { value: 30, suffix: "+", label: "Tech Stack" },
 ];
 
 export const siteConfig = {
