@@ -89,7 +89,7 @@ export function Hero() {
 
           <h1
             id="hero-heading"
-            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-3 text-balance bg-gradient-to-r from-blue-400 via-purple-300 to-pink-400 bg-clip-text text-transparent flex flex-wrap justify-center gap-x-3"
+            className="text-5xl sm:text-6xl lg:text-7xl font-bold text-foreground mb-4 bg-gradient-to-r from-white via-purple-200 to-purple-400 bg-clip-text text-transparent flex flex-wrap justify-center gap-x-3"
           >
             {nameWords.map((word, i) => (
               <motion.span
