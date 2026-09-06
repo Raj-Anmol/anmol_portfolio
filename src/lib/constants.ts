@@ -128,8 +128,8 @@ export const certificates = [
 
 export const stats = [
   { value: 3, suffix: "+", label: "Internships" },
-  { value: 8, suffix: "+", label: "Projects" },
-  { value: 12, suffix: "+", label: "Tech Stacks" },
+  { value: 2, suffix: "+", label: "Projects" },
+  { value: 22, suffix: "+", label: "Tech Stacks" },
 ];
 
 export const siteConfig = {
