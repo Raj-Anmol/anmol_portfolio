@@ -35,14 +35,31 @@ export function FAQ() {
   ];
 
   return (
-    <div className="space-y-6">
-      <h3 className="text-lg font-semibold text-foreground mb-3">Frequently Asked Questions</h3>
+    <div className="space-y-6 sm:space-y-8 max-w-full">
+      <h3 className="text-lg font-semibold text-foreground mb-3 sm:text-base">Frequently Asked Questions</h3>
       {faqs.map((faq, index) => (
-        <details key={index} className="bg-card rounded-xl border border-border p-4">
-          <summary className="cursor-pointer text-primary hover:text-primary/90 transition-colors flex items-center gap-2">
-            <span className="text-sm">{faq.question}</span>
+        <details
+          key={index}
+          className="group bg-card rounded-xl border border-border p-4 sm:p-6 transition-all open:bg-card/80 open:border-primary/30"
+        >
+          <summary className="cursor-pointer text-primary hover:text-primary/90 transition-all flex items-center justify-between gap-2 sm:text-base marker:hidden list-none open:text-muted-foreground open:hover:text-muted-foreground">
+            <span className="text-sm font-medium">{faq.question}</span>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              className="h-4 w-4 flex-shrink-0 transition-transform duration-200 group-open:rotate-180"
+            >
+              <polyline points="6 9 12 15 18 9" />
+            </svg>
           </summary>
-          <p className="text-muted-foreground text-sm mt-2 line-clamp-4">
+          <p className="text-foreground text-sm sm:text-base mt-3 sm:mt-4 opacity-0 -translate-y-1 transition-all duration-200 group-open:opacity-100 group-open:translate-y-0">
             {faq.answer}
           </p>
         </details>

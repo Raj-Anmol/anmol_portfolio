@@ -5,8 +5,8 @@ import { profile, siteConfig, socialLinks } from "@/lib/constants";
 import { Mail, Heart, FileText, MapPin } from "lucide-react";
 import { GithubIcon } from "@/components/icons/GithubIcon";
 import { LinkedinIcon } from "@/components/icons/LinkedinIcon";
-import { TwitterIcon } from "@/components/icons/TwitterIcon";
-import { InstagramIcon } from "@/components/icons/InstagramIcon";
+import { TwitterOfficialIcon } from "@/components/icons/TwitterOfficialIcon";
+import { InstagramOfficialIcon } from "@/components/icons/InstagramOfficialIcon";
 
 const quickLinksLeft = [
   { label: "Home", href: "/" },
@@ -142,7 +142,8 @@ export function Footer() {
                 className="p-1.5 rounded-lg bg-muted/50 text-muted-foreground hover:bg-primary/10 hover:text-primary transition-all"
                 aria-label="Twitter"
               >
-                <TwitterIcon className="h-3.5 w-3.5" />
+                <TwitterOfficialIcon className="h-3.5 w-3.5" />
+                <span className="hidden sm:inline">Twitter</span>
               </a>
               <a
                 href={socialLinks.instagram}
@@ -151,7 +152,8 @@ export function Footer() {
                 className="p-1.5 rounded-lg bg-muted/50 text-muted-foreground hover:bg-primary/10 hover:text-primary transition-all"
                 aria-label="Instagram"
               >
-                <InstagramIcon className="h-3.5 w-3.5" />
+                <InstagramOfficialIcon className="h-3.5 w-3.5" />
+                <span className="hidden sm:inline">Instagram</span>
               </a>
             </div>
           </div>

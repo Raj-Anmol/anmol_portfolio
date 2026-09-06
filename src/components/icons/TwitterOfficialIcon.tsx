@@ -1,0 +1,23 @@
+import { cn } from "@/lib/utils";
+
+interface TwitterOfficialIconProps {
+  className?: string;
+  size?: number;
+}
+
+export function TwitterOfficialIcon({ className, size }: TwitterOfficialIconProps) {
+  return (
+    <svg
+      className={cn("h-4 w-4", className)}
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      aria-hidden="true"
+      role="img"
+    >
+      <title>Twitter</title>
+      <path d="M14.78 4.545c-.888-.33-1.832-.33-2.72 0L5.22 8.15c-.557.554-.557 1.46 0 2.014L7.76 15.017c-.163.402-.163.904 0 1.308l3.566 1.815c.496.253 1.127.253 1.622 0l3.566-1.815c.164-.403.163-.904 0-1.308L14.78 4.545zM13.03 16.957c-.578-.37-1.23-.837-1.595-1.157l3.42-6.84C12.324 7.517 11.646 7 11 7s-1.324.517-1.982 1.25l3.421 6.841zM8.905 13.088c-.58-.39-1.208-.808-1.787-1.237L5.417 8.05c-.15-.338-.15-.827 0-1.165l3.55 1.803c.327.508.83.87 1.41.612l3.536-1.804zM3.707 8.15l1.708 4.788c.317.87.833 1.44 1.422 1.063l4.389-2.196c.966-.484 1.696-1.353 1.413-2.535L.61 2.394A4.979 4.979 0 0 0 2 .65c0-.903.26-1.936.767-2.834L7.084 .134A4.986 4.986 0 0 1 .18 2.308c0 1.338.32 2.606.87 3.625l4.628 2.334z" />
+    </svg>
+  );
+}
