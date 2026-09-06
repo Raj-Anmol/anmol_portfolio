@@ -3,6 +3,14 @@ import { NextResponse } from "next/server";
 const GITHUB_USERNAME = "Raj-Anmol";
 const CACHE_TTL = 3600;
 
+function levelFromCount(count: number): 0 | 1 | 2 | 3 | 4 {
+  if (count === 0) return 0;
+  if (count <= 2) return 1;
+  if (count <= 5) return 2;
+  if (count <= 10) return 3;
+  return 4;
+}
+
 interface ContributionDay {
   date: string;
   count: number;
@@ -15,14 +23,6 @@ interface CacheEntry {
 }
 
 let cache: CacheEntry | null = null;
-
-function levelFromCount(count: number): 0 | 1 | 2 | 3 | 4 {
-  if (count === 0) return 0;
-  if (count <= 2) return 1;
-  if (count <= 5) return 2;
-  if (count <= 10) return 3;
-  return 4;
-}
 
 export async function GET() {
   if (cache && Date.now() - cache.ts < CACHE_TTL * 1000) {
@@ -78,23 +78,6 @@ export async function GET() {
     return NextResponse.json({ days: recent, cached: false });
   } catch (err) {
     console.error("GitHub contributions error:", err);
-    const fallback = generateFallback();
-    return NextResponse.json({ days: fallback, cached: false, fallback: true });
+    return NextResponse.json({ days: [], cached: false, fallback: true });
   }
-}
-
-function generateFallback(): ContributionDay[] {
-  const days: ContributionDay[] = [];
-  const today = new Date();
-  for (let i = 90; i >= 0; i--) {
-    const d = new Date(today);
-    d.setDate(d.getDate() - i);
-    const count = Math.floor(Math.random() * 8);
-    days.push({
-      date: d.toISOString().split("T")[0],
-      count,
-      level: levelFromCount(count),
-    });
-  }
-  return days;
 }
