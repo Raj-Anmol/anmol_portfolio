@@ -139,7 +139,7 @@ export function Hero() {
         transition={{ duration: 0.6, delay: 0.8 }}
         className="w-full max-w-4xl mx-auto mt-10 sm:mt-12"
       >
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 mb-6 sm:mb-8">
+        <div className="grid grid-cols-3 gap-3 sm:gap-4 mb-6 sm:mb-8 max-w-2xl mx-auto">
           {stats.map((stat) => (
             <div
               key={stat.label}
