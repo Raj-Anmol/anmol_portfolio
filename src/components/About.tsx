@@ -8,29 +8,29 @@ import { MapPin, GraduationCap, Calendar } from "lucide-react";
 export function FAQ() {
   const faqs = [
     {
-      question: "Who is Gautam Kumar?",
+      question: "Who is Anmol Raj?",
       answer:
-        "Gautam Kumar is a Full-Stack Developer from Sitamarhi, Bihar, currently based in Jaipur. He has solo-shipped SaaS applications with AI integration, combining React, Node.js, TypeScript, Python, and LLM-powered features. He completed a Microsoft Elevate × AICTE internship and has experience with real-time systems and microservice architecture."
+        "Anmol Raj is a Full-Stack Developer | AI Integration from Jaipur, Rajasthan, India. He is a Computer Science undergraduate at Jagannath University, passionate about MERN stack development and integrating AI into production web applications. He has completed 3 internships and built 8+ projects."
     },
     {
-      question: "What projects has Gautam Kumar built?",
+      question: "What projects has Anmol Raj built?",
       answer:
-        "Gautam has built four production-grade SaaS platforms: InterviewMinds (AI mock interview platform with ML proctoring and CRDT collaborative coding), SwadKart (multi-vendor food delivery with AI chatbot and biometric auth), Satark-AI (deepfake detection and speaker verification platform), and TexFolio (AI-powered LaTeX resume builder SaaS with LangGraph multi-agent coach and real PDF rendering)."
+        "Anmol has built 8+ projects including AI Student Travel Planner (budget-first travel planning with rule-based expense allocation), Krishi Seva Center (AI-powered farmer platform with disease detection and live weather), and various other Streamlit, React, and Node.js applications deployed on Vercel and Render."
     },
     {
-      question: "What is Gautam Kumar's tech stack?",
+      question: "What is Anmol Raj's tech stack?",
       answer:
-        "Gautam's tech stack includes TypeScript, JavaScript, Python, HTML, CSS, SQL, React 18/19, Next.js, Vite, Redux Toolkit, Zustand, Tailwind CSS, Shadcn UI, Framer Motion, Socket.IO, PWA (Workbox), Node.js, Express, Hono, FastAPI, MongoDB, PostgreSQL, Redis, BullMQ, Docker, Turborepo, GitHub Actions, Vercel, Render, Cloudflare Workers, Clerk Auth, Firebase Auth, WebAuthn, Groq SDK (Llama 3.3-70b), Hugging Face, LangChain, LangGraph, TensorFlow.js, face-api.js, PyTorch, Wav2Vec2, ECAPA-TDNN, RSA-4096, AES-256-GCM, and more."
+        "Anmol specializes in the MERN stack (MongoDB, Express, React, Node.js) with additional expertise in TypeScript, Python, AI/ML integration, RESTful APIs, JWT Authentication, WebSockets (Socket.io), MongoDB, Mongoose ORM, PostgreSQL, Cloudinary, IBM Cloud, Vercel, Render, Postman, and VS Code."
     },
     {
-      question: "Where does Gautam Kumar study?",
+      question: "Where does Anmol Raj study?",
       answer:
-        "Gautam Kumar is a University student at Jagannath University, Jaipur, Rajasthan, India. He has also completed a Microsoft Elevate Internship (AICTE)."
+        "Anmol Raj is currently pursuing Bachelor of Technology (B.Tech) in Computer Science at Jagannath University, Jaipur, Rajasthan. He is expected to graduate in July 2027."
     },
     {
-      question: "How to contact Gautam Kumar?",
+      question: "How to contact Anmol Raj?",
       answer:
-        "You can reach Gautam Kumar at gautamkumar43421@gmail.com. He is also active on LinkedIn (linkedin.com/in/gautamkr62), GitHub (github.com/theunstopabble), and Twitter/X (x.com/_unstopabble). He is open to opportunities and collaborations."
+        "You can reach Anmol Raj at araj97855@gmail.com. He is also active on LinkedIn (linkedin.com/in/raj-anmol), GitHub (github.com/Raj-Anmol), and Instagram (instagram.com/raj_anmol_573). He is open for freelance projects and full-time positions."
     }
   ];
 
