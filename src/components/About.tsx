@@ -3,7 +3,6 @@
 import { motion, type Variants } from "motion/react";
 import { cn } from "@/lib/utils";
 import { profile, education, socialLinks } from "@/lib/constants";
-import { GithubActivity } from "@/components/GithubActivity";
 import { MapPin, GraduationCap, Calendar } from "lucide-react";
 
 export function FAQ() {
@@ -185,9 +184,7 @@ export function About() {
                 </a>
               </p>
             </div>
-
-            <GithubActivity />
-          </div>
+        </div>
         </div>
       </div>
     </section>
