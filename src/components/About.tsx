@@ -8,20 +8,29 @@ import { MapPin, GraduationCap, Calendar } from "lucide-react";
 export function FAQ() {
   const faqs = [
     {
-      question: "How can I contact you?",
-      answer: "You can reach me at araj97855@gmail.com or via the social links above. I also respond to messages through LinkedIn and GitHub."
+      question: "Who is Gautam Kumar?",
+      answer:
+        "Gautam Kumar is a Full-Stack Developer from Sitamarhi, Bihar, currently based in Jaipur. He has solo-shipped SaaS applications with AI integration, combining React, Node.js, TypeScript, Python, and LLM-powered features. He completed a Microsoft Elevate × AICTE internship and has experience with real-time systems and microservice architecture."
     },
     {
-      question: "Where is your resume PDF?",
-      answer: "My resume is available for download at /resume/Anmol-Raj-Resume.pdf. You can also download it from the Hero section of this portfolio."
+      question: "What projects has Gautam Kumar built?",
+      answer:
+        "Gautam has built four production-grade SaaS platforms: InterviewMinds (AI mock interview platform with ML proctoring and CRDT collaborative coding), SwadKart (multi-vendor food delivery with AI chatbot and biometric auth), Satark-AI (deepfake detection and speaker verification platform), and TexFolio (AI-powered LaTeX resume builder SaaS with LangGraph multi-agent coach and real PDF rendering)."
     },
     {
-      question: "What is your availability for hire?",
-      answer: "I'm currently available for freelance projects and full-time positions. Please check the 'Available for hire' badge in the header or contact me directly."
+      question: "What is Gautam Kumar's tech stack?",
+      answer:
+        "Gautam's tech stack includes TypeScript, JavaScript, Python, HTML, CSS, SQL, React 18/19, Next.js, Vite, Redux Toolkit, Zustand, Tailwind CSS, Shadcn UI, Framer Motion, Socket.IO, PWA (Workbox), Node.js, Express, Hono, FastAPI, MongoDB, PostgreSQL, Redis, BullMQ, Docker, Turborepo, GitHub Actions, Vercel, Render, Cloudflare Workers, Clerk Auth, Firebase Auth, WebAuthn, Groq SDK (Llama 3.3-70b), Hugging Face, LangChain, LangGraph, TensorFlow.js, face-api.js, PyTorch, Wav2Vec2, ECAPA-TDNN, RSA-4096, AES-256-GCM, and more."
     },
     {
-      question: "What tech stack do you work with?",
-      answer: "I specialize in the MERN stack (MongoDB, Express, React, Node.js) with additional expertise in AI/ML integration, TypeScript, Python, and cloud deployment on Vercel and Render."
+      question: "Where does Gautam Kumar study?",
+      answer:
+        "Gautam Kumar is a University student at Jagannath University, Jaipur, Rajasthan, India. He has also completed a Microsoft Elevate Internship (AICTE)."
+    },
+    {
+      question: "How to contact Gautam Kumar?",
+      answer:
+        "You can reach Gautam Kumar at gautamkumar43421@gmail.com. He is also active on LinkedIn (linkedin.com/in/gautamkr62), GitHub (github.com/theunstopabble), and Twitter/X (x.com/_unstopabble). He is open to opportunities and collaborations."
     }
   ];
 
@@ -33,7 +42,7 @@ export function FAQ() {
           <summary className="cursor-pointer text-primary hover:text-primary/90 transition-colors flex items-center gap-2">
             <span className="text-sm">{faq.question}</span>
           </summary>
-          <p className="text-muted-foreground text-sm mt-2 line-clamp-3">
+          <p className="text-muted-foreground text-sm mt-2 line-clamp-4">
             {faq.answer}
           </p>
         </details>
