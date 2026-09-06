@@ -12,10 +12,10 @@ export function Education() {
     >
       <div className="max-w-7xl mx-auto">
         <header className="text-center mb-10">
-          <h2 id="education-heading" className="text-2xl sm:text-3xl font-bold text-foreground mb-4">
+          <h2 id="education-heading" className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-4 tracking-tight text-balance">
             Education
           </h2>
-          <p className="text-sm text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-sm sm:text-base text-muted-foreground max-w-2xl mx-auto leading-relaxed text-pretty">
             Academic background and continuous learning.
           </p>
         </header>

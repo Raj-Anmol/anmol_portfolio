@@ -31,10 +31,10 @@ export function Experience() {
     >
       <div className="max-w-7xl mx-auto">
         <header className="text-center mb-10">
-          <h2 id="experience-heading" className="text-2xl sm:text-3xl font-bold text-foreground mb-4">
+          <h2 id="experience-heading" className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-4 tracking-tight text-balance">
             Experience
           </h2>
-          <p className="text-sm text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-sm sm:text-base text-muted-foreground max-w-2xl mx-auto leading-relaxed text-pretty">
             Internships in AI, cloud, and full-stack development.
           </p>
         </header>
@@ -70,10 +70,10 @@ export function Experience() {
                 <div className="bg-card rounded-xl border border-border backdrop-blur-sm p-5 hover:border-primary/50 transition-colors">
                   <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3 mb-3">
                     <div>
-                      <h3 className="text-lg font-bold text-foreground">{exp.role}</h3>
-                      <p className="text-primary font-medium text-sm mt-0.5">{exp.company}</p>
+                      <h3 className="text-lg sm:text-xl font-bold text-foreground tracking-tight">{exp.role}</h3>
+                      <p className="text-primary font-medium text-sm sm:text-base mt-0.5">{exp.company}</p>
                     </div>
-                    <div className="flex items-center gap-3 text-xs text-muted-foreground flex-wrap">
+                    <div className="flex items-center gap-3 text-xs sm:text-sm text-muted-foreground flex-wrap">
                       <span className="flex items-center gap-1">
                         <Clock className="h-3.5 w-3.5" />
                         {exp.period}
@@ -87,8 +87,8 @@ export function Experience() {
 
                   <ul className="space-y-2 mb-4">
                     {exp.bullets.map((bullet, bulletIndex) => (
-                      <li key={bulletIndex} className="flex items-start gap-2 text-muted-foreground leading-relaxed text-sm">
-                        <span className="flex-shrink-0 mt-1.5 h-1 w-1 rounded-full bg-primary" />
+                      <li key={bulletIndex} className="flex items-start gap-2 text-muted-foreground leading-relaxed text-sm sm:text-base">
+                        <span className="flex-shrink-0 mt-2 h-1 w-1 rounded-full bg-primary" />
                         <span>{bullet}</span>
                       </li>
                     ))}

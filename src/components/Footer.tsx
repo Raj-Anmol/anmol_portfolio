@@ -36,7 +36,7 @@ export function Footer() {
             <div className="flex items-center gap-2 mb-3">
               <span className="text-lg font-bold text-foreground">Anmol Raj</span>
             </div>
-            <p className="text-xs text-muted-foreground mb-4 leading-relaxed">
+            <p className="text-sm text-muted-foreground mb-4 leading-relaxed">
               {siteConfig.description}
             </p>
             <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-green-500/10 border border-green-500/30 text-green-500 text-xs font-medium">

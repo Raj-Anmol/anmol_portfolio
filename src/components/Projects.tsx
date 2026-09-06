@@ -29,10 +29,10 @@ export function Projects() {
     >
       <div className="max-w-7xl mx-auto">
         <header className="text-center mb-10">
-          <h2 id="projects-heading" className="text-2xl sm:text-3xl font-bold text-foreground mb-4">
+          <h2 id="projects-heading" className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-4 tracking-tight text-balance">
             Featured Projects
           </h2>
-          <p className="text-sm text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-sm sm:text-base text-muted-foreground max-w-2xl mx-auto leading-relaxed text-pretty">
             Real-world apps showcasing full-stack and AI integration skills.
           </p>
         </header>

@@ -77,10 +77,10 @@ export function About() {
     >
       <div className="max-w-7xl mx-auto">
         <header className="text-center mb-10">
-          <h2 id="about-heading" className="text-2xl sm:text-3xl font-bold text-foreground mb-4">
+          <h2 id="about-heading" className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-4 tracking-tight text-balance">
             About Me
           </h2>
-          <p className="text-sm text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-sm sm:text-base text-muted-foreground max-w-2xl mx-auto leading-relaxed text-pretty">
             Computer Science undergraduate passionate about scalable web apps and AI integration.
           </p>
         </header>
@@ -88,14 +88,14 @@ export function About() {
         <div className="grid lg:grid-cols-2 gap-8">
           <div className="space-y-6">
 <div>
-            <h3 className="text-lg font-semibold text-foreground mb-3">Professional Summary</h3>
-            <p className="text-muted-foreground leading-relaxed text-sm">
+            <h3 className="text-lg sm:text-xl font-semibold text-foreground mb-3 tracking-tight">Professional Summary</h3>
+            <p className="text-muted-foreground leading-relaxed text-sm sm:text-base text-pretty">
               {profile.summary}
             </p>
           </div>
 
             <div className="space-y-6">
-              <h3 className="text-lg font-semibold text-foreground">Personal Details</h3>
+              <h3 className="text-lg sm:text-xl font-semibold text-foreground tracking-tight">Personal Details</h3>
               <div className="p-3 bg-card rounded-xl border border-border">
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
                   <div className="flex items-center gap-3">
@@ -103,8 +103,8 @@ export function About() {
                       <MapPin className="h-4 w-4" />
                     </div>
                     <div>
-                      <p className="text-xs font-medium text-muted-foreground uppercase tracking-wide">Location</p>
-                      <p className="text-sm text-foreground">{profile.location}</p>
+                      <p className="text-[10px] sm:text-xs font-medium text-muted-foreground uppercase tracking-wider">Location</p>
+                      <p className="text-sm sm:text-base text-foreground">{profile.location}</p>
                     </div>
                   </div>
                   <div className="flex items-center gap-3">
@@ -112,8 +112,8 @@ export function About() {
                       <MapPin className="h-4 w-4" />
                     </div>
                     <div>
-                      <p className="text-xs font-medium text-muted-foreground uppercase tracking-wide">Native</p>
-                      <p className="text-sm text-foreground">{profile.origin}</p>
+                      <p className="text-[10px] sm:text-xs font-medium text-muted-foreground uppercase tracking-wider">Native</p>
+                      <p className="text-sm sm:text-base text-foreground">{profile.origin}</p>
                     </div>
                   </div>
                   <div className="flex items-center gap-3">
@@ -121,8 +121,8 @@ export function About() {
                       <Calendar className="h-4 w-4" />
                     </div>
                     <div>
-                      <p className="text-xs font-medium text-muted-foreground uppercase tracking-wide">Education</p>
-                      <p className="text-sm text-foreground">B.Tech CSE</p>
+                      <p className="text-[10px] sm:text-xs font-medium text-muted-foreground uppercase tracking-wider">Education</p>
+                      <p className="text-sm sm:text-base text-foreground">B.Tech CSE</p>
                     </div>
                   </div>
                 </div>
@@ -130,7 +130,7 @@ export function About() {
             </div>
 
 <div>
-            <h3 className="text-lg font-semibold text-foreground mb-3">What I Do</h3>
+            <h3 className="text-lg sm:text-xl font-semibold text-foreground mb-3 tracking-tight">What I Do</h3>
             <ul className="space-y-2">
               {[
                 "Build full-stack web applications with MERN stack",
@@ -138,8 +138,8 @@ export function About() {
                 "Design RESTful APIs and real-time systems",
                 "Deploy and manage applications on cloud platforms",
               ].map((item, index) => (
-                <li key={index} className="flex items-start gap-2 text-muted-foreground text-sm">
-                  <span className="flex-shrink-0 mt-1.5 h-1.5 w-1.5 rounded-full bg-primary" />
+                <li key={index} className="flex items-start gap-2 text-muted-foreground text-sm sm:text-base leading-relaxed">
+                  <span className="flex-shrink-0 mt-2 h-1.5 w-1.5 rounded-full bg-primary" />
                   <span>{item}</span>
                 </li>
               ))}
@@ -149,15 +149,15 @@ export function About() {
 
           <div className="space-y-6">
             <div className="bg-card rounded-2xl border border-border p-5">
-              <h3 className="text-lg font-semibold text-foreground mb-4 flex items-center gap-2">
+              <h3 className="text-lg sm:text-xl font-semibold text-foreground mb-4 flex items-center gap-2 tracking-tight">
                 <GraduationCap className="h-5 w-5 text-primary" />
                 Education
               </h3>
               {education.map((edu, index) => (
                 <div key={index} className="space-y-2">
-                  <p className="text-base font-medium text-foreground">{edu.degree}</p>
-                  <p className="text-primary font-medium text-sm">{edu.institution}</p>
-                  <div className="flex flex-wrap items-center gap-3 text-xs text-muted-foreground">
+                  <p className="text-base sm:text-lg font-medium text-foreground">{edu.degree}</p>
+                  <p className="text-primary font-medium text-sm sm:text-base">{edu.institution}</p>
+                  <div className="flex flex-wrap items-center gap-3 text-xs sm:text-sm text-muted-foreground">
                     <span className="flex items-center gap-1">
                       <MapPin className="h-3 w-3" />
                       {edu.location}
@@ -172,7 +172,7 @@ export function About() {
             </div>
 
             <div className="bg-card rounded-2xl border border-border p-5">
-              <h3 className="text-lg font-semibold text-foreground mb-4">Core Competencies</h3>
+              <h3 className="text-lg sm:text-xl font-semibold text-foreground mb-4 tracking-tight">Core Competencies</h3>
               <div className="grid grid-cols-2 gap-2">
                 {[
                   "Full Stack Development",
@@ -186,29 +186,27 @@ export function About() {
                 ].map((skill, index) => (
                   <span
                     key={index}
-                    className="px-3 py-1.5 text-xs bg-muted rounded-lg text-muted-foreground border border-border hover:border-primary/50 hover:text-foreground transition-colors"
+                    className="px-3 py-1.5 text-xs sm:text-sm bg-muted rounded-lg text-muted-foreground border border-border hover:border-primary/50 hover:text-foreground transition-colors"
                   >
                     {skill}
                   </span>
                 ))}
               </div>
             </div>
-            <div className="mt-4 flex items-center gap-3">
-<p className="text-xs text-muted-foreground">
-                Connect on:
-                <a href={socialLinks.linkedin} target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
-                  LinkedIn
-                </a>
-                <a href={socialLinks.twitter} target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
-                  Twitter
-                </a>
-                <a href={socialLinks.instagram} target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
-                  Instagram
-                </a>
-                <a href={socialLinks.github} target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
-                  GitHub
-                </a>
-              </p>
+            <div className="mt-4 flex flex-wrap items-center gap-2 text-xs sm:text-sm text-muted-foreground">
+              <span>Connect on:</span>
+              <a href={socialLinks.linkedin} target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
+                LinkedIn
+              </a>
+              <a href={socialLinks.twitter} target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
+                Twitter
+              </a>
+              <a href={socialLinks.instagram} target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
+                Instagram
+              </a>
+              <a href={socialLinks.github} target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
+                GitHub
+              </a>
             </div>
         </div>
         </div>
