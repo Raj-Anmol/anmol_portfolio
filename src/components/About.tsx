@@ -8,6 +8,70 @@ import { GithubIcon as GithubIconComponent } from "@/components/icons/GithubIcon
 import { LinkedinIcon as LinkedinIconComponent } from "@/components/icons/LinkedinIcon";
 import { InstagramIcon as InstagramIconComponent } from "@/components/icons/InstagramIcon";
 
+export function FAQ() {
+  const faqs = [
+    {
+      question: "Who is Anmol Raj?",
+      answer:
+        "Anmol Raj is a Full-Stack Developer | AI Integration from Jaipur, Rajasthan, India. He is a Computer Science undergraduate at Jagannath University, passionate about MERN stack development and integrating AI into production web applications. He has completed 3 internships and built 8+ projects."
+    },
+    {
+      question: "What projects has Anmol Raj built?",
+      answer:
+        "Anmol has built 8+ projects including AI Student Travel Planner (budget-first travel planning with rule-based expense allocation), Krishi Seva Center (AI-powered farmer platform with disease detection and live weather), and various other Streamlit, React, and Node.js applications deployed on Vercel and Render."
+    },
+    {
+      question: "What is Anmol Raj's tech stack?",
+      answer:
+        "Anmol specializes in the MERN stack (MongoDB, Express, React, Node.js) with additional expertise in TypeScript, Python, AI/ML integration, RESTful APIs, JWT Authentication, WebSockets (Socket.io), MongoDB, Mongoose ORM, PostgreSQL, Cloudinary, IBM Cloud, Vercel, Render, Postman, and VS Code."
+    },
+    {
+      question: "Where does Anmol Raj study?",
+      answer:
+        "Anmol Raj is currently pursuing Bachelor of Technology (B.Tech) in Computer Science at Jagannath University, Jaipur, Rajasthan. He is expected to graduate in July 2027."
+    },
+    {
+      question: "How to contact Anmol Raj?",
+      answer:
+        "You can reach Anmol Raj at araj97855@gmail.com. He is also active on LinkedIn (linkedin.com/in/raj-anmol), GitHub (github.com/Raj-Anmol), and Instagram (instagram.com/raj_anmol_573). He is open for freelance projects and full-time positions."
+    }
+  ];
+
+  return (
+    <div className="space-y-6 sm:space-y-8 max-w-full">
+      <h3 className="text-lg font-semibold text-foreground mb-3 sm:text-base">Frequently Asked Questions</h3>
+      {faqs.map((faq, index) => (
+        <details
+          key={index}
+          className="group bg-card rounded-xl border border-border p-4 sm:p-6 transition-all open:bg-card/80 open:border-primary/30"
+        >
+          <summary className="cursor-pointer text-primary hover:text-primary/90 transition-all flex items-center justify-between gap-2 sm:text-base marker:hidden list-none open:text-muted-foreground open:hover:text-muted-foreground">
+            <span className="text-sm font-medium">{faq.question}</span>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              className="h-4 w-4 flex-shrink-0 transition-transform duration-200 group-open:rotate-180"
+            >
+              <polyline points="6 9 12 15 18 9" />
+            </svg>
+          </summary>
+          <p className="text-foreground text-sm sm:text-base mt-3 sm:mt-4 opacity-0 -translate-y-1 transition-all duration-200 group-open:opacity-100 group-open:translate-y-0">
+            {faq.answer}
+          </p>
+        </details>
+      ))}
+    </div>
+  );
+}
+
+
 export function About() {
   return (
     <section
