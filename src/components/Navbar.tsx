@@ -155,10 +155,10 @@ export function Navbar() {
         </div>
 
         {mobileMenuOpen && (
-          <div className="fixed inset-0 z-40 overflow-y-auto">
-            <div className="fixed inset-0 bg-black/50" aria-hidden="true" />
-            <div className="md:hidden absolute right-0 top-0 w-fit min-w-[140px] bg-black border border-border rounded-lg shadow-2xl p-2 z-50 animate-in">
-              <div className="flex flex-col items-end gap-1">
+          <div className="fixed inset-0 z-[99] overflow-hidden">
+            <div className="fixed inset-0 bg-black/80 transition-colors duration-300" aria-hidden="true" />
+            <div className="md:hidden top-full left-0 w-full max-w-sm bg-black border border-border rounded-xl shadow-lg p-4 z-52 animate-in fade-in">
+              <div className="flex flex-col items-end gap-2 pt-2 overflow-y-auto max-h-screen">
                 {navItems.map((item) => {
                   const active = isActive(item.href);
                   return (
@@ -167,7 +167,7 @@ export function Navbar() {
                       href={item.href}
                       onClick={() => setMobileMenuOpen(false)}
                       className={cn(
-                        "px-3 py-1.5 text-sm font-medium transition-colors rounded-md w-full text-right",
+                        "w-full px-3 py-2 text-sm font-medium transition-colors rounded-md text-right",
                         active
                           ? "text-primary bg-primary/10"
                           : "text-muted-foreground hover:text-foreground hover:bg-muted/50"
@@ -183,7 +183,7 @@ export function Navbar() {
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={() => setMobileMenuOpen(false)}
-                  className="mt-2 inline-flex items-center justify-end gap-1.5 px-3 py-1.5 text-xs font-medium rounded-md border border-primary/50 text-primary hover:bg-primary/10 w-full"
+                  className="w-full mt-2 inline-flex items-center justify-end gap-1.5 px-3 py-2 text-sm font-medium rounded-md border border-primary/50 text-primary hover:bg-primary/10"
                   aria-label="View Resume PDF in new tab"
                 >
                   <Eye className="h-4 w-4" />
