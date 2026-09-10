@@ -158,7 +158,7 @@ export function Navbar() {
           <div className="fixed inset-0 z-[99] overflow-hidden">
             <div className="fixed inset-0 bg-black/80 transition-colors duration-300" aria-hidden="true" />
             <div className="md:hidden top-full left-0 w-full max-w-sm bg-black border border-border rounded-xl shadow-lg p-4 z-52 animate-in fade-in">
-              <div className="flex flex-col items-end gap-2 pt-2 overflow-y-auto max-h-screen">
+              <div className="flex flex-col items-end gap-2 pt-2 overflow-y-auto">
                 {navItems.map((item) => {
                   const active = isActive(item.href);
                   return (
