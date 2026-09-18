@@ -128,7 +128,11 @@ export function Hero() {
 
             {/* Mobile: View Resume */}
             <Button asChild size="lg" className="gap-2 w-full sm:w-auto block sm:hidden">
-              <Link href={profile.resumeUrl}>
+              <Link
+                href={profile.resumeUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 View Resume
                 <Eye className="h-4 w-4" />
               </Link>
