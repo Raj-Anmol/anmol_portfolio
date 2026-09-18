@@ -5,7 +5,7 @@ import { profile, siteConfig, socialLinks } from "@/lib/constants";
 import { Mail, Heart, FileText, MapPin } from "lucide-react";
 import { GithubIcon } from "@/components/icons/GithubIcon";
 import { LinkedinIcon } from "@/components/icons/LinkedinIcon";
-import { TwitterOfficialIcon } from "@/components/icons/TwitterOfficialIcon";
+import { TwitterIcon } from "@/components/icons/TwitterIcon";
 
 
 const quickLinksLeft = [
@@ -142,7 +142,7 @@ export function Footer() {
                  className="p-1.5 rounded-lg bg-muted/50 text-muted-foreground hover:bg-primary/10 hover:text-primary transition-all"
                  aria-label="Twitter"
                >
-                 <TwitterOfficialIcon className="h-3.5 w-3.5" />
+                 <TwitterIcon className="h-3.5 w-3.5" />
                  <span className="hidden sm:inline">Twitter</span>
                </a>
              </div>
