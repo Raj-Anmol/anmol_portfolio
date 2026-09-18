@@ -5,7 +5,7 @@ import Link from "next/link";
 import { motion } from "motion/react";
 import { Button } from "@/components/ui/button";
 import { AnimatedCounter } from "@/components/ui/animated-counter";
-import { ArrowRight, Mail, ChevronDown } from "lucide-react";
+import { ArrowRight, Mail, Eye, ChevronDown } from "lucide-react";
 import { GithubIcon } from "@/components/icons/GithubIcon";
 import { LinkedinIcon } from "@/components/icons/LinkedinIcon";
 import { TwitterOfficialIcon } from "@/components/icons/TwitterOfficialIcon";
@@ -38,6 +38,7 @@ const socialIcons = [
   { label: "LinkedIn", href: socialLinks.linkedin, Icon: LinkedinIcon },
   { label: "Twitter", href: socialLinks.twitter, Icon: TwitterOfficialIcon },
   { label: "Email", href: socialLinks.email, Icon: Mail },
+  { label: "Resume", href: profile.resumeUrl, Icon: Eye },
 ];
 
 export function Hero() {
@@ -117,12 +118,22 @@ export function Hero() {
             variants={itemVariants}
             className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4"
           >
-            <Button asChild size="lg" className="gap-2 w-full sm:w-auto">
+            {/* Desktop: View My Work */}
+            <Button asChild size="lg" className="gap-2 w-full sm:w-auto hidden sm:block">
               <Link href="/projects">
                 View My Work
                 <ArrowRight className="h-4 w-4" />
               </Link>
             </Button>
+
+            {/* Mobile: View Resume */}
+            <Button asChild size="lg" className="gap-2 w-full sm:w-auto block sm:hidden">
+              <Link href={profile.resumeUrl}>
+                View Resume
+                <Eye className="h-4 w-4" />
+              </Link>
+            </Button>
+
             <Button asChild size="lg" variant="outline" className="gap-2 w-full sm:w-auto">
               <Link href="/contact">
                 <Mail className="h-4 w-4" />
