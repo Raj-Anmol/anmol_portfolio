@@ -6,7 +6,7 @@ import { profile, education, socialLinks, skills } from "@/lib/constants";
 import { MapPin, GraduationCap, Calendar, Sparkles, Check, ArrowUpDown, Globe } from "lucide-react";
 import { GithubIcon as GithubIconComponent } from "@/components/icons/GithubIcon";
 import { LinkedinIcon as LinkedinIconComponent } from "@/components/icons/LinkedinIcon";
-import { InstagramIcon as InstagramIconComponent } from "@/components/icons/InstagramIcon";
+
 
 export function FAQ() {
   const faqs = [
@@ -33,7 +33,7 @@ export function FAQ() {
     {
       question: "How to contact Anmol Raj?",
       answer:
-        "You can reach Anmol Raj at araj97855@gmail.com. He is also active on LinkedIn (linkedin.com/in/raj-anmol), GitHub (github.com/Raj-Anmol), and Instagram (instagram.com/raj_anmol_573). He is open for freelance projects and full-time positions."
+        "You can reach Anmol Raj at araj97855@gmail.com. He is also active on LinkedIn (linkedin.com/in/raj-anmol), GitHub (github.com/Raj-Anmol). He is open for freelance projects and full-time positions."
     }
   ];
 
@@ -297,10 +297,10 @@ export function About() {
               <Globe className="h-4 w-4 text-purple-400 mb-2" /> Social Connect
             </h3>
             <div className="flex gap-3">
-{[socialLinks.linkedin, socialLinks.github, socialLinks.instagram].map(
+{[socialLinks.linkedin, socialLinks.github].map(
                   (link, i) => {
-                    const Icon = [LinkedinIconComponent, GithubIconComponent, InstagramIconComponent][i];
-                    const names = ["LinkedIn", "GitHub", "Instagram"];
+                    const Icon = [LinkedinIconComponent, GithubIconComponent][i];
+                    const names = ["LinkedIn", "GitHub"];
                   return (
                     <a
                       key={i}

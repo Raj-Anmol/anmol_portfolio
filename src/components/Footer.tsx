@@ -6,7 +6,7 @@ import { Mail, Heart, FileText, MapPin } from "lucide-react";
 import { GithubIcon } from "@/components/icons/GithubIcon";
 import { LinkedinIcon } from "@/components/icons/LinkedinIcon";
 import { TwitterOfficialIcon } from "@/components/icons/TwitterOfficialIcon";
-import { InstagramOfficialIcon } from "@/components/icons/InstagramOfficialIcon";
+
 
 const quickLinksLeft = [
   { label: "Home", href: "/" },
@@ -135,27 +135,17 @@ export function Footer() {
               >
                 <GithubIcon className="h-3.5 w-3.5" />
               </a>
-              <a
-                href={socialLinks.twitter}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-1.5 rounded-lg bg-muted/50 text-muted-foreground hover:bg-primary/10 hover:text-primary transition-all"
-                aria-label="Twitter"
-              >
-                <TwitterOfficialIcon className="h-3.5 w-3.5" />
-                <span className="hidden sm:inline">Twitter</span>
-              </a>
-              <a
-                href={socialLinks.instagram}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-1.5 rounded-lg bg-muted/50 text-muted-foreground hover:bg-primary/10 hover:text-primary transition-all"
-                aria-label="Instagram"
-              >
-                <InstagramOfficialIcon className="h-3.5 w-3.5" />
-                <span className="hidden sm:inline">Instagram</span>
-              </a>
-            </div>
+<a
+                 href={socialLinks.twitter}
+                 target="_blank"
+                 rel="noopener noreferrer"
+                 className="p-1.5 rounded-lg bg-muted/50 text-muted-foreground hover:bg-primary/10 hover:text-primary transition-all"
+                 aria-label="Twitter"
+               >
+                 <TwitterOfficialIcon className="h-3.5 w-3.5" />
+                 <span className="hidden sm:inline">Twitter</span>
+               </a>
+             </div>
           </div>
         </div>
 
