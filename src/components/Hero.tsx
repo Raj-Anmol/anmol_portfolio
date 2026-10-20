@@ -45,7 +45,7 @@ export function Hero() {
   return (
     <section
       id="hero"
-      className="relative min-h-[100dvh] flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8 pt-20 sm:pt-24 pb-12 sm:pb-16 bg-black/95 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-purple-900/30 via-black to-black overflow-x-hidden"
+      className="relative min-h-[100dvh] flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8 pt-20 sm:pt-24 pb-12 sm:pb-16 bg-background bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-purple-100/70 via-background to-background dark:bg-black/95 dark:from-purple-900/30 dark:via-black dark:to-black overflow-x-hidden transition-colors duration-300"
       aria-labelledby="hero-heading"
     >
       <div className="max-w-4xl mx-auto w-full flex-1 flex flex-col items-center justify-center">
@@ -78,12 +78,12 @@ export function Hero() {
           {/* Availability Badge */}
           <motion.div
             variants={itemVariants}
-            className="inline-flex items-center gap-2 px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-full bg-green-500/10 border border-green-500/30 text-green-400 text-xs sm:text-sm font-medium mb-4 sm:mb-5"
+            className="inline-flex items-center gap-2 px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-full bg-emerald-500/10 border border-emerald-500/25 text-emerald-700 dark:bg-green-500/10 dark:border-green-500/30 dark:text-green-400 text-xs sm:text-sm font-medium mb-4 sm:mb-5"
             aria-live="polite"
           >
             <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-green-400" />
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-500 dark:bg-green-400 opacity-75" />
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500 dark:bg-green-400" />
             </span>
             Available for Opportunities
           </motion.div>
@@ -101,7 +101,7 @@ export function Hero() {
                 I&apos;m
               </motion.span>
             </span>{" "}
-            <span className="inline-block whitespace-nowrap bg-gradient-to-r from-white via-purple-200 to-purple-400 bg-clip-text text-transparent">
+            <span className="inline-block whitespace-nowrap bg-gradient-to-r from-purple-600 via-indigo-600 to-purple-800 dark:from-white dark:via-purple-200 dark:to-purple-400 bg-clip-text text-transparent">
               <motion.span custom={2} variants={wordVariants} initial="hidden" animate="visible" className="inline-block mr-1.5 sm:mr-2.5">
                 Anmol
               </motion.span>
@@ -114,7 +114,7 @@ export function Hero() {
           {/* Description */}
           <motion.p
             variants={itemVariants}
-            className="text-sm sm:text-base md:text-lg text-muted-foreground/85 mb-6 sm:mb-8 max-w-xl mx-auto leading-relaxed px-2 text-balance"
+            className="text-sm sm:text-base md:text-lg text-muted-foreground mb-6 sm:mb-8 max-w-xl mx-auto leading-relaxed px-2 text-balance"
           >
             Full Stack Developer specializing in the MERN stack, building production web applications with AI integration.
           </motion.p>
@@ -127,7 +127,7 @@ export function Hero() {
             <Button
               asChild
               size="lg"
-              className="h-11 px-7 rounded-xl font-medium w-full sm:w-auto gap-2 bg-primary text-primary-foreground hover:bg-primary/90 shadow-lg shadow-purple-500/20 active:scale-[0.98] transition-all"
+              className="h-11 px-7 rounded-xl font-medium w-full sm:w-auto gap-2 bg-primary text-primary-foreground hover:bg-primary/90 shadow-md shadow-purple-500/20 active:scale-[0.98] transition-all"
             >
               <a
                 href={profile.resumeUrl}
@@ -145,7 +145,7 @@ export function Hero() {
               asChild
               size="lg"
               variant="outline"
-              className="h-11 px-7 rounded-xl font-medium w-full sm:w-auto gap-2 border-border/80 hover:border-purple-500/50 hover:bg-purple-500/10 active:scale-[0.98] transition-all"
+              className="h-11 px-7 rounded-xl font-medium w-full sm:w-auto gap-2 border-border bg-card hover:bg-muted text-foreground active:scale-[0.98] transition-all dark:border-border/80 dark:bg-transparent dark:hover:border-purple-500/50 dark:hover:bg-purple-500/10"
             >
               <Link href="/contact" className="inline-flex items-center justify-center gap-2">
                 <Mail className="h-4 w-4" />
@@ -168,9 +168,9 @@ export function Hero() {
           {stats.map((stat) => (
             <div
               key={stat.label}
-              className="flex flex-col items-center justify-center text-center p-2.5 sm:p-3.5 rounded-xl bg-white/[0.03] border border-white/5 backdrop-blur-sm min-w-0"
+              className="flex flex-col items-center justify-center text-center p-2.5 sm:p-3.5 rounded-xl bg-card border border-border shadow-xs dark:bg-white/[0.03] dark:border-white/5 backdrop-blur-sm min-w-0"
             >
-              <div className="text-base sm:text-xl md:text-2xl font-bold text-foreground drop-shadow-[0_0_10px_rgba(255,255,255,0.15)] tabular-nums">
+              <div className="text-base sm:text-xl md:text-2xl font-bold text-foreground tabular-nums dark:drop-shadow-[0_0_10px_rgba(255,255,255,0.15)]">
                 <AnimatedCounter value={stat.value} suffix={stat.suffix} />
               </div>
               <div className="text-[10px] sm:text-xs text-muted-foreground uppercase tracking-wider font-medium mt-1 truncate max-w-full">
@@ -189,7 +189,7 @@ export function Hero() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label={label}
-              className="group relative flex items-center justify-center w-9 h-9 sm:w-11 sm:h-11 rounded-full bg-white/5 border border-white/10 backdrop-blur-sm text-muted-foreground hover:text-foreground hover:border-purple-500/50 hover:bg-white/10 hover:shadow-[0_0_20px_rgba(168,85,247,0.3)] active:scale-95 transition-all duration-300"
+              className="group relative flex items-center justify-center w-9 h-9 sm:w-11 sm:h-11 rounded-full bg-card border border-border shadow-xs text-muted-foreground hover:text-foreground hover:border-primary/50 hover:bg-muted/80 dark:bg-white/5 dark:border-white/10 dark:text-muted-foreground dark:hover:text-foreground dark:hover:border-purple-500/50 dark:hover:bg-white/10 dark:hover:shadow-[0_0_20px_rgba(168,85,247,0.3)] active:scale-95 transition-all duration-300"
             >
               <Icon className="h-4 w-4 sm:h-5 sm:w-5" />
             </a>
@@ -207,7 +207,7 @@ export function Hero() {
               window.scrollBy({ top: window.innerHeight, behavior: "smooth" });
             }
           }}
-          className="flex flex-col items-center gap-1 mx-auto text-muted-foreground/60 hover:text-foreground/90 transition-colors duration-300 focus:outline-none focus-visible:text-foreground"
+          className="flex flex-col items-center gap-1 mx-auto text-muted-foreground hover:text-foreground transition-colors duration-300 focus:outline-none focus-visible:text-foreground"
           aria-label="Scroll to next section"
         >
           <span className="text-[10px] sm:text-xs tracking-[0.3em] uppercase">Scroll</span>

@@ -83,18 +83,19 @@ export function About() {
         {/* Ambient Orb Background */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <div className="relative">
-            <div className="absolute -inset-2 rounded-3xl opacity-20 blur-[80%] bg-gradient-to-br from-purple-900 to-transparent" />
-            <div className="absolute -inset-4 rounded-2xl opacity-15 blur-[60%] bg-gradient-to-br from-purple-500/30 to-transparent" />
+            <div className="absolute -inset-2 rounded-3xl opacity-20 blur-[80%] bg-gradient-to-br from-purple-300 dark:from-purple-900 to-transparent" />
+            <div className="absolute -inset-4 rounded-2xl opacity-15 blur-[60%] bg-gradient-to-br from-purple-400/30 dark:from-purple-500/30 to-transparent" />
           </div>
         </div>
 
         {/* Bento Grid Container */}
         <div className="relative grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 pt-6">
 
-          {/* Card 1: Professional Summary & What I Do (spans full width on mobile, left on desktop) */}
+          {/* Card 1: Professional Summary & What I Do */}
           <motion.div
             className={cn(
-              "group border-purple-500/20 bg-[#0c0c12]/80 border rounded-3xl p-6 sm:p-8 backdrop-blur-xl shadow-[0_4px_30px_rgba(0,0,0,0.5)]",
+              "group bg-card border border-border rounded-3xl p-6 sm:p-8 shadow-xs hover:shadow-md",
+              "dark:bg-[#0c0c12]/80 dark:border-purple-500/20 dark:shadow-[0_4px_30px_rgba(0,0,0,0.5)]",
               "group-hover:scale-102",
               "transition-all duration-300"
             )}
@@ -102,7 +103,7 @@ export function About() {
             {/* Neon Pill Badge */}
             <div className="flex items-center gap-2 mb-6">
               <span
-                className="inline-flex items-center gap-2 px-3 py-1.5 rounded-2xl border-purple-500/40 bg-purple-500/10 text-purple-300 text-sm font-medium"
+                className="inline-flex items-center gap-2 px-3 py-1.5 rounded-2xl border border-purple-500/30 bg-purple-500/10 text-purple-700 dark:text-purple-300 text-sm font-medium"
               >
                 About Me
               </span>
@@ -110,32 +111,32 @@ export function About() {
 
             {/* Gradient Title */}
             <h2
-              className="text-2xl sm:text-3xl lg:text-4xl font-bold bg-gradient-to-r from-cyan-400 via-purple-300 to-pink-400 bg-clip-text text-transparent mb-6"
+              className="text-2xl sm:text-3xl lg:text-4xl font-bold bg-gradient-to-r from-purple-700 via-indigo-600 to-pink-600 dark:from-cyan-400 dark:via-purple-300 dark:to-pink-400 bg-clip-text text-transparent mb-6"
             >
               Engineering Scalable Systems & AI
             </h2>
 
             {/* Professional Summary */}
-            <p className="text-sm sm:text-base text-purple-300 leading-relaxed text-pretty mb-8">
+            <p className="text-sm sm:text-base text-foreground/85 dark:text-purple-300 leading-relaxed text-pretty mb-8">
               {profile.summary}
             </p>
 
             {/* What I Do Checklist */}
             <div className="space-y-4">
-              <h3 className="text-lg sm:text-xl font-semibold text-foreground mb-3 tracking-tight">
-                <Sparkles className="h-4 w-4 text-purple-400" /> What I Do
+              <h3 className="text-lg sm:text-xl font-semibold text-foreground mb-3 tracking-tight flex items-center gap-2">
+                <Sparkles className="h-4 w-4 text-primary dark:text-purple-400" /> What I Do
               </h3>
               <ul className="space-y-3">
                 {[1, 2, 3, 4].map((_, i) => (
                   <li
                     key={i}
-                    className="flex items-start gap-3 px-3 py-2 bg-emerald-500/10 border border-emerald-500/20 rounded-lg transition-all hover:bg-emerald-500/15 hover:shadow-[0_0_10px_rgba(34,197,94,0.3)]"
+                    className="flex items-start gap-3 px-3 py-2 bg-emerald-500/10 border border-emerald-500/20 rounded-lg transition-all hover:bg-emerald-500/15"
                   >
-                    <div className="flex-shrink-0 h-4 w-4 rounded-full bg-emerald-400/30 flex items-center justify-center mt-1">
-                      <Check className="h-3 w-3 text-emerald-400" />
+                    <div className="flex-shrink-0 h-4 w-4 rounded-full bg-emerald-500/20 flex items-center justify-center mt-1">
+                      <Check className="h-3 w-3 text-emerald-600 dark:text-emerald-400" />
                     </div>
                     <span
-                      className="flex-1 text-sm sm:text-base text-emerald-300 font-medium"
+                      className="flex-1 text-sm sm:text-base text-emerald-800 dark:text-emerald-300 font-medium"
                     >
                       {[1, 2, 3, 4][i] === 1
                         ? "Build full-stack web applications with MERN stack"
@@ -151,10 +152,11 @@ export function About() {
             </div>
           </motion.div>
 
-          {/* Card 2: Education (Top Right) */}
+          {/* Card 2: Education */}
           <motion.div
             className={cn(
-              "group border-blue-500/20 bg-[#0c0c12]/80 border rounded-3xl p-6 sm:p-8 backdrop-blur-xl shadow-[0_4px_30px_rgba(0,0,0,0.5)]",
+              "group bg-card border border-border rounded-3xl p-6 sm:p-8 shadow-xs hover:shadow-md",
+              "dark:bg-[#0c0c12]/80 dark:border-blue-500/20 dark:shadow-[0_4px_30px_rgba(0,0,0,0.5)]",
               "group-hover:scale-102",
               "transition-all duration-300"
             )}
@@ -164,37 +166,38 @@ export function About() {
               <div
                 className="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl border border-indigo-500/20 bg-indigo-500/10"
               >
-                <GraduationCap className="h-4.5 w-4.5 text-indigo-400" />
-                <span className="text-sm font-medium text-indigo-300">Education</span>
+                <GraduationCap className="h-4.5 w-4.5 text-indigo-600 dark:text-indigo-400" />
+                <span className="text-sm font-medium text-indigo-700 dark:text-indigo-300">Education</span>
               </div>
             </div>
 
             {/* Degree & Institution */}
             <div className="space-y-4">
               <div>
-                <p className="text-2xl sm:text-3xl font-bold text-white mb-1">
+                <p className="text-xl sm:text-2xl font-bold text-foreground dark:text-white mb-1">
                   Bachelor of Technology (B.Tech) in Computer Science
                 </p>
-                <p className="text-xs text-purple-400/60 uppercase tracking-wider mb-2">
+                <p className="text-xs text-muted-foreground dark:text-purple-400/60 uppercase tracking-wider mb-2">
                   2023 - 2027 (Expected)
                 </p>
               </div>
 
-              <div className="p-3 bg-blue-500/10 border border-blue-500/20 rounded-full">
-                <p className="text-lg font-bold text-blue-300">
+              <div className="p-3 bg-indigo-500/10 border border-indigo-500/20 rounded-2xl">
+                <p className="text-base sm:text-lg font-bold text-indigo-700 dark:text-blue-300">
                   Jagannath University
                 </p>
-                <p className="text-xs text-blue-400/60 uppercase tracking-wider">
+                <p className="text-xs text-indigo-600/80 dark:text-blue-400/60 uppercase tracking-wider">
                   Jaipur, Rajasthan
                 </p>
               </div>
             </div>
           </motion.div>
 
-          {/* Card 3: Core Competencies (Bottom Right) */}
+          {/* Card 3: Core Competencies */}
           <motion.div
             className={cn(
-              "group border-emerald-500/20 bg-[#0c0c12]/80 border rounded-3xl p-6 sm:p-8 backdrop-blur-xl shadow-[0_4px_30px_rgba(0,0,0,0.5)]",
+              "group bg-card border border-border rounded-3xl p-6 sm:p-8 shadow-xs hover:shadow-md",
+              "dark:bg-[#0c0c12]/80 dark:border-emerald-500/20 dark:shadow-[0_4px_30px_rgba(0,0,0,0.5)]",
               "group-hover:scale-102",
               "transition-all duration-300"
             )}
@@ -205,19 +208,19 @@ export function About() {
                 Core Competencies
               </h3>
               <div className="flex gap-2">
-                <span key={1} className="inline-flex items-center gap-1 px-2 py-1 rounded-full text-xs font-medium bg-cyan-500/10 text-cyan-300 border border-cyan-500/20">
+                <span key={1} className="inline-flex items-center gap-1 px-2 py-1 rounded-full text-xs font-medium bg-cyan-500/10 text-cyan-700 dark:text-cyan-300 border border-cyan-500/20">
                   Full Stack
                 </span>
-                <span key={2} className="inline-flex items-center gap-1 px-2 py-1 rounded-full text-xs font-medium bg-purple-500/10 text-purple-300 border border-purple-500/20">
+                <span key={2} className="inline-flex items-center gap-1 px-2 py-1 rounded-full text-xs font-medium bg-purple-500/10 text-purple-700 dark:text-purple-300 border border-purple-500/20">
                   AI/ML
                 </span>
-                <span key={3} className="inline-flex items-center gap-1 px-2 py-1 rounded-full text-xs font-medium bg-emerald-500/10 text-emerald-300 border border-emerald-500/20">
+                <span key={3} className="inline-flex items-center gap-1 px-2 py-1 rounded-full text-xs font-medium bg-emerald-500/10 text-emerald-700 dark:text-emerald-300 border border-emerald-500/20">
                   Cloud
                 </span>
               </div>
             </div>
 
-            {/* Skill Badges - Dynamic Pill Chips */}
+            {/* Skill Badges */}
             <div className="grid grid-cols-2 gap-2 sm:grid-cols-3">
               {[
                 { name: "Full Stack & APIs", desc: "Next.js, React, TypeScript, REST APIs" },
@@ -231,7 +234,7 @@ export function About() {
               ].map((skill) => (
                 <span
                   key={skill.name}
-                  className="rounded-xl px-3 py-2 text-xs sm:text-sm font-medium bg-white/[0.04] border border-white/10 text-purple-200/90 hover:border-purple-500/40 hover:bg-purple-500/10 transition-all duration-300"
+                  className="rounded-xl px-3 py-2 text-xs sm:text-sm font-medium bg-muted/60 border border-border text-foreground hover:bg-muted dark:bg-white/[0.04] dark:border-white/10 dark:text-purple-200/90 dark:hover:border-purple-500/40 dark:hover:bg-purple-500/10 transition-all duration-300"
                 >
                   {skill.name}
                 </span>
@@ -242,19 +245,20 @@ export function About() {
           {/* Social Connect Bar */}
           <motion.div
             className={cn(
-              "group border-purple-500/20 bg-[#0c0c12]/80 border rounded-3xl p-6 sm:p-8 backdrop-blur-xl shadow-[0_4px_30px_rgba(0,0,0,0.5)]",
+              "group bg-card border border-border rounded-3xl p-6 sm:p-8 shadow-xs hover:shadow-md",
+              "dark:bg-[#0c0c12]/80 dark:border-purple-500/20 dark:shadow-[0_4px_30px_rgba(0,0,0,0.5)]",
               "group-hover:scale-102",
               "transition-all duration-300"
             )}
           >
-            <h3 className="text-lg sm:text-xl font-semibold text-foreground mb-4 tracking-tight">
-              <Globe className="h-4 w-4 text-purple-400 mb-2" /> Social Connect
+            <h3 className="text-lg sm:text-xl font-semibold text-foreground mb-4 tracking-tight flex items-center gap-2">
+              <Globe className="h-4 w-4 text-primary dark:text-purple-400" /> Social Connect
             </h3>
             <div className="flex gap-3">
-{[socialLinks.linkedin, socialLinks.github].map(
-                  (link, i) => {
-                    const Icon = [LinkedinIconComponent, GithubIconComponent][i];
-                    const names = ["LinkedIn", "GitHub"];
+              {[socialLinks.linkedin, socialLinks.github].map(
+                (link, i) => {
+                  const Icon = [LinkedinIconComponent, GithubIconComponent][i];
+                  const names = ["LinkedIn", "GitHub"];
                   return (
                     <a
                       key={i}
@@ -263,14 +267,14 @@ export function About() {
                       rel="noopener noreferrer"
                       className={cn(
                         "flex flex-col items-center gap-1.5 px-4 py-3 rounded-xl transition-all duration-300",
-                        "border-2 border-purple-500/20 bg-purple-500/10",
-                        "hover:border-purple-400 hover:shadow-[0_0_20px_rgba(168,85,247,0.4)]",
-                        "group-hover:scale-110",
-                        "group-hover:text-purple-200"
+                        "border border-border bg-muted/30 text-foreground hover:border-primary hover:text-primary hover:bg-primary/5",
+                        "dark:border-2 dark:border-purple-500/20 dark:bg-purple-500/10",
+                        "dark:hover:border-purple-400 dark:hover:shadow-[0_0_20px_rgba(168,85,247,0.4)]",
+                        "group-hover:scale-105"
                       )}
                     >
                       <Icon
-                        className="h-5 w-5 text-purple-300 group-hover:text-purple-200 transition-colors"
+                        className="h-5 w-5 text-foreground group-hover:text-primary dark:text-purple-300 dark:group-hover:text-purple-200 transition-colors"
                       />
                       <span className="text-xs sm:text-sm font-medium">{names[i]}</span>
                     </a>
@@ -283,10 +287,10 @@ export function About() {
 
         {/* Scroll Indicator */}
         <div className="mt-12 sm:mt-16 text-center">
-          <div className="w-6 h-6 rounded-full border-2 border-purple-500/50 bg-purple-500/10 flex items-center justify-center">
-            <ArrowUpDown className="h-3 w-3 text-purple-400" />
+          <div className="w-6 h-6 rounded-full border-2 border-primary/40 bg-primary/10 dark:border-purple-500/50 dark:bg-purple-500/10 flex items-center justify-center mx-auto">
+            <ArrowUpDown className="h-3 w-3 text-primary dark:text-purple-400" />
           </div>
-          <p className="mt-2 text-xs sm:text-sm text-purple-300/60">
+          <p className="mt-2 text-xs sm:text-sm text-muted-foreground dark:text-purple-300/60">
             Scroll to explore more
           </p>
         </div>

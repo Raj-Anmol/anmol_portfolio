@@ -30,7 +30,7 @@ export function Experience() {
     >
       <div className="max-w-7xl mx-auto">
         <header className="text-center mb-10">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-purple-500/10 border border-purple-500/30 text-purple-400 text-sm font-medium mb-6">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-purple-500/10 border border-purple-500/30 text-purple-700 dark:text-purple-400 text-sm font-medium mb-6">
             <span className="relative animate-pulse">
               <span className="absolute inline-flex rounded-full h-1.5 w-1.5 bg-purple-500" />
               <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-purple-500" />
@@ -40,12 +40,12 @@ export function Experience() {
 
           <h2
             id="experience-heading"
-            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-foreground mb-4 tracking-tight bg-gradient-to-r from-blue-400 via-purple-300 to-pink-400 bg-clip-text text-transparent"
+            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight bg-gradient-to-r from-purple-700 via-indigo-600 to-pink-600 dark:from-blue-400 dark:via-purple-300 dark:to-pink-400 bg-clip-text text-transparent mb-4"
           >
             Experience
           </h2>
 
-          <p className="text-purple-300 text-base sm:text-lg md:text-lg leading-relaxed">
+          <p className="text-muted-foreground dark:text-purple-300 text-base sm:text-lg md:text-lg leading-relaxed">
             Internships in AI, cloud, and full-stack development.
           </p>
         </header>
@@ -76,13 +76,13 @@ export function Experience() {
                   <div className="absolute left-1/2 top-8 bottom-0 w-0.5 bg-border -translate-x-1/2" aria-hidden="true" />
                 </div>
 
-                <div className="bg-gradient-to-b from-white/[0.07] to-white/[0.02] border border-purple-500/20 backdrop-blur-xl rounded-2xl p-4 sm:p-6 hover:border-purple-500/60 hover:shadow-[0_4px_25px_rgba(168,85,247,0.25)] transition-all duration-300">
+                <div className="bg-card border border-border shadow-xs hover:shadow-md dark:bg-gradient-to-b dark:from-white/[0.07] dark:to-white/[0.02] dark:border-purple-500/20 backdrop-blur-xl rounded-2xl p-4 sm:p-6 hover:border-primary/50 dark:hover:border-purple-500/60 dark:hover:shadow-[0_4px_25px_rgba(168,85,247,0.25)] transition-all duration-300">
                   <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3 mb-3">
                     <div>
-                      <h3 className="text-xl sm:text-2xl font-bold text-white tracking-tight">
+                      <h3 className="text-xl sm:text-2xl font-bold text-foreground dark:text-white tracking-tight">
                         {exp.role}
                       </h3>
-                      <p className="text-purple-300 font-medium text-sm sm:text-base mt-1">
+                      <p className="text-primary dark:text-purple-300 font-medium text-sm sm:text-base mt-1">
                         {exp.company}
                       </p>
                     </div>
@@ -100,8 +100,8 @@ export function Experience() {
 
                   <ul className="space-y-3 mb-4">
                     {exp.bullets.map((bullet, bulletIndex) => (
-                      <li key={bulletIndex} className="flex items-start gap-3 leading-relaxed text-sm text-foreground/90">
-                        <span className="flex-shrink-0 h-1.5 w-1.5 rounded-full bg-emerald-400 mt-2" />
+                      <li key={bulletIndex} className="flex items-start gap-3 leading-relaxed text-sm text-foreground/85">
+                        <span className="flex-shrink-0 h-1.5 w-1.5 rounded-full bg-emerald-500 dark:bg-emerald-400 mt-2" />
                         <span className="flex-1">{bullet}</span>
                       </li>
                     ))}
@@ -111,7 +111,7 @@ export function Experience() {
                     <Button
                       asChild
                       size="sm"
-                      className="w-full rounded-full border border-purple-500/20 hover:border-purple-500/60 hover:shadow-[0_4px_25px_rgba(168,85,247,0.25)] transition-colors py-2 text-sm font-medium text-purple-400">
+                      className="w-full rounded-full border border-border text-foreground hover:bg-muted hover:border-primary/50 dark:border-purple-500/20 dark:text-purple-400 dark:hover:border-purple-500/60 dark:hover:shadow-[0_4px_25px_rgba(168,85,247,0.25)] transition-colors py-2 text-sm font-medium">
                       <a href={exp.certificateUrl} target="_blank" rel="noopener noreferrer">
                         Verify Certificate
                         <ArrowRight className="h-4 w-4 ml-2" />
