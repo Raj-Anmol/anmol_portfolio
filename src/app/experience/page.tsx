@@ -8,5 +8,9 @@ export const metadata: Metadata = {
 };
 
 export default function ExperiencePage() {
-  return <Experience />;
+  return (
+    <div className="pt-16 sm:pt-20">
+      <Experience />
+    </div>
+  );
 }

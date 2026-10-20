@@ -8,5 +8,9 @@ export const metadata: Metadata = {
 };
 
 export default function SkillsPage() {
-  return <Skills />;
+  return (
+    <div className="pt-16 sm:pt-20">
+      <Skills />
+    </div>
+  );
 }

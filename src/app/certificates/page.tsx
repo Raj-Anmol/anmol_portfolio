@@ -8,5 +8,9 @@ export const metadata: Metadata = {
 };
 
 export default function CertificatesPage() {
-  return <Certificates />;
+  return (
+    <div className="pt-16 sm:pt-20">
+      <Certificates />
+    </div>
+  );
 }

@@ -1,10 +1,9 @@
 "use client";
 
 import { motion, type Variants } from "motion/react";
-import { cn } from "@/lib/utils";
 import { experience } from "@/lib/constants";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Award, MapPin, Clock } from "lucide-react";
+import { ArrowRight, MapPin, Clock } from "lucide-react";
 
 const containerVariants: Variants = {
   hidden: {},
@@ -101,8 +100,8 @@ export function Experience() {
 
                   <ul className="space-y-3 mb-4">
                     {exp.bullets.map((bullet, bulletIndex) => (
-                      <li key={bulletIndex} className="flex items-start leading-relaxed">
-                        <span className="flex-shrink-0 h-2 w-2 rounded-full bg-emerald-500/60" />
+                      <li key={bulletIndex} className="flex items-start gap-3 leading-relaxed text-sm text-foreground/90">
+                        <span className="flex-shrink-0 h-1.5 w-1.5 rounded-full bg-emerald-400 mt-2" />
                         <span className="flex-1">{bullet}</span>
                       </li>
                     ))}

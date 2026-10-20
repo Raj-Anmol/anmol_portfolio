@@ -1,4 +1,3 @@
-import { cn } from "@/lib/utils";
 import { education } from "@/lib/constants";
 import { Badge } from "@/components/ui/badge";
 import { GraduationCap, MapPin, Calendar, Award, Building2 } from "lucide-react";

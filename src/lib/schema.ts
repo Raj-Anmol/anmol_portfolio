@@ -1,4 +1,4 @@
-import { profile, projects, certificates, siteConfig, socialLinks } from "./constants";
+import { profile, projects, certificates, siteConfig } from "./constants";
 
 export function generatePersonSchema() {
   const certificateUrls = certificates.map((cert) => cert.verifyUrl);

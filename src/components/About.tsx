@@ -1,9 +1,9 @@
 "use client";
 
-import { motion, type Variants } from "motion/react";
+import { motion } from "motion/react";
 import { cn } from "@/lib/utils";
-import { profile, education, socialLinks, skills } from "@/lib/constants";
-import { MapPin, GraduationCap, Calendar, Sparkles, Check, ArrowUpDown, Globe } from "lucide-react";
+import { profile, socialLinks } from "@/lib/constants";
+import { GraduationCap, Sparkles, Check, ArrowUpDown, Globe } from "lucide-react";
 import { GithubIcon as GithubIconComponent } from "@/components/icons/GithubIcon";
 import { LinkedinIcon as LinkedinIconComponent } from "@/components/icons/LinkedinIcon";
 
@@ -13,12 +13,12 @@ export function FAQ() {
     {
       question: "Who is Anmol Raj?",
       answer:
-        "Anmol Raj is a Full-Stack Developer | AI Integration from Jaipur, Rajasthan, India. He is a Computer Science undergraduate at Jagannath University, passionate about MERN stack development and integrating AI into production web applications. He has completed 3 internships and built 8+ projects."
+        "Anmol Raj is a Full-Stack Developer | AI Integration from Jaipur, Rajasthan, India. He is a Computer Science undergraduate at Jagannath University, passionate about MERN stack development and integrating AI into production web applications. He has completed 3 internships and built multiple full-stack & AI projects."
     },
     {
       question: "What projects has Anmol Raj built?",
       answer:
-        "Anmol has built 8+ projects including AI Student Travel Planner (budget-first travel planning with rule-based expense allocation), Krishi Seva Center (AI-powered farmer platform with disease detection and live weather), and various other Streamlit, React, and Node.js applications deployed on Vercel and Render."
+        "Anmol has built featured applications including AI Student Travel Planner (budget-first travel planning with rule-based expense allocation), Krishi Seva Center (AI-powered farmer platform with disease detection and live weather), and various other Streamlit, React, and Node.js applications deployed on Vercel and Render."
     },
     {
       question: "What is Anmol Raj's tech stack?",
@@ -89,7 +89,7 @@ export function About() {
         </div>
 
         {/* Bento Grid Container */}
-        <div className="relative grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 pt-6">
+        <div className="relative grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 pt-6">
 
           {/* Card 1: Professional Summary & What I Do (spans full width on mobile, left on desktop) */}
           <motion.div
@@ -219,69 +219,23 @@ export function About() {
 
             {/* Skill Badges - Dynamic Pill Chips */}
             <div className="grid grid-cols-2 gap-2 sm:grid-cols-3">
-              {[1, 2, 3, 4, 5, 6, 7, 8].map((_, i) => {
-                const skillsData = [
-                  {
-                    name: "Full Stack & APIs",
-                    theme: "cyan",
-                    accent: "cyan-400",
-                    desc: "Next.js, React, TypeScript, RESTful APIs",
-                  },
-                  {
-                    name: "AI/ML & Real-time",
-                    theme: "purple",
-                    accent: "purple-400",
-                    desc: "TensorFlow, PyTorch, OpenAI API, WebSockets",
-                  },
-                  {
-                    name: "Cloud & DB",
-                    theme: "emerald",
-                    accent: "emerald-400",
-                    desc: "AWS, Vercel, Cloudinary, MongoDB, PostgreSQL",
-                  },
-                  {
-                    name: "Testing & QA",
-                    theme: "pink",
-                    accent: "pink-400",
-                    desc: "Jest, Vitam, Playwright, Cypress",
-                  },
-                  {
-                    name: "DevOps & CI/CD",
-                    theme: "amber",
-                    accent: "amber-400",
-                    desc: "Docker, Kubernetes, GitHub Actions",
-                  },
-                  {
-                    name: "Security & Auth",
-                    theme: "rose",
-                    accent: "rose-400",
-                    desc: "OAuth2, JWT, Role-based Access",
-                  },
-                  {
-                    name: "Design & UI",
-                    theme: "sky",
-                    accent: "sky-400",
-                    desc: "Figma, Tailwind CSS, Responsiveness",
-                  },
-                  {
-                    name: "Version Control",
-                    theme: "lime",
-                    accent: "lime-400",
-                    desc: "Git, GitHub, GitLab, Branch Management",
-                  },
-                ];
-
-                const skill = skillsData[i];
-
-                return (
-                  <span
-                    key={i}
-                    className="rounded-xl px-3.5 py-2 text-sm font-medium transition-all duration-300"
-                  >
-                    {skill.name}
-                  </span>
-                );
-              })}
+              {[
+                { name: "Full Stack & APIs", desc: "Next.js, React, TypeScript, REST APIs" },
+                { name: "AI/ML & Real-time", desc: "Streamlit, FastAPI, ML Models, WebSockets" },
+                { name: "Cloud & DB", desc: "Vercel, Render, Cloudinary, MongoDB, PostgreSQL" },
+                { name: "Testing & QA", desc: "Jest, Vitest, Postman, Integration Testing" },
+                { name: "DevOps & CI/CD", desc: "Git, GitHub Actions, Cloud Pipelines" },
+                { name: "Security & Auth", desc: "OAuth2, JWT, Role-based Access" },
+                { name: "Design & UI", desc: "Tailwind CSS, shadcn/ui, Responsive UX" },
+                { name: "Version Control", desc: "Git, GitHub, Branch Management" },
+              ].map((skill) => (
+                <span
+                  key={skill.name}
+                  className="rounded-xl px-3 py-2 text-xs sm:text-sm font-medium bg-white/[0.04] border border-white/10 text-purple-200/90 hover:border-purple-500/40 hover:bg-purple-500/10 transition-all duration-300"
+                >
+                  {skill.name}
+                </span>
+              ))}
             </div>
           </motion.div>
 
