@@ -134,42 +134,53 @@ export function Navbar() {
           <div className="flex md:hidden items-center gap-2">
             <ThemeToggle />
             <button
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="h-9 w-9 rounded-md flex items-center justify-center text-muted-foreground hover:text-foreground hover:bg-muted/50 transition-colors"
-              aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
+              onClick={() => setMobileMenuOpen(true)}
+              className="h-10 w-10 rounded-lg flex items-center justify-center text-muted-foreground hover:text-foreground hover:bg-muted/50 transition-colors"
+              aria-label="Open menu"
               aria-expanded={mobileMenuOpen}
             >
-              {mobileMenuOpen ? (
-                <X className="h-5 w-5" />
-              ) : (
-                <Menu className="h-5 w-5" />
-              )}
+              <Menu className="h-5 w-5" />
             </button>
           </div>
         </div>
 
-        {/* Mobile Navigation Drawer */}
+        {/* Mobile Full-Screen Navigation Drawer */}
         {mobileMenuOpen && (
           <div className="fixed inset-0 z-[100] md:hidden">
             <div
-              className="fixed inset-0 bg-black/70 backdrop-blur-sm transition-opacity"
-              aria-hidden="true"
-              onClick={() => setMobileMenuOpen(false)}
-            />
-            <div className="fixed inset-y-0 right-0 w-full max-w-xs bg-background border-l border-border shadow-2xl p-6 flex flex-col justify-between overflow-y-auto animate-in slide-in-from-right duration-200">
+              className="fixed inset-0 bg-background/98 backdrop-blur-2xl flex flex-col justify-between overflow-y-auto overflow-x-hidden animate-in fade-in duration-200"
+              aria-modal="true"
+              role="dialog"
+            >
               <div>
-                <div className="flex items-center justify-between pb-4 border-b border-border mb-6">
-                  <span className="text-lg font-bold text-foreground">Navigation</span>
-                  <button
+                {/* Mobile Header Bar */}
+                <div className="flex items-center justify-between h-16 px-4 sm:px-6 border-b border-border/80">
+                  <Link
+                    href="/"
                     onClick={() => setMobileMenuOpen(false)}
-                    className="p-1.5 rounded-md text-muted-foreground hover:text-foreground hover:bg-muted/50 transition-colors"
-                    aria-label="Close navigation menu"
+                    className="text-xl font-bold tracking-tight text-foreground hover:text-primary transition-colors"
+                    aria-label="Anmol Raj - Home"
                   >
-                    <X className="h-5 w-5" />
-                  </button>
+                    Anmol<span className="text-primary">.</span>
+                  </Link>
+
+                  <div className="flex items-center gap-2">
+                    <ThemeToggle />
+                    <button
+                      onClick={() => setMobileMenuOpen(false)}
+                      className="h-10 w-10 rounded-lg flex items-center justify-center text-muted-foreground hover:text-foreground hover:bg-muted/50 transition-colors"
+                      aria-label="Close menu"
+                    >
+                      <X className="h-5 w-5" />
+                    </button>
+                  </div>
                 </div>
 
-                <div className="flex flex-col gap-1">
+                {/* Navigation Links */}
+                <div className="px-4 py-4 flex flex-col gap-1 max-w-md mx-auto">
+                  <div className="text-[11px] font-semibold uppercase tracking-wider text-muted-foreground/60 px-3 py-1 mb-1">
+                    Navigation
+                  </div>
                   {navItems.map((item) => {
                     const active = isActive(item.href);
                     return (
@@ -178,40 +189,44 @@ export function Navbar() {
                         href={item.href}
                         onClick={() => setMobileMenuOpen(false)}
                         className={cn(
-                          "w-full px-3 py-2 text-sm font-medium transition-colors rounded-lg",
+                          "flex items-center justify-between w-full px-4 py-3 text-base font-medium transition-colors rounded-xl",
                           active
                             ? "text-primary bg-primary/10 font-semibold"
-                            : "text-muted-foreground hover:text-foreground hover:bg-muted/50"
+                            : "text-foreground/80 hover:text-foreground hover:bg-muted/50 active:bg-muted/70"
                         )}
                         aria-current={active ? "page" : undefined}
                       >
-                        {item.label}
+                        <span>{item.label}</span>
+                        {active && (
+                          <span className="h-1.5 w-1.5 rounded-full bg-primary" />
+                        )}
                       </Link>
                     );
                   })}
                 </div>
               </div>
 
-              <div className="pt-6 border-t border-border mt-6 space-y-3">
+              {/* Bottom Actions */}
+              <div className="p-4 sm:p-6 border-t border-border/80 bg-muted/20 max-w-md mx-auto w-full space-y-3">
                 <a
                   href={profile.resumeUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={() => setMobileMenuOpen(false)}
-                  className="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 text-sm font-medium rounded-lg border border-primary/50 bg-primary/10 text-primary hover:bg-primary/20 transition-colors"
+                  className="w-full h-11 inline-flex items-center justify-center gap-2 px-4 text-sm font-semibold rounded-xl border border-primary/50 bg-primary/10 text-primary hover:bg-primary/20 active:scale-[0.98] transition-all"
                   aria-label="View Resume PDF in new tab"
                 >
                   <Eye className="h-4 w-4" />
-                  View Resume (PDF)
+                  <span>View Resume (PDF)</span>
                 </a>
 
-                <div className="flex items-center justify-center gap-3 pt-2">
+                <div className="flex items-center justify-center gap-4 pt-1">
                   <a
                     href={profile.linkedin}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="p-2 rounded-lg bg-muted/50 text-muted-foreground hover:text-primary transition-colors"
-                    aria-label="LinkedIn"
+                    className="p-2.5 rounded-xl bg-muted/60 text-muted-foreground hover:text-primary hover:bg-primary/10 transition-colors"
+                    aria-label="LinkedIn Profile"
                   >
                     <LinkedinIcon className="h-4 w-4" />
                   </a>
@@ -219,8 +234,8 @@ export function Navbar() {
                     href={profile.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="p-2 rounded-lg bg-muted/50 text-muted-foreground hover:text-primary transition-colors"
-                    aria-label="GitHub"
+                    className="p-2.5 rounded-xl bg-muted/60 text-muted-foreground hover:text-primary hover:bg-primary/10 transition-colors"
+                    aria-label="GitHub Profile"
                   >
                     <GithubIcon className="h-4 w-4" />
                   </a>

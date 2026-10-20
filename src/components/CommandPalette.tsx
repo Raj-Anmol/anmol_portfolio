@@ -77,10 +77,10 @@ export function CommandPalette() {
     <>
       <button
         onClick={() => setOpen(true)}
-        className="fixed bottom-4 right-4 z-40 md:hidden h-12 w-12 rounded-full bg-primary text-primary-foreground shadow-lg flex items-center justify-center hover:scale-105 transition-transform"
+        className="fixed bottom-4 right-4 z-40 md:hidden h-10 w-10 rounded-full bg-primary text-primary-foreground shadow-lg shadow-primary/25 flex items-center justify-center active:scale-95 transition-transform"
         aria-label="Open command palette"
       >
-        <Search className="h-5 w-5" />
+        <Search className="h-4 w-4" />
       </button>
 
       <AnimatePresence>

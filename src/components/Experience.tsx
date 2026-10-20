@@ -76,7 +76,7 @@ export function Experience() {
                   <div className="absolute left-1/2 top-8 bottom-0 w-0.5 bg-border -translate-x-1/2" aria-hidden="true" />
                 </div>
 
-                <div className="bg-gradient-to-b from-white/[0.07] to-white/[0.02] border border-purple-500/20 backdrop-blur-xl rounded-2xl p-6 hover:border-purple-500/60 hover:shadow-[0_4px_25px_rgba(168,85,247,0.25)] transition-all duration-300">
+                <div className="bg-gradient-to-b from-white/[0.07] to-white/[0.02] border border-purple-500/20 backdrop-blur-xl rounded-2xl p-4 sm:p-6 hover:border-purple-500/60 hover:shadow-[0_4px_25px_rgba(168,85,247,0.25)] transition-all duration-300">
                   <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3 mb-3">
                     <div>
                       <h3 className="text-xl sm:text-2xl font-bold text-white tracking-tight">
