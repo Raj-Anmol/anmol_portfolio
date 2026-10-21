@@ -3,14 +3,13 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion, type Variants } from "motion/react";
-import { projects, profile } from "@/lib/constants";
+import { projects } from "@/lib/constants";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { SpotlightCard } from "@/components/ui/spotlight-card";
 import { ExternalLink, Code, ArrowRight } from "lucide-react";
 import { GithubIcon } from "@/components/icons/GithubIcon";
-import { GithubActivity } from "@/components/GithubActivity";
 
 const itemVariants: Variants = {
   hidden: { opacity: 0, y: 25 },
@@ -153,23 +152,6 @@ export function Projects() {
             </motion.article>
           ))}
         </motion.div>
-
-        <div className="mt-12 max-w-4xl mx-auto">
-          <GithubActivity />
-        </div>
-
-        <div className="text-center mt-8">
-          <Button
-            variant="outline"
-            asChild
-            className="gap-2"
-          >
-            <a href={profile.github} target="_blank" rel="noopener noreferrer">
-              View All on GitHub
-              <GithubIcon className="h-4 w-4" />
-            </a>
-          </Button>
-        </div>
       </div>
     </section>
   );
