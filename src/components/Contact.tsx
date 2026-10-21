@@ -26,9 +26,9 @@ const contactItems = [
     value: profile.location,
     href: "https://maps.app.goo.gl/mZndMdJXAeTUZnmM8",
     icon: MapPin,
-    color: "text-orange-400",
-    bgColor: "bg-orange-400/10",
-    borderColor: "border-orange-400/20",
+    color: "text-amber-600 dark:text-orange-400",
+    bgColor: "bg-amber-500/10",
+    borderColor: "border-amber-500/20",
     description: "Jaipur, Rajasthan",
     external: true,
   },
@@ -37,9 +37,9 @@ const contactItems = [
     value: "Connect with me",
     href: profile.linkedin,
     icon: LinkedinIcon,
-    color: "text-blue-400",
-    bgColor: "bg-blue-400/10",
-    borderColor: "border-blue-400/20",
+    color: "text-blue-600 dark:text-blue-400",
+    bgColor: "bg-blue-500/10",
+    borderColor: "border-blue-500/20",
     description: "Professional network",
     external: true,
   },
@@ -48,9 +48,9 @@ const contactItems = [
     value: "View my code",
     href: profile.github,
     icon: GithubIcon,
-    color: "text-purple-400",
-    bgColor: "bg-purple-400/10",
-    borderColor: "border-purple-400/20",
+    color: "text-purple-600 dark:text-purple-400",
+    bgColor: "bg-purple-500/10",
+    borderColor: "border-purple-500/20",
     description: "Projects & contributions",
     external: true,
   },
@@ -59,9 +59,9 @@ const contactItems = [
     value: "View PDF",
     href: profile.resumeUrl,
     icon: FileText,
-    color: "text-emerald-400",
-    bgColor: "bg-emerald-400/10",
-    borderColor: "border-emerald-400/20",
+    color: "text-emerald-600 dark:text-emerald-400",
+    bgColor: "bg-emerald-500/10",
+    borderColor: "border-emerald-500/20",
     description: "View my full CV (PDF)",
     external: true,
   },
@@ -105,14 +105,14 @@ export function Contact() {
                       <item.icon className={cn("h-5 w-5 sm:h-6 sm:w-6", item.color)} />
                     </div>
                     <div className="flex-1 min-w-0">
-                      <h3 className="text-sm sm:text-base font-semibold text-foreground">{item.label}</h3>
-                      <p className="text-xs sm:text-sm text-muted-foreground mt-0.5 sm:mt-1">{item.description}</p>
+                      <h3 className="text-sm sm:text-base font-semibold text-slate-900 dark:text-foreground">{item.label}</h3>
+                      <p className="text-xs sm:text-sm text-slate-600 dark:text-muted-foreground mt-0.5 sm:mt-1">{item.description}</p>
                       <div className="mt-2 sm:mt-3">
                         {item.external ? (
                           <Button
                             variant="ghost"
                             size="sm"
-                            className="gap-1 h-auto px-2.5 py-1 sm:px-3 sm:py-1.5 text-muted-foreground hover:text-foreground"
+                            className="gap-1 h-auto px-2.5 py-1 sm:px-3 sm:py-1.5 text-slate-700 hover:text-slate-900 hover:bg-slate-100 dark:text-muted-foreground dark:hover:text-foreground dark:hover:bg-muted/50"
                             asChild
                           >
                             <a

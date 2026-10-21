@@ -106,7 +106,7 @@ export function CommandPalette() {
                   <Search className="h-4 w-4 text-muted-foreground" />
                   <Command.Input
                     placeholder="Type a command or search..."
-                    className="flex-1 bg-transparent outline-none text-sm placeholder:text-muted-foreground"
+                    className="flex-1 bg-transparent outline-none text-sm text-foreground placeholder:text-muted-foreground"
                   />
                   <kbd className="hidden sm:inline-flex h-5 px-1.5 items-center text-[10px] font-mono text-muted-foreground border border-border rounded">
                     ESC
@@ -123,7 +123,7 @@ export function CommandPalette() {
                         key={item.href}
                         value={`${item.label} ${item.keywords}`}
                         onSelect={() => runCommand(() => router.push(item.href))}
-                        className="flex items-center gap-3 px-2 py-2 rounded-lg text-sm cursor-pointer aria-selected:bg-muted"
+                        className="flex items-center gap-3 px-2 py-2 rounded-lg text-sm text-foreground cursor-pointer aria-selected:bg-muted"
                       >
                         <item.icon className="h-4 w-4 text-muted-foreground" />
                         <span>{item.label}</span>
@@ -148,7 +148,7 @@ export function CommandPalette() {
                             }
                           })
                         }
-                        className="flex items-center gap-3 px-2 py-2 rounded-lg text-sm cursor-pointer aria-selected:bg-muted"
+                        className="flex items-center gap-3 px-2 py-2 rounded-lg text-sm text-foreground cursor-pointer aria-selected:bg-muted"
                       >
                         <item.icon className="h-4 w-4 text-muted-foreground" />
                         <span>{item.label}</span>

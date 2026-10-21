@@ -11,41 +11,46 @@ const skillCategories = [
     key: "languages",
     label: "Languages",
     icon: Code,
-    color: "text-primary",
-    bgColor: "bg-primary/10",
-    borderColor: "border-primary/20",
+    color: "text-purple-700 dark:text-primary",
+    dotColor: "bg-purple-600 dark:bg-primary",
+    bgColor: "bg-purple-500/10",
+    borderColor: "border-purple-500/20",
   },
   {
     key: "frontend",
     label: "Frontend",
     icon: Layout,
-    color: "text-blue-400",
-    bgColor: "bg-blue-400/10",
-    borderColor: "border-blue-400/20",
+    color: "text-blue-600 dark:text-blue-400",
+    dotColor: "bg-blue-600 dark:bg-blue-400",
+    bgColor: "bg-blue-500/10",
+    borderColor: "border-blue-500/20",
   },
   {
     key: "backend",
     label: "Backend",
     icon: Server,
-    color: "text-green-400",
-    bgColor: "bg-green-400/10",
-    borderColor: "border-green-400/20",
+    color: "text-emerald-700 dark:text-green-400",
+    dotColor: "bg-emerald-600 dark:bg-green-400",
+    bgColor: "bg-emerald-500/10",
+    borderColor: "border-emerald-500/20",
   },
   {
     key: "databases",
     label: "Databases",
     icon: Database,
-    color: "text-orange-400",
-    bgColor: "bg-orange-400/10",
-    borderColor: "border-orange-400/20",
+    color: "text-amber-700 dark:text-orange-400",
+    dotColor: "bg-amber-600 dark:bg-orange-400",
+    bgColor: "bg-amber-500/10",
+    borderColor: "border-amber-500/20",
   },
   {
     key: "cloudTools",
     label: "Cloud & Tools",
     icon: Cloud,
-    color: "text-purple-400",
-    bgColor: "bg-purple-400/10",
-    borderColor: "border-purple-400/20",
+    color: "text-purple-700 dark:text-purple-400",
+    dotColor: "bg-purple-600 dark:bg-purple-400",
+    bgColor: "bg-purple-500/10",
+    borderColor: "border-purple-500/20",
   },
 ] as const;
 
@@ -63,7 +68,7 @@ const categoryVariants: Variants = {
   },
 };
 
-function ProficiencyDots({ level, color }: { level: number; color: string }) {
+function ProficiencyDots({ level, dotColor }: { level: number; dotColor: string }) {
   return (
     <div className="flex items-center gap-1" aria-label={`Proficiency: ${level} out of 5`}>
       {[1, 2, 3, 4, 5].map((i) => (
@@ -75,7 +80,7 @@ function ProficiencyDots({ level, color }: { level: number; color: string }) {
           transition={{ delay: 0.3 + i * 0.05, type: "spring", stiffness: 300 }}
           className={cn(
             "h-1.5 w-1.5 rounded-full",
-            i <= level ? color.replace("text-", "bg-") : "bg-muted"
+            i <= level ? dotColor : "bg-slate-200 dark:bg-muted"
           )}
         />
       ))}
@@ -120,9 +125,9 @@ export function Skills() {
                     <div className={cn("p-2.5 rounded-lg", category.bgColor, category.borderColor)}>
                       <category.icon className={cn("h-5 w-5", category.color)} />
                     </div>
-                    <h3 className="text-lg font-bold text-foreground">{category.label}</h3>
+                    <h3 className="text-lg font-bold text-slate-900 dark:text-foreground">{category.label}</h3>
                   </div>
-                  <ProficiencyDots level={data.level} color={category.color} />
+                  <ProficiencyDots level={data.level} dotColor={category.dotColor} />
                 </div>
 
                 <div className="flex flex-wrap gap-2">
@@ -131,8 +136,7 @@ export function Skills() {
                       key={skillIndex}
                       variant="outline"
                       className={cn(
-                        "text-xs px-2.5 py-1 hover:bg-primary/10 hover:border-primary/50 hover:text-primary transition-all duration-200 cursor-default",
-                        "border-border"
+                        "text-xs px-2.5 py-1 text-slate-800 dark:text-foreground bg-white dark:bg-transparent border-slate-200/90 dark:border-border hover:bg-primary/10 hover:border-primary/50 hover:text-primary transition-all duration-200 cursor-default"
                       )}
                     >
                       {skill}

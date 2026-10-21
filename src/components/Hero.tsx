@@ -91,7 +91,7 @@ export function Hero() {
           {/* Main Heading */}
           <h1
             id="hero-heading"
-            className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-foreground mb-3 sm:mb-4 text-center leading-[1.15]"
+            className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-slate-900 dark:text-foreground mb-3 sm:mb-4 text-center leading-[1.15]"
           >
             <span className="inline-block whitespace-nowrap">
               <motion.span custom={0} variants={wordVariants} initial="hidden" animate="visible" className="inline-block mr-1.5 sm:mr-2.5">
@@ -101,7 +101,7 @@ export function Hero() {
                 I&apos;m
               </motion.span>
             </span>{" "}
-            <span className="inline-block whitespace-nowrap bg-gradient-to-r from-purple-600 via-indigo-600 to-purple-800 dark:from-white dark:via-purple-200 dark:to-purple-400 bg-clip-text text-transparent">
+            <span className="inline-block whitespace-nowrap bg-gradient-to-r from-purple-700 via-indigo-600 to-purple-800 dark:from-white dark:via-purple-200 dark:to-purple-400 bg-clip-text text-transparent">
               <motion.span custom={2} variants={wordVariants} initial="hidden" animate="visible" className="inline-block mr-1.5 sm:mr-2.5">
                 Anmol
               </motion.span>
@@ -114,7 +114,7 @@ export function Hero() {
           {/* Description */}
           <motion.p
             variants={itemVariants}
-            className="text-sm sm:text-base md:text-lg text-muted-foreground mb-6 sm:mb-8 max-w-xl mx-auto leading-relaxed px-2 text-balance"
+            className="text-sm sm:text-base md:text-lg text-slate-600 dark:text-muted-foreground mb-6 sm:mb-8 max-w-xl mx-auto leading-relaxed px-2 text-balance"
           >
             Full Stack Developer specializing in the MERN stack, building production web applications with AI integration.
           </motion.p>
@@ -145,7 +145,7 @@ export function Hero() {
               asChild
               size="lg"
               variant="outline"
-              className="h-11 px-7 rounded-xl font-medium w-full sm:w-auto gap-2 border-border bg-card hover:bg-muted text-foreground active:scale-[0.98] transition-all dark:border-border/80 dark:bg-transparent dark:hover:border-purple-500/50 dark:hover:bg-purple-500/10"
+              className="h-11 px-7 rounded-xl font-medium w-full sm:w-auto gap-2 border border-slate-300/90 bg-white hover:bg-slate-100 text-slate-800 hover:text-slate-900 active:scale-[0.98] transition-all dark:border-border/80 dark:bg-transparent dark:text-white dark:hover:border-purple-500/50 dark:hover:bg-purple-500/10"
             >
               <Link href="/contact" className="inline-flex items-center justify-center gap-2">
                 <Mail className="h-4 w-4" />
@@ -168,12 +168,12 @@ export function Hero() {
           {stats.map((stat) => (
             <div
               key={stat.label}
-              className="flex flex-col items-center justify-center text-center p-2.5 sm:p-3.5 rounded-xl bg-card border border-border shadow-xs dark:bg-white/[0.03] dark:border-white/5 backdrop-blur-sm min-w-0"
+              className="flex flex-col items-center justify-center text-center p-2.5 sm:p-3.5 rounded-xl bg-white border border-slate-200/90 shadow-xs dark:bg-white/[0.03] dark:border-white/5 backdrop-blur-sm min-w-0"
             >
-              <div className="text-base sm:text-xl md:text-2xl font-bold text-foreground tabular-nums dark:drop-shadow-[0_0_10px_rgba(255,255,255,0.15)]">
+              <div className="text-base sm:text-xl md:text-2xl font-bold text-slate-900 dark:text-foreground tabular-nums dark:drop-shadow-[0_0_10px_rgba(255,255,255,0.15)]">
                 <AnimatedCounter value={stat.value} suffix={stat.suffix} />
               </div>
-              <div className="text-[10px] sm:text-xs text-muted-foreground uppercase tracking-wider font-medium mt-1 truncate max-w-full">
+              <div className="text-[10px] sm:text-xs text-slate-600 dark:text-muted-foreground uppercase tracking-wider font-semibold mt-1 truncate max-w-full">
                 {stat.label}
               </div>
             </div>
@@ -189,7 +189,7 @@ export function Hero() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label={label}
-              className="group relative flex items-center justify-center w-9 h-9 sm:w-11 sm:h-11 rounded-full bg-card border border-border shadow-xs text-muted-foreground hover:text-foreground hover:border-primary/50 hover:bg-muted/80 dark:bg-white/5 dark:border-white/10 dark:text-muted-foreground dark:hover:text-foreground dark:hover:border-purple-500/50 dark:hover:bg-white/10 dark:hover:shadow-[0_0_20px_rgba(168,85,247,0.3)] active:scale-95 transition-all duration-300"
+              className="group relative flex items-center justify-center w-9 h-9 sm:w-11 sm:h-11 rounded-full bg-white border border-slate-200/90 shadow-xs text-slate-600 hover:text-slate-900 hover:border-primary/50 hover:bg-slate-50 dark:bg-white/5 dark:border-white/10 dark:text-muted-foreground dark:hover:text-foreground dark:hover:border-purple-500/50 dark:hover:bg-white/10 dark:hover:shadow-[0_0_20px_rgba(168,85,247,0.3)] active:scale-95 transition-all duration-300"
             >
               <Icon className="h-4 w-4 sm:h-5 sm:w-5" />
             </a>

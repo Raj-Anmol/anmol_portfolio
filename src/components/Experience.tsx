@@ -79,10 +79,10 @@ export function Experience() {
                 <div className="bg-card border border-border shadow-xs hover:shadow-md dark:bg-gradient-to-b dark:from-white/[0.07] dark:to-white/[0.02] dark:border-purple-500/20 backdrop-blur-xl rounded-2xl p-4 sm:p-6 hover:border-primary/50 dark:hover:border-purple-500/60 dark:hover:shadow-[0_4px_25px_rgba(168,85,247,0.25)] transition-all duration-300">
                   <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3 mb-3">
                     <div>
-                      <h3 className="text-xl sm:text-2xl font-bold text-foreground dark:text-white tracking-tight">
+                      <h3 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white tracking-tight">
                         {exp.role}
                       </h3>
-                      <p className="text-primary dark:text-purple-300 font-medium text-sm sm:text-base mt-1">
+                      <p className="text-purple-700 dark:text-purple-300 font-semibold text-sm sm:text-base mt-1">
                         {exp.company}
                       </p>
                     </div>
@@ -100,7 +100,7 @@ export function Experience() {
 
                   <ul className="space-y-3 mb-4">
                     {exp.bullets.map((bullet, bulletIndex) => (
-                      <li key={bulletIndex} className="flex items-start gap-3 leading-relaxed text-sm text-foreground/85">
+                      <li key={bulletIndex} className="flex items-start gap-3 leading-relaxed text-sm text-slate-700 dark:text-foreground/85">
                         <span className="flex-shrink-0 h-1.5 w-1.5 rounded-full bg-emerald-500 dark:bg-emerald-400 mt-2" />
                         <span className="flex-1">{bullet}</span>
                       </li>
@@ -111,7 +111,8 @@ export function Experience() {
                     <Button
                       asChild
                       size="sm"
-                      className="w-full rounded-full border border-border text-foreground hover:bg-muted hover:border-primary/50 dark:border-purple-500/20 dark:text-purple-400 dark:hover:border-purple-500/60 dark:hover:shadow-[0_4px_25px_rgba(168,85,247,0.25)] transition-colors py-2 text-sm font-medium">
+                      variant="outline"
+                      className="w-full rounded-full border border-slate-300 bg-white text-slate-800 hover:bg-slate-100 hover:text-slate-900 hover:border-primary/50 dark:border-purple-500/20 dark:bg-transparent dark:text-purple-300 dark:hover:border-purple-500/60 dark:hover:shadow-[0_4px_25px_rgba(168,85,247,0.25)] transition-colors py-2 text-sm font-medium">
                       <a href={exp.certificateUrl} target="_blank" rel="noopener noreferrer">
                         Verify Certificate
                         <ArrowRight className="h-4 w-4 ml-2" />

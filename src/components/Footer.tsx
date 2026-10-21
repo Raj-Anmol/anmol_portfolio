@@ -34,9 +34,9 @@ export function Footer() {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-6">
           <div className="col-span-2 md:col-span-1">
             <div className="flex items-center gap-2 mb-3">
-              <span className="text-lg font-bold text-foreground">Anmol Raj</span>
+              <span className="text-lg font-bold text-slate-900 dark:text-foreground">Anmol Raj</span>
             </div>
-            <p className="text-sm text-muted-foreground mb-4 leading-relaxed">
+            <p className="text-sm text-slate-600 dark:text-muted-foreground mb-4 leading-relaxed">
               {siteConfig.description}
             </p>
             <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/25 text-emerald-700 dark:bg-green-500/10 dark:border-green-500/30 dark:text-green-400 text-xs font-medium">
@@ -49,14 +49,14 @@ export function Footer() {
           </div>
 
           <div>
-            <h4 className="text-sm font-semibold text-foreground mb-3 uppercase tracking-wider">Quick Links</h4>
+            <h4 className="text-sm font-semibold text-slate-900 dark:text-foreground mb-3 uppercase tracking-wider">Quick Links</h4>
             <nav aria-label="Footer navigation - left column">
               <ul className="space-y-2">
                 {quickLinksLeft.map((link) => (
                   <li key={link.label}>
                     <Link
                       href={link.href}
-                      className="text-xs text-muted-foreground hover:text-primary transition-colors"
+                      className="text-xs text-slate-600 dark:text-muted-foreground hover:text-primary transition-colors"
                     >
                       {link.label}
                     </Link>
@@ -67,14 +67,14 @@ export function Footer() {
           </div>
 
           <div>
-            <h4 className="text-sm font-semibold text-foreground mb-3 uppercase tracking-wider invisible md:visible">&nbsp;</h4>
+            <h4 className="text-sm font-semibold text-slate-900 dark:text-foreground mb-3 uppercase tracking-wider invisible md:visible">&nbsp;</h4>
             <nav aria-label="Footer navigation - right column">
               <ul className="space-y-2">
                 {quickLinksRight.map((link) => (
                   <li key={link.label}>
                     <Link
                       href={link.href}
-                      className="text-xs text-muted-foreground hover:text-primary transition-colors"
+                      className="text-xs text-slate-600 dark:text-muted-foreground hover:text-primary transition-colors"
                     >
                       {link.label}
                     </Link>
@@ -85,11 +85,11 @@ export function Footer() {
           </div>
 
           <div className="col-span-2 md:col-span-1">
-            <h4 className="text-sm font-semibold text-foreground mb-3 uppercase tracking-wider">Connect</h4>
+            <h4 className="text-sm font-semibold text-slate-900 dark:text-foreground mb-3 uppercase tracking-wider">Connect</h4>
             <div className="space-y-2 mb-4">
               <a
                 href={`mailto:${profile.email}`}
-                className="flex items-center gap-2 text-xs text-muted-foreground hover:text-primary transition-colors group"
+                className="flex items-center gap-2 text-xs text-slate-600 dark:text-muted-foreground hover:text-primary transition-colors group"
                 aria-label="Send email to Anmol Raj"
               >
                 <Mail className="h-3.5 w-3.5 flex-shrink-0" />
@@ -99,7 +99,7 @@ export function Footer() {
                 href="https://maps.app.goo.gl/mZndMdJXAeTUZnmM8"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 text-xs text-muted-foreground hover:text-primary transition-colors"
+                className="flex items-center gap-2 text-xs text-slate-600 dark:text-muted-foreground hover:text-primary transition-colors"
                 aria-label="View Jaipur location on Google Maps"
               >
                 <MapPin className="h-3.5 w-3.5 flex-shrink-0" />
@@ -109,7 +109,7 @@ export function Footer() {
                 href={profile.resumeUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 text-xs text-muted-foreground hover:text-primary transition-colors"
+                className="flex items-center gap-2 text-xs text-slate-600 dark:text-muted-foreground hover:text-primary transition-colors"
                 aria-label="View resume PDF"
               >
                 <FileText className="h-3.5 w-3.5 flex-shrink-0" />
@@ -121,7 +121,7 @@ export function Footer() {
                 href={profile.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-1.5 rounded-lg bg-muted/50 text-muted-foreground hover:bg-primary/10 hover:text-primary transition-all"
+                className="p-1.5 rounded-lg bg-slate-100 dark:bg-muted/50 text-slate-700 hover:text-slate-900 dark:text-muted-foreground hover:bg-primary/10 hover:text-primary transition-all"
                 aria-label="LinkedIn"
               >
                 <LinkedinIcon className="h-3.5 w-3.5" />
@@ -130,7 +130,7 @@ export function Footer() {
                 href={profile.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-1.5 rounded-lg bg-muted/50 text-muted-foreground hover:bg-primary/10 hover:text-primary transition-all"
+                className="p-1.5 rounded-lg bg-slate-100 dark:bg-muted/50 text-slate-700 hover:text-slate-900 dark:text-muted-foreground hover:bg-primary/10 hover:text-primary transition-all"
                 aria-label="GitHub"
               >
                 <GithubIcon className="h-3.5 w-3.5" />
@@ -139,7 +139,7 @@ export function Footer() {
                 href={socialLinks.twitter}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-1.5 rounded-lg bg-muted/50 text-muted-foreground hover:bg-primary/10 hover:text-primary transition-all"
+                className="p-1.5 rounded-lg bg-slate-100 dark:bg-muted/50 text-slate-700 hover:text-slate-900 dark:text-muted-foreground hover:bg-primary/10 hover:text-primary transition-all"
                 aria-label="Twitter"
               >
                 <TwitterIcon className="h-3.5 w-3.5" />

@@ -117,13 +117,13 @@ export function About() {
             </h2>
 
             {/* Professional Summary */}
-            <p className="text-sm sm:text-base text-foreground/85 dark:text-purple-300 leading-relaxed text-pretty mb-8">
+            <p className="text-sm sm:text-base text-slate-700 dark:text-purple-300 leading-relaxed text-pretty mb-8">
               {profile.summary}
             </p>
 
             {/* What I Do Checklist */}
             <div className="space-y-4">
-              <h3 className="text-lg sm:text-xl font-semibold text-foreground mb-3 tracking-tight flex items-center gap-2">
+              <h3 className="text-lg sm:text-xl font-semibold text-slate-900 dark:text-foreground mb-3 tracking-tight flex items-center gap-2">
                 <Sparkles className="h-4 w-4 text-primary dark:text-purple-400" /> What I Do
               </h3>
               <ul className="space-y-3">
@@ -136,7 +136,7 @@ export function About() {
                       <Check className="h-3 w-3 text-emerald-600 dark:text-emerald-400" />
                     </div>
                     <span
-                      className="flex-1 text-sm sm:text-base text-emerald-800 dark:text-emerald-300 font-medium"
+                      className="flex-1 text-sm sm:text-base text-emerald-950 dark:text-emerald-300 font-medium"
                     >
                       {[1, 2, 3, 4][i] === 1
                         ? "Build full-stack web applications with MERN stack"
@@ -174,10 +174,10 @@ export function About() {
             {/* Degree & Institution */}
             <div className="space-y-4">
               <div>
-                <p className="text-xl sm:text-2xl font-bold text-foreground dark:text-white mb-1">
+                <p className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white mb-1">
                   Bachelor of Technology (B.Tech) in Computer Science
                 </p>
-                <p className="text-xs text-muted-foreground dark:text-purple-400/60 uppercase tracking-wider mb-2">
+                <p className="text-xs text-slate-600 dark:text-purple-400/60 uppercase tracking-wider mb-2">
                   2023 - 2027 (Expected)
                 </p>
               </div>
@@ -186,7 +186,7 @@ export function About() {
                 <p className="text-base sm:text-lg font-bold text-indigo-700 dark:text-blue-300">
                   Jagannath University
                 </p>
-                <p className="text-xs text-indigo-600/80 dark:text-blue-400/60 uppercase tracking-wider">
+                <p className="text-xs text-indigo-700/80 dark:text-blue-400/60 uppercase tracking-wider">
                   Jaipur, Rajasthan
                 </p>
               </div>
@@ -204,17 +204,17 @@ export function About() {
           >
             {/* Skills Header */}
             <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between mb-6">
-              <h3 className="text-lg sm:text-xl font-semibold text-foreground mb-2 sm:mb-0 tracking-tight">
+              <h3 className="text-lg sm:text-xl font-semibold text-slate-900 dark:text-foreground mb-2 sm:mb-0 tracking-tight">
                 Core Competencies
               </h3>
               <div className="flex gap-2">
-                <span key={1} className="inline-flex items-center gap-1 px-2 py-1 rounded-full text-xs font-medium bg-cyan-500/10 text-cyan-700 dark:text-cyan-300 border border-cyan-500/20">
+                <span key={1} className="inline-flex items-center gap-1 px-2 py-1 rounded-full text-xs font-semibold bg-cyan-500/10 text-cyan-800 dark:text-cyan-300 border border-cyan-500/20">
                   Full Stack
                 </span>
-                <span key={2} className="inline-flex items-center gap-1 px-2 py-1 rounded-full text-xs font-medium bg-purple-500/10 text-purple-700 dark:text-purple-300 border border-purple-500/20">
+                <span key={2} className="inline-flex items-center gap-1 px-2 py-1 rounded-full text-xs font-semibold bg-purple-500/10 text-purple-800 dark:text-purple-300 border border-purple-500/20">
                   AI/ML
                 </span>
-                <span key={3} className="inline-flex items-center gap-1 px-2 py-1 rounded-full text-xs font-medium bg-emerald-500/10 text-emerald-700 dark:text-emerald-300 border border-emerald-500/20">
+                <span key={3} className="inline-flex items-center gap-1 px-2 py-1 rounded-full text-xs font-semibold bg-emerald-500/10 text-emerald-800 dark:text-emerald-300 border border-emerald-500/20">
                   Cloud
                 </span>
               </div>
@@ -234,7 +234,7 @@ export function About() {
               ].map((skill) => (
                 <span
                   key={skill.name}
-                  className="rounded-xl px-3 py-2 text-xs sm:text-sm font-medium bg-muted/60 border border-border text-foreground hover:bg-muted dark:bg-white/[0.04] dark:border-white/10 dark:text-purple-200/90 dark:hover:border-purple-500/40 dark:hover:bg-purple-500/10 transition-all duration-300"
+                  className="rounded-xl px-3 py-2 text-xs sm:text-sm font-medium bg-slate-100/90 border border-slate-200 text-slate-800 hover:bg-slate-200/70 dark:bg-white/[0.04] dark:border-white/10 dark:text-purple-200/90 dark:hover:border-purple-500/40 dark:hover:bg-purple-500/10 transition-all duration-300"
                 >
                   {skill.name}
                 </span>
@@ -251,7 +251,7 @@ export function About() {
               "transition-all duration-300"
             )}
           >
-            <h3 className="text-lg sm:text-xl font-semibold text-foreground mb-4 tracking-tight flex items-center gap-2">
+            <h3 className="text-lg sm:text-xl font-semibold text-slate-900 dark:text-foreground mb-4 tracking-tight flex items-center gap-2">
               <Globe className="h-4 w-4 text-primary dark:text-purple-400" /> Social Connect
             </h3>
             <div className="flex gap-3">
@@ -267,14 +267,14 @@ export function About() {
                       rel="noopener noreferrer"
                       className={cn(
                         "flex flex-col items-center gap-1.5 px-4 py-3 rounded-xl transition-all duration-300",
-                        "border border-border bg-muted/30 text-foreground hover:border-primary hover:text-primary hover:bg-primary/5",
-                        "dark:border-2 dark:border-purple-500/20 dark:bg-purple-500/10",
+                        "border border-slate-300 bg-white text-slate-800 hover:border-primary hover:text-primary hover:bg-primary/5",
+                        "dark:border-2 dark:border-purple-500/20 dark:bg-purple-500/10 dark:text-purple-300",
                         "dark:hover:border-purple-400 dark:hover:shadow-[0_0_20px_rgba(168,85,247,0.4)]",
                         "group-hover:scale-105"
                       )}
                     >
                       <Icon
-                        className="h-5 w-5 text-foreground group-hover:text-primary dark:text-purple-300 dark:group-hover:text-purple-200 transition-colors"
+                        className="h-5 w-5 text-slate-700 group-hover:text-primary dark:text-purple-300 dark:group-hover:text-purple-200 transition-colors"
                       />
                       <span className="text-xs sm:text-sm font-medium">{names[i]}</span>
                     </a>

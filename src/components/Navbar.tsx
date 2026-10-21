@@ -178,7 +178,7 @@ export function Navbar() {
 
                 {/* Navigation Links */}
                 <div className="px-4 py-4 flex flex-col gap-1 max-w-md mx-auto">
-                  <div className="text-[11px] font-semibold uppercase tracking-wider text-muted-foreground/60 px-3 py-1 mb-1">
+                  <div className="text-[11px] font-semibold uppercase tracking-wider text-slate-500 dark:text-muted-foreground/60 px-3 py-1 mb-1">
                     Navigation
                   </div>
                   {navItems.map((item) => {
@@ -192,7 +192,7 @@ export function Navbar() {
                           "flex items-center justify-between w-full px-4 py-3 text-base font-medium transition-colors rounded-xl",
                           active
                             ? "text-primary bg-primary/10 font-semibold"
-                            : "text-foreground/80 hover:text-foreground hover:bg-muted/50 active:bg-muted/70"
+                            : "text-slate-800 hover:text-slate-900 hover:bg-slate-100 active:bg-slate-200 dark:text-foreground/80 dark:hover:text-foreground dark:hover:bg-muted/50 dark:active:bg-muted/70"
                         )}
                         aria-current={active ? "page" : undefined}
                       >
