@@ -80,7 +80,7 @@ export function Contact() {
             Get In Touch
           </h2>
           <p className="text-sm text-muted-foreground max-w-2xl mx-auto">
-            Open to full-time opportunities. Feel free to reach out!
+            Available for Software Development Internships and Junior Developer roles. Feel free to reach out!
           </p>
         </header>
 
@@ -119,6 +119,11 @@ export function Contact() {
                               href={item.href}
                               target="_blank"
                               rel="noopener noreferrer"
+                              onClick={() => {
+                                if (item.label === "Resume") {
+                                  fetch("/api/resume-download", { method: "POST" }).catch(() => {});
+                                }
+                              }}
                               className="flex items-center gap-1 text-xs sm:text-sm"
                             >
                               <span className="truncate">{item.value}</span>

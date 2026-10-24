@@ -79,9 +79,16 @@ export function Experience() {
                 <div className="bg-card border border-border shadow-xs hover:shadow-md dark:bg-gradient-to-b dark:from-white/[0.07] dark:to-white/[0.02] dark:border-purple-500/20 backdrop-blur-xl rounded-2xl p-4 sm:p-6 hover:border-primary/50 dark:hover:border-purple-500/60 dark:hover:shadow-[0_4px_25px_rgba(168,85,247,0.25)] transition-all duration-300">
                   <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3 mb-3">
                     <div>
-                      <h3 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white tracking-tight">
-                        {exp.role}
-                      </h3>
+                      <div className="flex flex-wrap items-center gap-2">
+                        <h3 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white tracking-tight">
+                          {exp.role}
+                        </h3>
+                        {"type" in exp && exp.type && (
+                          <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-purple-100 text-purple-800 dark:bg-purple-950/60 dark:text-purple-300 border border-purple-200 dark:border-purple-800/50">
+                            {exp.type}
+                          </span>
+                        )}
+                      </div>
                       <p className="text-purple-700 dark:text-purple-300 font-semibold text-sm sm:text-base mt-1">
                         {exp.company}
                       </p>

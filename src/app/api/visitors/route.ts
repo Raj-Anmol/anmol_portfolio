@@ -1,18 +1,37 @@
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import { kv } from "@vercel/kv";
 
-const FALLBACK_VISITORS = 1247;
 const COUNTER_KEY = "portfolio:visitors";
 
-export async function GET() {
+export async function GET(request: NextRequest) {
   try {
-    if (process.env.KV_REST_API_URL && process.env.KV_REST_API_TOKEN) {
-      const count = await kv.incr(COUNTER_KEY);
-      return NextResponse.json({ count });
+    if (!process.env.KV_REST_API_URL || !process.env.KV_REST_API_TOKEN) {
+      return NextResponse.json({ available: false, count: null });
     }
-    return NextResponse.json({ count: FALLBACK_VISITORS + Math.floor(Date.now() / 100000) % 100 });
+
+    const hasVisited = request.cookies.get("has_visited_portfolio");
+
+    if (hasVisited) {
+      const currentCount = await kv.get<number>(COUNTER_KEY);
+      return NextResponse.json({ available: true, count: currentCount ?? 0 });
+    }
+
+    const count = await kv.incr(COUNTER_KEY);
+    const response = NextResponse.json({ available: true, count });
+
+    // Deduplicate repeat visits within 24 hours
+    response.cookies.set({
+      name: "has_visited_portfolio",
+      value: "true",
+      maxAge: 60 * 60 * 24, // 24 hours
+      path: "/",
+      httpOnly: true,
+      sameSite: "lax",
+    });
+
+    return response;
   } catch (err) {
     console.error("Visitor counter error:", err);
-    return NextResponse.json({ count: FALLBACK_VISITORS });
+    return NextResponse.json({ available: false, count: null });
   }
 }

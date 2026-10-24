@@ -5,7 +5,7 @@ import Link from "next/link";
 import { motion } from "motion/react";
 import { Button } from "@/components/ui/button";
 import { AnimatedCounter } from "@/components/ui/animated-counter";
-import { Mail, Eye, ChevronDown } from "lucide-react";
+import { Mail, Eye, ChevronDown, FolderGit2 } from "lucide-react";
 import { GithubIcon } from "@/components/icons/GithubIcon";
 import { LinkedinIcon } from "@/components/icons/LinkedinIcon";
 import { TwitterOfficialIcon } from "@/components/icons/TwitterOfficialIcon";
@@ -85,7 +85,7 @@ export function Hero() {
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-500 dark:bg-green-400 opacity-75" />
               <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500 dark:bg-green-400" />
             </span>
-            Available for Opportunities
+            Available for Internships & Junior Roles
           </motion.div>
 
           {/* Main Heading */}
@@ -116,7 +116,7 @@ export function Hero() {
             variants={itemVariants}
             className="text-sm sm:text-base md:text-lg text-slate-600 dark:text-muted-foreground mb-6 sm:mb-8 max-w-xl mx-auto leading-relaxed px-2 text-balance"
           >
-            Full Stack Developer specializing in the MERN stack, building production web applications with AI integration.
+            Full Stack Developer specializing in React, Next.js & Node.js, building scalable web applications with AI integration.
           </motion.p>
 
           {/* Action Buttons */}
@@ -127,17 +127,32 @@ export function Hero() {
             <Button
               asChild
               size="lg"
-              className="h-11 px-7 rounded-xl font-medium w-full sm:w-auto gap-2 bg-primary text-primary-foreground hover:bg-primary/90 shadow-md shadow-purple-500/20 active:scale-[0.98] transition-all"
+              className="h-11 px-6 rounded-xl font-medium w-full sm:w-auto gap-2 bg-primary text-primary-foreground hover:bg-primary/90 shadow-md shadow-purple-500/20 active:scale-[0.98] transition-all"
+            >
+              <Link href="#projects" className="inline-flex items-center justify-center gap-2">
+                <FolderGit2 className="h-4 w-4" />
+                <span>View Projects</span>
+              </Link>
+            </Button>
+
+            <Button
+              asChild
+              size="lg"
+              variant="outline"
+              className="h-11 px-6 rounded-xl font-medium w-full sm:w-auto gap-2 border border-slate-300/90 bg-white hover:bg-slate-100 text-slate-800 hover:text-slate-900 active:scale-[0.98] transition-all dark:border-border/80 dark:bg-transparent dark:text-white dark:hover:border-purple-500/50 dark:hover:bg-purple-500/10"
             >
               <a
                 href={profile.resumeUrl}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => {
+                  fetch("/api/resume-download", { method: "POST" }).catch(() => {});
+                }}
                 className="inline-flex items-center justify-center gap-2"
                 aria-label="View Resume PDF in new tab"
               >
                 <Eye className="h-4 w-4" />
-                <span>View Resume</span>
+                <span>Resume</span>
               </a>
             </Button>
 
@@ -145,7 +160,7 @@ export function Hero() {
               asChild
               size="lg"
               variant="outline"
-              className="h-11 px-7 rounded-xl font-medium w-full sm:w-auto gap-2 border border-slate-300/90 bg-white hover:bg-slate-100 text-slate-800 hover:text-slate-900 active:scale-[0.98] transition-all dark:border-border/80 dark:bg-transparent dark:text-white dark:hover:border-purple-500/50 dark:hover:bg-purple-500/10"
+              className="h-11 px-6 rounded-xl font-medium w-full sm:w-auto gap-2 border border-slate-300/90 bg-white hover:bg-slate-100 text-slate-800 hover:text-slate-900 active:scale-[0.98] transition-all dark:border-border/80 dark:bg-transparent dark:text-white dark:hover:border-purple-500/50 dark:hover:bg-purple-500/10"
             >
               <Link href="/contact" className="inline-flex items-center justify-center gap-2">
                 <Mail className="h-4 w-4" />

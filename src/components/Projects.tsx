@@ -107,6 +107,12 @@ export function Projects() {
                     <Badge variant="secondary" className="text-xs">
                       Featured
                     </Badge>
+                    {"status" in project && project.status && (
+                      <Badge variant="outline" className="text-xs text-emerald-600 dark:text-emerald-400 border-emerald-500/30 bg-emerald-500/10 gap-1 font-medium">
+                        <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
+                        {project.status as string}
+                      </Badge>
+                    )}
                   </div>
                   <CardTitle className="text-base font-bold group-hover:text-primary transition-colors leading-tight">
                     {project.name}

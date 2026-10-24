@@ -7,7 +7,7 @@ export const profile = {
   phone: "",
   linkedin: "https://www.linkedin.com/in/raj-anmol/",
   github: "https://github.com/Raj-Anmol",
-  summary: "Full Stack Developer specializing in the MERN stack, with a focus on integrating AI into production web applications. Skilled in RESTful APIs, real-time systems, and cloud deployment.",
+  summary: "Computer Science undergraduate specializing in full-stack web development (React, Next.js, Node.js) and practical AI integration. Actively seeking software development internships and junior developer roles.",
   profileImage: "/profile.png",
   resumeUrl: "/resume/Anmol-Raj-Resume.pdf",
 };
@@ -32,18 +32,20 @@ export const experience = [
   {
     role: "Artificial Intelligence Intern",
     company: "Edunet Foundation (AICTE × IBM SkillsBuild)",
+    type: "Virtual Cohort • AI Track",
     period: "May 11, 2026 – Jun 21, 2026 (6 weeks)",
     location: "Remote",
     bullets: [
-      "Completed 6-week intensive training on AI models, cloud workflows, and system deployment",
-      "Developed full-stack web interfaces integrated with backend AI services for real-time data processing",
-      "Implemented API endpoint handlers and connected client-side components to IBM cloud infrastructure",
+      "Completed 6-week intensive AICTE-sponsored virtual track on AI models, cloud workflows, and model deployment",
+      "Developed full-stack web interfaces integrated with backend AI services for real-time model inference",
+      "Implemented RESTful API endpoints and connected client-side components to IBM Cloud infrastructure",
     ],
     certificateUrl: "https://drive.google.com/file/d/17cCJ57TTcNw7Rq38QXAGQbhB98EarZcx/view?usp=drivesdk",
   },
   {
     role: "Emerging Technologies Intern",
     company: "Edunet Foundation (AICTE × IBM SkillsBuild)",
+    type: "Virtual Cohort • Emerging Tech Track",
     period: "May 15, 2026 – Jun 12, 2026 (4 weeks)",
     location: "Remote",
     bullets: [
@@ -56,12 +58,13 @@ export const experience = [
   {
     role: "Web Development Intern",
     company: "ApexPlanet Software Pvt. Ltd. (AICTE x MSME)",
+    type: "Virtual Internship",
     period: "Dec 11, 2025 - Jan 24, 2026",
     location: "Remote",
     bullets: [
-      "Completed virtual internship in Web Development using HTML, CSS, and JavaScript",
-      "Developed responsive web interfaces and client-side logic",
-      "Built modular front-end components adhering to web standards",
+      "Completed virtual internship in Web Development using HTML5, CSS3, and modern JavaScript",
+      "Developed responsive web interfaces, interactive UI logic, and modular components",
+      "Ensured cross-browser compatibility and adhered to web accessibility standards",
     ],
     certificateUrl: "https://drive.google.com/file/d/APSPL2524992/view",
   },
@@ -80,6 +83,7 @@ export const projects = [
     githubUrl: "https://github.com/Raj-Anmol/AI-Student-Travel-Planner",
     caseStudyUrl: "/projects/ai-student-travel-planner",
     featured: true,
+    status: "Live App",
   },
   {
     id: "krishi-seva-center",
@@ -93,6 +97,7 @@ export const projects = [
     githubUrl: "https://github.com/Raj-Anmol/krishi-seva-center",
     caseStudyUrl: "/projects/krishi-seva-center",
     featured: true,
+    status: "Live App",
   },
 ];
 

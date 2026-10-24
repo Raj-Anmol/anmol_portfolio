@@ -89,9 +89,6 @@ export const metadata: Metadata = {
   
   alternates: {
     canonical: "https://anmol-raj.vercel.app",
-    types: {
-      "application/rss+xml": "https://anmol-raj.vercel.app/rss.xml",
-    },
   },
   other: {
     "profile:first_name": "Anmol",
@@ -138,7 +135,6 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(schemas) }}
           strategy="lazyOnload"
         />
-        <link rel="robots.txt" href="/robots.txt" className="d-none" />
       </head>
       <body className={`${inter.variable} ${jetbrainsMono.variable} min-h-screen bg-background font-sans antialiased overflow-x-hidden`}>
         <ThemeProvider

@@ -248,7 +248,10 @@ export function Navbar() {
                 href={profile.resumeUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                onClick={() => setMobileMenuOpen(false)}
+                onClick={() => {
+                  fetch("/api/resume-download", { method: "POST" }).catch(() => {});
+                  setMobileMenuOpen(false);
+                }}
                 className="w-full h-11 inline-flex items-center justify-center gap-2 px-4 text-sm font-semibold rounded-xl bg-primary text-primary-foreground hover:bg-primary/90 shadow-md shadow-purple-500/20 active:scale-[0.98] transition-all"
                 aria-label="View Resume PDF in new tab"
               >

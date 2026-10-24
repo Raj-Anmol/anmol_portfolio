@@ -6,7 +6,8 @@ import { Eye } from "lucide-react";
 import { useReducedMotion } from "@/lib/hooks/use-reduced-motion";
 
 interface VisitorData {
-  count: number;
+  available?: boolean;
+  count?: number | null;
 }
 
 export function VisitorCounter() {
@@ -15,23 +16,40 @@ export function VisitorCounter() {
   const reducedMotion = useReducedMotion();
 
   useEffect(() => {
+    let isMounted = true;
+
     const fetchCount = async () => {
       try {
         const res = await fetch("/api/visitors", { cache: "no-store" });
         if (res.ok) {
-          const json = await res.json();
-          setData(json);
+          const json: VisitorData = await res.json();
+          if (isMounted) {
+            setData(json);
+          }
+        } else if (isMounted) {
+          setData(null);
         }
       } catch {
-        setData({ count: 1247 });
+        if (isMounted) {
+          setData(null);
+        }
       }
     };
+
     fetchCount();
-    const timer = setTimeout(() => setVisible(true), 1500);
-    return () => clearTimeout(timer);
+    const timer = setTimeout(() => {
+      if (isMounted) setVisible(true);
+    }, 1500);
+
+    return () => {
+      isMounted = false;
+      clearTimeout(timer);
+    };
   }, []);
 
-  if (!data || !visible) return null;
+  if (!data?.available || typeof data.count !== "number" || !visible) {
+    return null;
+  }
 
   const display = data.count.toLocaleString();
 
@@ -70,4 +88,3 @@ export function VisitorCounter() {
     </AnimatePresence>
   );
 }
-
