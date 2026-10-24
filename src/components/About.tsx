@@ -95,15 +95,18 @@ export function About() {
   return (
     <section
       id="about"
-      className="py-12 sm:py-16 px-4 sm:px-6 lg:px-8 relative"
+      className="py-12 sm:py-16 px-4 sm:px-6 lg:px-8 relative overflow-hidden"
     >
-      <div className="max-w-7xl mx-auto">
+      {/* Background Grid Pattern */}
+      <div className="absolute inset-0 bg-grid-pattern opacity-25 dark:opacity-15 pointer-events-none" aria-hidden="true" />
+
+      <div className="max-w-7xl mx-auto relative z-10">
 
         {/* Ambient Orb Background */}
-        <div className="absolute inset-0 overflow-hidden pointer-events-none -z-10" aria-hidden="true">
+        <div className="absolute inset-0 overflow-hidden pointer-events-none z-0" aria-hidden="true">
           <div className="relative">
-            <div className="absolute -inset-2 rounded-3xl opacity-20 blur-[80%] bg-gradient-to-br from-purple-300 dark:from-purple-900 to-transparent" />
-            <div className="absolute -inset-4 rounded-2xl opacity-15 blur-[60%] bg-gradient-to-br from-purple-400/30 dark:from-purple-500/30 to-transparent" />
+            <div className="absolute -inset-2 rounded-3xl opacity-25 blur-[70px] bg-gradient-to-br from-purple-400/25 dark:from-purple-900/30 to-transparent" />
+            <div className="absolute -inset-4 rounded-2xl opacity-20 blur-[50px] bg-gradient-to-br from-indigo-400/20 dark:from-purple-500/20 to-transparent" />
           </div>
         </div>
 

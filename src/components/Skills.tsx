@@ -106,6 +106,9 @@ export function Skills() {
           transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
           className="text-center mb-10"
         >
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-purple-500/10 border border-purple-500/25 text-purple-700 dark:text-purple-300 text-xs sm:text-sm font-medium mb-4">
+            Technical Arsenal
+          </div>
           <h2 id="skills-heading" className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-4 tracking-tight text-balance">
             Technical Skills
           </h2>
@@ -129,7 +132,7 @@ export function Skills() {
                 variants={categoryVariants}
                 whileHover={reducedMotion ? undefined : { y: -3 }}
                 transition={{ duration: 0.25, ease: "easeOut" }}
-                className="border border-border bg-card/80 backdrop-blur-sm rounded-xl p-5 hover:border-primary/50 hover:shadow-md transition-all duration-300"
+                className="border border-border bg-card/80 backdrop-blur-sm rounded-xl p-5 hover:border-purple-500/50 hover:shadow-[0_8px_25px_rgba(168,85,247,0.15)] dark:hover:border-purple-400/50 dark:hover:shadow-[0_8px_25px_rgba(168,85,247,0.2)] transition-all duration-300"
               >
                 <div className="flex items-center justify-between gap-3 mb-4 flex-wrap">
                   <div className="flex items-center gap-3">

@@ -110,15 +110,21 @@ export function Hero() {
     >
       {/* Ambient Purple Gradient Orbs (Non-intrusive, pointer-events-none, z-0) */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none z-0" aria-hidden="true">
-        {/* Orb 1: Upper Right */}
-        <div className="absolute -top-16 -right-16 sm:top-10 sm:right-1/4 w-72 h-72 sm:w-[480px] sm:h-[480px] rounded-full bg-gradient-to-br from-purple-400/35 via-violet-300/30 to-indigo-300/20 dark:from-purple-600/25 dark:via-indigo-600/20 dark:to-transparent blur-[60px] sm:blur-[90px] animate-orb-1" />
+        {/* Orb 1: Center Ambient Glow */}
+        <div className="absolute left-1/2 top-1/3 -translate-x-1/2 -translate-y-1/2 w-80 h-80 sm:w-[500px] sm:h-[500px] rounded-full bg-purple-500/20 dark:bg-purple-600/20 blur-[110px] animate-pulse-glow" />
 
-        {/* Orb 2: Upper Left */}
-        <div className="absolute -top-20 -left-20 sm:top-24 sm:left-1/4 w-64 h-64 sm:w-[420px] sm:h-[420px] rounded-full bg-gradient-to-tr from-violet-300/30 via-purple-400/25 to-pink-300/20 dark:from-indigo-600/25 dark:via-purple-700/20 dark:to-transparent blur-[60px] sm:blur-[90px] animate-orb-2" />
+        {/* Orb 2: Upper Right Floating */}
+        <div className="absolute -top-12 -right-12 sm:top-10 sm:right-1/4 w-72 h-72 sm:w-[440px] sm:h-[440px] rounded-full bg-gradient-to-br from-violet-400/25 to-indigo-400/20 dark:from-indigo-600/20 dark:to-purple-700/15 blur-[95px] animate-float-slow" />
 
-        {/* Orb 3: Center Bottom */}
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 w-64 h-64 sm:w-[380px] sm:h-[380px] rounded-full bg-gradient-to-t from-fuchsia-300/25 via-purple-400/20 to-transparent dark:from-purple-800/25 dark:via-fuchsia-900/15 dark:to-transparent blur-[60px] sm:blur-[90px] animate-orb-3" />
+        {/* Orb 3: Bottom Left Floating */}
+        <div className="absolute bottom-6 -left-12 sm:bottom-12 sm:left-1/4 w-64 h-64 sm:w-[380px] sm:h-[380px] rounded-full bg-gradient-to-tr from-purple-400/25 to-pink-400/15 dark:from-purple-900/25 dark:to-indigo-900/15 blur-[90px] animate-float" />
       </div>
+
+      {/* Subtle masked grid pattern for premium depth like reference */}
+      <div
+        className="absolute inset-0 z-0 bg-grid-pattern pointer-events-none [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] opacity-70 dark:opacity-40"
+        aria-hidden="true"
+      />
 
       <div className="max-w-4xl mx-auto w-full flex-1 flex flex-col items-center justify-center relative z-10">
         <motion.div
@@ -316,7 +322,7 @@ export function Hero() {
           aria-label="Scroll to next section"
         >
           <span className="text-[10px] sm:text-xs tracking-[0.3em] uppercase">Scroll</span>
-          <ChevronDown className="h-4 w-4 animate-bounce" />
+          <ChevronDown className="h-4 w-4 animate-scroll-indicator" />
         </motion.button>
       </div>
     </section>

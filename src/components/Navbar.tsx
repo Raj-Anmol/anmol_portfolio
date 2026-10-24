@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { motion } from "motion/react";
+import { motion, AnimatePresence } from "motion/react";
 import { cn } from "@/lib/utils";
 import { Eye, Search, X, Menu } from "lucide-react";
 import { GithubIcon } from "@/components/icons/GithubIcon";
@@ -182,71 +182,82 @@ export function Navbar() {
         </nav>
       </header>
 
-      {/* Mobile Navigation Drawer (Rendered outside header to prevent backdrop-filter containing block issues) */}
-      {mobileMenuOpen && (
-        <div
-          className="fixed inset-0 z-[100] md:hidden bg-white dark:bg-[#08080c] flex flex-col justify-between overflow-y-auto overflow-x-hidden animate-in fade-in duration-200 h-[100dvh]"
-          role="dialog"
-          aria-modal="true"
-          aria-label="Mobile Navigation Menu"
-        >
-          <div className="flex flex-col flex-1 min-h-0">
-            {/* Mobile Drawer Sticky Header Bar */}
-            <div className="sticky top-0 z-20 flex items-center justify-between h-16 px-4 sm:px-6 bg-white/95 dark:bg-[#08080c]/95 backdrop-blur-md border-b border-slate-200 dark:border-border/80 flex-shrink-0">
-              <Link
-                href="/"
-                onClick={() => setMobileMenuOpen(false)}
-                className="text-xl font-bold tracking-tight text-slate-900 dark:text-foreground hover:text-primary transition-colors flex items-center"
-                aria-label="Anmol Raj - Home"
-              >
-                Anmol<span className="text-primary">.</span>
-              </Link>
-
-              <div className="flex items-center gap-2">
-                <ThemeToggle />
-                <button
+      {/* Mobile Navigation Drawer with AnimatePresence */}
+      <AnimatePresence>
+        {mobileMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
+            className="fixed inset-0 z-[100] md:hidden bg-white dark:bg-[#08080c] flex flex-col justify-between overflow-y-auto overflow-x-hidden h-[100dvh]"
+            role="dialog"
+            aria-modal="true"
+            aria-label="Mobile Navigation Menu"
+          >
+            <div className="flex flex-col flex-1 min-h-0">
+              {/* Mobile Drawer Sticky Header Bar */}
+              <div className="sticky top-0 z-20 flex items-center justify-between h-16 px-4 sm:px-6 bg-white/95 dark:bg-[#08080c]/95 backdrop-blur-md border-b border-slate-200 dark:border-border/80 flex-shrink-0">
+                <Link
+                  href="/"
                   onClick={() => setMobileMenuOpen(false)}
-                  className="h-10 w-10 rounded-xl flex items-center justify-center text-slate-700 dark:text-foreground bg-slate-100 hover:bg-slate-200 dark:bg-white/5 dark:hover:bg-white/10 transition-colors active:scale-95"
-                  aria-label="Close menu"
+                  className="text-xl font-bold tracking-tight text-slate-900 dark:text-foreground hover:text-primary transition-colors flex items-center"
+                  aria-label="Anmol Raj - Home"
                 >
-                  <X className="h-5 w-5" />
-                </button>
-              </div>
-            </div>
+                  Anmol<span className="text-primary">.</span>
+                </Link>
 
-            {/* Navigation Links Scrollable Area */}
-            <div className="flex-1 px-4 py-4 sm:px-6 overflow-y-auto">
-              <div className="max-w-md mx-auto">
-                <div className="text-[11px] font-bold uppercase tracking-wider text-slate-500 dark:text-purple-300/70 px-3 py-1.5 mb-2">
-                  Navigation
+                <div className="flex items-center gap-2">
+                  <ThemeToggle />
+                  <button
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="h-10 w-10 rounded-xl flex items-center justify-center text-slate-700 dark:text-foreground bg-slate-100 hover:bg-slate-200 dark:bg-white/5 dark:hover:bg-white/10 transition-colors active:scale-95"
+                    aria-label="Close menu"
+                  >
+                    <X className="h-5 w-5" />
+                  </button>
                 </div>
-                <nav className="flex flex-col gap-1.5" aria-label="Mobile navigation links">
-                  {navItems.map((item) => {
-                    const active = isActive(item.href);
-                    return (
-                      <Link
-                        key={item.label}
-                        href={item.href}
-                        onClick={() => setMobileMenuOpen(false)}
-                        className={cn(
-                          "flex items-center justify-between w-full px-4 py-3 text-base font-medium transition-all rounded-xl",
-                          active
-                            ? "bg-purple-50 text-purple-700 font-semibold border border-purple-200/80 dark:bg-primary/15 dark:text-primary dark:border-primary/30"
-                            : "text-slate-800 hover:text-slate-900 hover:bg-slate-100 active:bg-slate-200 dark:text-foreground/90 dark:hover:text-foreground dark:hover:bg-white/5 dark:active:bg-white/10"
-                        )}
-                        aria-current={active ? "page" : undefined}
-                      >
-                        <span>{item.label}</span>
-                        {active && (
-                          <span className="h-2 w-2 rounded-full bg-purple-600 dark:bg-primary animate-pulse" />
-                        )}
-                      </Link>
-                    );
-                  })}
-                </nav>
+              </div>
+
+              {/* Navigation Links Scrollable Area */}
+              <div className="flex-1 px-4 py-4 sm:px-6 overflow-y-auto">
+                <div className="max-w-md mx-auto">
+                  <div className="text-[11px] font-bold uppercase tracking-wider text-slate-500 dark:text-purple-300/70 px-3 py-1.5 mb-2">
+                    Navigation
+                  </div>
+                  <nav className="flex flex-col gap-1.5" aria-label="Mobile navigation links">
+                    {navItems.map((item, idx) => {
+                      const active = isActive(item.href);
+                      return (
+                        <motion.div
+                          key={item.label}
+                          initial={{ opacity: 0, x: -8 }}
+                          animate={{ opacity: 1, x: 0 }}
+                          transition={{ delay: 0.04 + idx * 0.02, duration: 0.2 }}
+                        >
+                          <Link
+                            href={item.href}
+                            onClick={() => setMobileMenuOpen(false)}
+                            className={cn(
+                              "flex items-center justify-between w-full px-4 py-3 text-base font-medium transition-all rounded-xl",
+                              active
+                                ? "bg-purple-50 text-purple-700 font-semibold border border-purple-200/80 dark:bg-primary/15 dark:text-primary dark:border-primary/30"
+                                : "text-slate-800 hover:text-slate-900 hover:bg-slate-100 active:bg-slate-200 dark:text-foreground/90 dark:hover:text-foreground dark:hover:bg-white/5 dark:active:bg-white/10"
+                            )}
+                            aria-current={active ? "page" : undefined}
+                          >
+                            <span>{item.label}</span>
+                            {active && (
+                              <span className="h-2 w-2 rounded-full bg-purple-600 dark:bg-primary animate-pulse" />
+                            )}
+                          </Link>
+                        </motion.div>
+                      );
+                    })}
+                  </nav>
+                </div>
               </div>
             </div>
-          </div>
 
           {/* Bottom Actions */}
           <div className="p-4 sm:p-6 border-t border-slate-200 dark:border-border/80 bg-slate-50 dark:bg-[#0c0c14] flex-shrink-0">
@@ -288,8 +299,9 @@ export function Navbar() {
               </div>
             </div>
           </div>
-        </div>
+        </motion.div>
       )}
-    </>
-  );
+    </AnimatePresence>
+  </>
+);
 }

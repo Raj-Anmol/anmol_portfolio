@@ -40,6 +40,9 @@ export function Certificates() {
           transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
           className="text-center mb-10"
         >
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-purple-500/10 border border-purple-500/25 text-purple-700 dark:text-purple-300 text-xs sm:text-sm font-medium mb-4">
+            Credentials
+          </div>
           <h2 id="certificates-heading" className="text-2xl sm:text-3xl font-bold text-foreground mb-4">
             Certifications
           </h2>
@@ -62,7 +65,7 @@ export function Certificates() {
               whileHover={reducedMotion ? undefined : { y: -4 }}
               transition={{ duration: 0.25, ease: "easeOut" }}
             >
-              <Card className="h-full border-border bg-card/80 backdrop-blur-sm transition-all duration-300 hover:border-purple-500/40 hover:shadow-md">
+              <Card className="h-full border-border bg-card/80 backdrop-blur-sm transition-all duration-300 hover:border-purple-500/50 hover:shadow-[0_8px_30px_rgba(168,85,247,0.18)] dark:hover:border-purple-400/50 dark:hover:shadow-[0_8px_30px_rgba(168,85,247,0.25)]">
                 <CardHeader className="pb-3">
                   <div className="flex items-center justify-between mb-3">
                     <div className="p-2.5 bg-primary/10 rounded-lg text-primary">

@@ -85,8 +85,11 @@ export function Contact() {
           transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
           className="text-center mb-10"
         >
-          <h2 id="contact-heading" className="text-2xl sm:text-3xl font-bold text-foreground mb-4">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-purple-500/10 border border-purple-500/25 text-purple-700 dark:text-purple-300 text-xs sm:text-sm font-medium mb-4">
             Get In Touch
+          </div>
+          <h2 id="contact-heading" className="text-2xl sm:text-3xl font-bold text-foreground mb-4">
+            Contact Me
           </h2>
           <p className="text-sm text-muted-foreground max-w-2xl mx-auto">
             Available for software development internships, entry-level jobs, and junior developer opportunities. Feel free to reach out!
@@ -105,7 +108,7 @@ export function Contact() {
             >
               <Card
                 className={cn(
-                  "border-border transition-all duration-300 hover:border-purple-500/40 hover:shadow-md group h-full",
+                  "border-border transition-all duration-300 hover:border-purple-500/50 hover:shadow-[0_8px_25px_rgba(168,85,247,0.15)] dark:hover:border-purple-400/50 dark:hover:shadow-[0_8px_25px_rgba(168,85,247,0.22)] group h-full",
                   item.external ? "cursor-pointer" : ""
                 )}
               >

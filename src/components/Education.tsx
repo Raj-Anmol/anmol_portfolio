@@ -39,6 +39,9 @@ export function Education() {
           transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
           className="text-center mb-10"
         >
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-purple-500/10 border border-purple-500/25 text-purple-700 dark:text-purple-300 text-xs sm:text-sm font-medium mb-4">
+            Education
+          </div>
           <h2 id="education-heading" className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-4 tracking-tight text-balance">
             Education
           </h2>
@@ -60,7 +63,7 @@ export function Education() {
               variants={itemVariants}
               whileHover={reducedMotion ? undefined : { y: -4 }}
               transition={{ duration: 0.25, ease: "easeOut" }}
-              className="relative bg-card rounded-2xl border border-border p-5 hover:border-primary/50 transition-all duration-300 hover:shadow-md"
+              className="relative bg-card rounded-2xl border border-border p-5 hover:border-purple-500/50 hover:shadow-[0_8px_30px_rgba(168,85,247,0.18)] dark:hover:border-purple-400/50 dark:hover:shadow-[0_8px_30px_rgba(168,85,247,0.25)] transition-all duration-300"
             >
               <div className="absolute -top-3 left-6">
                 <div className="p-2 bg-primary rounded-full text-primary-foreground shadow-lg shadow-purple-500/20">
