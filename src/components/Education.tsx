@@ -1,26 +1,10 @@
 "use client";
 
-import { motion, type Variants } from "motion/react";
+import { motion } from "motion/react";
 import { education } from "@/lib/constants";
 import { Badge } from "@/components/ui/badge";
 import { GraduationCap, MapPin, Calendar, Award, Building2 } from "lucide-react";
 import { useReducedMotion } from "@/lib/hooks/use-reduced-motion";
-
-const containerVariants: Variants = {
-  hidden: {},
-  visible: {
-    transition: { staggerChildren: 0.1, delayChildren: 0.05 },
-  },
-};
-
-const itemVariants: Variants = {
-  hidden: { opacity: 0, y: 18 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.5, ease: [0.16, 1, 0.3, 1] },
-  },
-};
 
 export function Education() {
   const reducedMotion = useReducedMotion();

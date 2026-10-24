@@ -164,6 +164,19 @@ export function Navbar() {
                   <GithubIcon className="h-3.5 w-3.5" />
                 </a>
               </div>
+              <a
+                href={profile.resumeUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => {
+                  fetch("/api/resume-download", { method: "POST" }).catch(() => {});
+                }}
+                className="hidden lg:inline-flex items-center gap-1.5 h-8 px-3 text-xs font-semibold rounded-lg bg-primary text-primary-foreground hover:bg-primary/90 shadow-xs hover:shadow-purple-500/20 active:scale-95 transition-all ml-1"
+                aria-label="View Resume PDF in new tab"
+              >
+                <Eye className="h-3 w-3" />
+                <span>Resume</span>
+              </a>
             </div>
 
             {/* Mobile Header Controls */}

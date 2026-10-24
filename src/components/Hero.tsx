@@ -193,9 +193,9 @@ export function Hero() {
           {/* Description (Fade-up with slight delay) */}
           <motion.p
             variants={descriptionVariants}
-            className="text-sm sm:text-base md:text-lg text-slate-600 dark:text-muted-foreground mb-6 sm:mb-8 max-w-xl mx-auto leading-relaxed px-2 text-balance"
+            className="text-sm sm:text-base md:text-lg text-slate-600 dark:text-muted-foreground mb-6 sm:mb-8 max-w-2xl mx-auto leading-relaxed px-2 text-balance"
           >
-            Full Stack Developer specializing in React, Next.js & Node.js, building scalable web applications with AI integration.
+            Full Stack Developer specializing in React, Next.js & Node.js, building scalable web applications with AI integration. Computer Science undergraduate (2027) with 3 internships and 2 production-deployed projects.
           </motion.p>
 
           {/* Action Buttons (Staggered Fade-up) */}

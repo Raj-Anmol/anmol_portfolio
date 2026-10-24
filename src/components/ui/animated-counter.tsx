@@ -29,10 +29,9 @@ export function AnimatedCounter({
   const hasStartedRef = useRef(false);
 
   useEffect(() => {
-    if (reducedMotion) {
-      setDisplay(value);
-      return;
-    }
+    if (reducedMotion) return;
+
+    let cleanupAnim: (() => void) | undefined;
 
     const startAnimation = () => {
       if (hasStartedRef.current) return;
@@ -60,22 +59,25 @@ export function AnimatedCounter({
         }
       };
 
-      setDisplay(0);
-      frameId = requestAnimationFrame(step);
+      frameId = requestAnimationFrame((timestamp) => {
+        setDisplay(0);
+        step(timestamp);
+      });
 
       // Safety timeout: ensure final target value is set even if rAF throttles in background tabs
       const safetyTimeout = setTimeout(() => {
         setDisplay(value);
       }, durationMs + 300);
 
-      return () => {
+      cleanupAnim = () => {
         cancelAnimationFrame(frameId);
         clearTimeout(safetyTimeout);
       };
     };
 
     if (inView) {
-      return startAnimation();
+      startAnimation();
+      return () => cleanupAnim?.();
     }
 
     // Fallback: trigger after 500ms if above-the-fold hero element has not triggered IntersectionObserver
@@ -83,7 +85,10 @@ export function AnimatedCounter({
       startAnimation();
     }, 500);
 
-    return () => clearTimeout(fallbackTimer);
+    return () => {
+      clearTimeout(fallbackTimer);
+      cleanupAnim?.();
+    };
   }, [inView, value, duration, reducedMotion]);
 
   const fullText = `${prefix}${value}${suffix}`;
@@ -92,7 +97,6 @@ export function AnimatedCounter({
     <span
       ref={ref}
       className={cn("tabular-nums inline-block", className)}
-      aria-label={fullText}
     >
       <span aria-hidden="true">
         {prefix}
