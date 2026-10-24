@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     template: "%s | Anmol Raj",
   },
   description:
-    "Computer Science undergraduate specializing in full-stack web development using MERN stack. Skilled in architecting RESTful APIs, building real-time applications, and integrating AI/ML models. Open to full-time opportunities.",
+    "Computer Science undergraduate specializing in full-stack web development (React, Next.js, Node.js) and practical AI integration. Actively seeking software development internships, entry-level jobs, and junior developer roles.",
   keywords: [
     "Anmol Raj",
     "Anmol",
@@ -76,7 +76,7 @@ export const metadata: Metadata = {
     siteName: "Anmol Raj | Portfolio",
     title: "Anmol Raj | Full Stack Developer & AI Integration Specialist",
     description:
-      "Computer Science undergraduate specializing in full-stack web development using MERN stack. Skilled in architecting RESTful APIs, building real-time applications, and integrating AI/ML models.",
+      "Computer Science undergraduate specializing in full-stack web development (React, Next.js, Node.js) and practical AI integration. Actively seeking software development internships, entry-level jobs, and junior developer roles.",
     images: [
       {
         url: "/profile.png",

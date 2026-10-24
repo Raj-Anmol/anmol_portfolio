@@ -131,14 +131,14 @@ export const certificates = [
 ];
 
 export const stats = [
-  { value: 2, suffix: "+", label: "Projects Built" },
-  { value: 3, suffix: "", label: "Internships" },
+  { value: projects.length, suffix: "", label: "Projects Built" },
+  { value: experience.length, suffix: "", label: "Internships" },
   { value: 30, suffix: "+", label: "Tech Stack" },
 ];
 
 export const siteConfig = {
   name: "Anmol Raj",
-  description: "Full Stack Developer | AI Integration — Building scalable web applications with MERN stack and AI-powered solutions",
+  description: "Computer Science undergraduate specializing in full-stack web development (React, Next.js, Node.js) and practical AI integration. Available for software development internships, entry-level jobs, and junior developer roles.",
   url: "https://anmol-raj.vercel.app",
   ogImage: "/profile.png",
   keywords: [

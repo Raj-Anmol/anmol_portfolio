@@ -4,7 +4,7 @@ import { Contact } from "@/components/Contact";
 export const metadata: Metadata = {
   title: "Contact",
   description:
-    "Get in touch with Anmol Raj - Full Stack Developer open to opportunities. Email, LinkedIn, GitHub, Resume.",
+    "Get in touch with Anmol Raj - Full Stack Developer available for software development internships, entry-level jobs, and junior developer opportunities. Email, LinkedIn, GitHub, Resume.",
 };
 
 export default function ContactPage() {

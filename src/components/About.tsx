@@ -13,12 +13,12 @@ export function FAQ() {
     {
       question: "Who is Anmol Raj?",
       answer:
-        "Anmol Raj is a Full-Stack Developer | AI Integration from Jaipur, Rajasthan, India. He is a Computer Science undergraduate at Jagannath University, passionate about MERN stack development and integrating AI into production web applications. He has completed 3 internships and built multiple full-stack & AI projects."
+        "Anmol Raj is a Computer Science undergraduate at Jagannath University (graduating 2027) and a Full-Stack Developer specializing in React, Next.js, and Node.js with AI integration. He has completed 3 internships and built 2 completed, production-ready full-stack and AI applications."
     },
     {
       question: "What projects has Anmol Raj built?",
       answer:
-        "Anmol has built featured applications including AI Student Travel Planner (budget-first travel planning with rule-based expense allocation), Krishi Seva Center (AI-powered farmer platform with disease detection and live weather), and various other Streamlit, React, and Node.js applications deployed on Vercel and Render."
+        "Anmol has built 2 completed, production-deployed applications: AI Student Travel Planner (a budget-first student travel app with rule-based expense breakdown built with Python, Streamlit, and Pandas) and Krishi Seva Center (an AI-powered agricultural web platform featuring crop disease detection, live weather, and mandi prices built with React, FastAPI, and Open-Meteo). Both projects have live demos and open-source GitHub repositories."
     },
     {
       question: "What is Anmol Raj's tech stack?",
@@ -33,7 +33,7 @@ export function FAQ() {
     {
       question: "How to contact Anmol Raj?",
       answer:
-        "You can reach Anmol Raj at araj97855@gmail.com. He is also active on LinkedIn (linkedin.com/in/raj-anmol), GitHub (github.com/Raj-Anmol). He is open for freelance projects and full-time positions."
+        "You can reach Anmol Raj at araj97855@gmail.com. He is also active on LinkedIn (linkedin.com/in/raj-anmol) and GitHub (github.com/Raj-Anmol). He is actively available for software development internships, entry-level jobs, and junior developer opportunities."
     }
   ];
 

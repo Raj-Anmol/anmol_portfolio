@@ -80,7 +80,7 @@ export function Contact() {
             Get In Touch
           </h2>
           <p className="text-sm text-muted-foreground max-w-2xl mx-auto">
-            Available for Software Development Internships and Junior Developer roles. Feel free to reach out!
+            Available for software development internships, entry-level jobs, and junior developer opportunities. Feel free to reach out!
           </p>
         </header>
 

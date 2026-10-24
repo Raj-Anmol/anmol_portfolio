@@ -1,7 +1,8 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { useInView, useMotionValue, useSpring, useTransform } from "motion/react";
+import { useInView } from "motion/react";
+import { useReducedMotion } from "@/lib/hooks/use-reduced-motion";
 import { cn } from "@/lib/utils";
 
 interface AnimatedCounterProps {
@@ -16,29 +17,89 @@ export function AnimatedCounter({
   value,
   suffix = "",
   prefix = "",
-  duration = 1.8,
+  duration = 1.5,
   className,
 }: AnimatedCounterProps) {
   const ref = useRef<HTMLSpanElement>(null);
-  const inView = useInView(ref, { once: true, margin: "-40px" });
-  const motionValue = useMotionValue(0);
-  const spring = useSpring(motionValue, { duration: duration * 1000, bounce: 0 });
-  const rounded = useTransform(spring, (latest) => Math.round(latest));
-  const [display, setDisplay] = useState(0);
+  const inView = useInView(ref, { once: true });
+  const reducedMotion = useReducedMotion();
+
+  // Initialize with real value so SSR and non-JS clients always have the correct number
+  const [display, setDisplay] = useState(value);
+  const hasStartedRef = useRef(false);
 
   useEffect(() => {
-    if (inView) motionValue.set(value);
-  }, [inView, value, motionValue]);
+    if (reducedMotion) {
+      setDisplay(value);
+      return;
+    }
 
-  useEffect(() => {
-    return rounded.on("change", (latest) => setDisplay(latest));
-  }, [rounded]);
+    const startAnimation = () => {
+      if (hasStartedRef.current) return;
+      hasStartedRef.current = true;
+
+      const durationMs = duration * 1000;
+      let startTime: number | null = null;
+      let frameId: number;
+
+      const step = (timestamp: number) => {
+        if (!startTime) startTime = timestamp;
+        const elapsed = timestamp - startTime;
+        const progress = Math.min(elapsed / durationMs, 1);
+
+        // Smooth ease-out cubic
+        const easeOut = 1 - Math.pow(1 - progress, 3);
+        const current = Math.round(easeOut * value);
+
+        setDisplay(current);
+
+        if (progress < 1) {
+          frameId = requestAnimationFrame(step);
+        } else {
+          setDisplay(value);
+        }
+      };
+
+      setDisplay(0);
+      frameId = requestAnimationFrame(step);
+
+      // Safety timeout: ensure final target value is set even if rAF throttles in background tabs
+      const safetyTimeout = setTimeout(() => {
+        setDisplay(value);
+      }, durationMs + 300);
+
+      return () => {
+        cancelAnimationFrame(frameId);
+        clearTimeout(safetyTimeout);
+      };
+    };
+
+    if (inView) {
+      return startAnimation();
+    }
+
+    // Fallback: trigger after 500ms if above-the-fold hero element has not triggered IntersectionObserver
+    const fallbackTimer = setTimeout(() => {
+      startAnimation();
+    }, 500);
+
+    return () => clearTimeout(fallbackTimer);
+  }, [inView, value, duration, reducedMotion]);
+
+  const fullText = `${prefix}${value}${suffix}`;
 
   return (
-    <span ref={ref} className={cn("tabular-nums", className)}>
-      {prefix}
-      {display}
-      {suffix}
+    <span
+      ref={ref}
+      className={cn("tabular-nums inline-block", className)}
+      aria-label={fullText}
+    >
+      <span aria-hidden="true">
+        {prefix}
+        {display}
+        {suffix}
+      </span>
+      <span className="sr-only">{fullText}</span>
     </span>
   );
 }
