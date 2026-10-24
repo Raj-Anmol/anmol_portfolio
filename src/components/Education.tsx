@@ -32,20 +32,26 @@ export function Education() {
       aria-labelledby="education-heading"
     >
       <div className="max-w-7xl mx-auto">
-        <header className="text-center mb-10">
+        <motion.header
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+          className="text-center mb-10"
+        >
           <h2 id="education-heading" className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-4 tracking-tight text-balance">
             Education
           </h2>
           <p className="text-sm sm:text-base text-muted-foreground max-w-2xl mx-auto leading-relaxed text-pretty">
             Academic background and continuous learning.
           </p>
-        </header>
+        </motion.header>
 
         <motion.div
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: "-40px" }}
+          viewport={{ once: true, amount: 0.15 }}
           className="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto"
         >
           {education.map((edu, index) => (

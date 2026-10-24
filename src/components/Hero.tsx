@@ -15,23 +15,80 @@ import { useReducedMotion } from "@/lib/hooks/use-reduced-motion";
 const BLUR_DATA_URL =
   "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=";
 
-const wordVariants: Variants = {
-  hidden: { opacity: 0, y: 14 },
-  visible: (i: number) => ({
+const heroContainerVariants: Variants = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.12,
+      delayChildren: 0.05,
+    },
+  },
+};
+
+const badgeVariants: Variants = {
+  hidden: { opacity: 0, y: -8 },
+  visible: {
     opacity: 1,
     y: 0,
-    transition: { delay: 0.15 + i * 0.06, duration: 0.45, ease: [0.16, 1, 0.3, 1] },
-  }),
+    transition: { duration: 0.55, ease: [0.16, 1, 0.3, 1] },
+  },
 };
 
-const containerVariants: Variants = {
-  hidden: {},
-  visible: { transition: { staggerChildren: 0.08, delayChildren: 0.1 } },
+const headingVariants: Variants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.65, ease: [0.16, 1, 0.3, 1] },
+  },
 };
 
-const itemVariants: Variants = {
+const descriptionVariants: Variants = {
   hidden: { opacity: 0, y: 16 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: [0.16, 1, 0.3, 1] } },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] },
+  },
+};
+
+const buttonContainerVariants: Variants = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.09,
+      delayChildren: 0.05,
+    },
+  },
+};
+
+const buttonItemVariants: Variants = {
+  hidden: { opacity: 0, y: 14 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.45, ease: [0.16, 1, 0.3, 1] },
+  },
+};
+
+const statsContainerVariants: Variants = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.12,
+      delayChildren: 0.55,
+    },
+  },
+};
+
+const statCardVariants: Variants = {
+  hidden: { opacity: 0, y: 16, scale: 0.96 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: { duration: 0.5, ease: [0.16, 1, 0.3, 1] },
+  },
 };
 
 const socialIcons = [
@@ -51,21 +108,21 @@ export function Hero() {
       className="relative min-h-[100dvh] flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8 pt-20 sm:pt-24 pb-12 sm:pb-16 bg-background bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-purple-100/70 via-background to-background dark:bg-black/95 dark:from-purple-900/30 dark:via-black dark:to-black overflow-hidden transition-colors duration-300"
       aria-labelledby="hero-heading"
     >
-      {/* Ambient Purple Gradient Orbs (Non-intrusive, pure CSS compositor animations) */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none -z-10" aria-hidden="true">
+      {/* Ambient Purple Gradient Orbs (Non-intrusive, pointer-events-none, z-0) */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none z-0" aria-hidden="true">
         {/* Orb 1: Upper Right */}
-        <div className="absolute -top-16 -right-16 sm:top-10 sm:right-1/4 w-72 h-72 sm:w-[460px] sm:h-[460px] rounded-full bg-gradient-to-br from-purple-400/20 to-indigo-500/15 dark:from-purple-600/15 dark:to-indigo-500/10 blur-[70px] sm:blur-[110px] animate-orb-1" />
+        <div className="absolute -top-16 -right-16 sm:top-10 sm:right-1/4 w-72 h-72 sm:w-[480px] sm:h-[480px] rounded-full bg-gradient-to-br from-purple-400/35 via-violet-300/30 to-indigo-300/20 dark:from-purple-600/25 dark:via-indigo-600/20 dark:to-transparent blur-[60px] sm:blur-[90px] animate-orb-1" />
 
         {/* Orb 2: Upper Left */}
-        <div className="absolute -top-20 -left-20 sm:top-24 sm:left-1/4 w-64 h-64 sm:w-[400px] sm:h-[400px] rounded-full bg-gradient-to-tr from-violet-300/20 to-purple-500/15 dark:from-indigo-600/15 dark:to-purple-700/10 blur-[60px] sm:blur-[100px] animate-orb-2" />
+        <div className="absolute -top-20 -left-20 sm:top-24 sm:left-1/4 w-64 h-64 sm:w-[420px] sm:h-[420px] rounded-full bg-gradient-to-tr from-violet-300/30 via-purple-400/25 to-pink-300/20 dark:from-indigo-600/25 dark:via-purple-700/20 dark:to-transparent blur-[60px] sm:blur-[90px] animate-orb-2" />
 
-        {/* Orb 3: Center Bottom (Subtle anchor, desktop only for peak mobile performance) */}
-        <div className="hidden sm:block absolute bottom-12 left-1/2 -translate-x-1/2 w-[340px] h-[340px] rounded-full bg-gradient-to-t from-fuchsia-300/15 to-purple-400/10 dark:from-purple-900/15 dark:to-transparent blur-[90px] animate-orb-3" />
+        {/* Orb 3: Center Bottom */}
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 w-64 h-64 sm:w-[380px] sm:h-[380px] rounded-full bg-gradient-to-t from-fuchsia-300/25 via-purple-400/20 to-transparent dark:from-purple-800/25 dark:via-fuchsia-900/15 dark:to-transparent blur-[60px] sm:blur-[90px] animate-orb-3" />
       </div>
 
       <div className="max-w-4xl mx-auto w-full flex-1 flex flex-col items-center justify-center relative z-10">
         <motion.div
-          variants={containerVariants}
+          variants={heroContainerVariants}
           initial="hidden"
           animate="visible"
           className="flex flex-col items-center text-center w-full"
@@ -100,9 +157,9 @@ export function Hero() {
             </motion.div>
           </motion.div>
 
-          {/* Availability Badge */}
+          {/* Availability Badge (Subtle Fade-in) */}
           <motion.div
-            variants={itemVariants}
+            variants={badgeVariants}
             className="inline-flex items-center gap-2 px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-full bg-emerald-500/10 border border-emerald-500/25 text-emerald-700 dark:bg-green-500/10 dark:border-green-500/30 dark:text-green-400 text-xs sm:text-sm font-medium mb-4 sm:mb-5 transition-transform hover:scale-[1.02]"
             aria-live="polite"
           >
@@ -113,102 +170,102 @@ export function Hero() {
             Available for Internships & Junior Roles
           </motion.div>
 
-          {/* Main Heading with Subtle Shimmer Accent */}
-          <h1
+          {/* Main Heading with Smooth Fade-up & Subtle Shimmer Accent */}
+          <motion.h1
             id="hero-heading"
+            variants={headingVariants}
             className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-slate-900 dark:text-foreground mb-3 sm:mb-4 text-center leading-[1.15]"
           >
-            <span className="inline-block whitespace-nowrap">
-              <motion.span custom={0} variants={wordVariants} initial="hidden" animate="visible" className="inline-block mr-1.5 sm:mr-2.5">
-                Hi,
-              </motion.span>
-              <motion.span custom={1} variants={wordVariants} initial="hidden" animate="visible" className="inline-block mr-2 sm:mr-3">
-                I&apos;m
-              </motion.span>
+            <span className="inline-block whitespace-nowrap mr-1.5 sm:mr-2.5">
+              Hi, I&apos;m
             </span>{" "}
             <span className="inline-block whitespace-nowrap bg-gradient-to-r from-purple-700 via-indigo-600 to-purple-800 dark:from-white dark:via-purple-200 dark:to-purple-400 bg-clip-text text-transparent animate-shimmer-text">
-              <motion.span custom={2} variants={wordVariants} initial="hidden" animate="visible" className="inline-block mr-1.5 sm:mr-2.5">
-                Anmol
-              </motion.span>
-              <motion.span custom={3} variants={wordVariants} initial="hidden" animate="visible" className="inline-block">
-                Raj
-              </motion.span>
+              Anmol Raj
             </span>
-          </h1>
+          </motion.h1>
 
-          {/* Description */}
+          {/* Description (Fade-up with slight delay) */}
           <motion.p
-            variants={itemVariants}
+            variants={descriptionVariants}
             className="text-sm sm:text-base md:text-lg text-slate-600 dark:text-muted-foreground mb-6 sm:mb-8 max-w-xl mx-auto leading-relaxed px-2 text-balance"
           >
             Full Stack Developer specializing in React, Next.js & Node.js, building scalable web applications with AI integration.
           </motion.p>
 
-          {/* Action Buttons */}
+          {/* Action Buttons (Staggered Fade-up) */}
           <motion.div
-            variants={itemVariants}
+            variants={buttonContainerVariants}
             className="flex flex-col sm:flex-row items-center justify-center gap-3 w-full sm:w-auto max-w-xs sm:max-w-none mx-auto"
           >
-            <Button
-              asChild
-              size="lg"
-              className="h-11 px-6 rounded-xl font-medium w-full sm:w-auto gap-2 bg-primary text-primary-foreground hover:bg-primary/90 shadow-md shadow-purple-500/20 active:scale-[0.98] transition-all hover:shadow-lg hover:shadow-purple-500/25"
-            >
-              <Link href="#projects" className="inline-flex items-center justify-center gap-2">
-                <FolderGit2 className="h-4 w-4" />
-                <span>View Projects</span>
-              </Link>
-            </Button>
-
-            <Button
-              asChild
-              size="lg"
-              variant="outline"
-              className="h-11 px-6 rounded-xl font-medium w-full sm:w-auto gap-2 border border-slate-300/90 bg-white hover:bg-slate-100 text-slate-800 hover:text-slate-900 active:scale-[0.98] transition-all dark:border-border/80 dark:bg-transparent dark:text-white dark:hover:border-purple-500/50 dark:hover:bg-purple-500/10"
-            >
-              <a
-                href={profile.resumeUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={() => {
-                  fetch("/api/resume-download", { method: "POST" }).catch(() => {});
-                }}
-                className="inline-flex items-center justify-center gap-2"
-                aria-label="View Resume PDF in new tab"
+            <motion.div variants={buttonItemVariants} className="w-full sm:w-auto">
+              <Button
+                asChild
+                size="lg"
+                className="h-11 px-6 rounded-xl font-medium w-full sm:w-auto gap-2 bg-primary text-primary-foreground hover:bg-primary/90 shadow-md shadow-purple-500/20 active:scale-[0.98] transition-all hover:shadow-lg hover:shadow-purple-500/25"
               >
-                <Eye className="h-4 w-4" />
-                <span>Resume</span>
-              </a>
-            </Button>
+                <Link href="#projects" className="inline-flex items-center justify-center gap-2">
+                  <FolderGit2 className="h-4 w-4" />
+                  <span>View Projects</span>
+                </Link>
+              </Button>
+            </motion.div>
 
-            <Button
-              asChild
-              size="lg"
-              variant="outline"
-              className="h-11 px-6 rounded-xl font-medium w-full sm:w-auto gap-2 border border-slate-300/90 bg-white hover:bg-slate-100 text-slate-800 hover:text-slate-900 active:scale-[0.98] transition-all dark:border-border/80 dark:bg-transparent dark:text-white dark:hover:border-purple-500/50 dark:hover:bg-purple-500/10"
-            >
-              <Link href="/contact" className="inline-flex items-center justify-center gap-2">
-                <Mail className="h-4 w-4" />
-                <span>Contact Me</span>
-              </Link>
-            </Button>
+            <motion.div variants={buttonItemVariants} className="w-full sm:w-auto">
+              <Button
+                asChild
+                size="lg"
+                variant="outline"
+                className="h-11 px-6 rounded-xl font-medium w-full sm:w-auto gap-2 border border-slate-300/90 bg-white hover:bg-slate-100 text-slate-800 hover:text-slate-900 active:scale-[0.98] transition-all dark:border-border/80 dark:bg-transparent dark:text-white dark:hover:border-purple-500/50 dark:hover:bg-purple-500/10"
+              >
+                <a
+                  href={profile.resumeUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => {
+                    fetch("/api/resume-download", { method: "POST" }).catch(() => {});
+                  }}
+                  className="inline-flex items-center justify-center gap-2"
+                  aria-label="View Resume PDF in new tab"
+                >
+                  <Eye className="h-4 w-4" />
+                  <span>Resume</span>
+                </a>
+              </Button>
+            </motion.div>
+
+            <motion.div variants={buttonItemVariants} className="w-full sm:w-auto">
+              <Button
+                asChild
+                size="lg"
+                variant="outline"
+                className="h-11 px-6 rounded-xl font-medium w-full sm:w-auto gap-2 border border-slate-300/90 bg-white hover:bg-slate-100 text-slate-800 hover:text-slate-900 active:scale-[0.98] transition-all dark:border-border/80 dark:bg-transparent dark:text-white dark:hover:border-purple-500/50 dark:hover:bg-purple-500/10"
+              >
+                <Link href="/contact" className="inline-flex items-center justify-center gap-2">
+                  <Mail className="h-4 w-4" />
+                  <span>Contact Me</span>
+                </Link>
+              </Button>
+            </motion.div>
           </motion.div>
         </motion.div>
       </div>
 
       {/* Statistics & Bottom Controls */}
-      <motion.div
-        initial={{ opacity: 0, y: 18 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.55, delay: 0.55, ease: [0.16, 1, 0.3, 1] }}
-        className="w-full max-w-3xl mx-auto mt-8 sm:mt-12 relative z-10"
-      >
-        {/* Responsive Statistics Grid with Refined Lift */}
-        <div className="grid grid-cols-3 gap-2 sm:gap-4 mb-6 sm:mb-8 max-w-lg mx-auto w-full px-1 sm:px-0">
+      <div className="w-full max-w-3xl mx-auto mt-8 sm:mt-12 relative z-10">
+        {/* Responsive Statistics Grid with Sequential Entrance */}
+        <motion.div
+          variants={statsContainerVariants}
+          initial="hidden"
+          animate="visible"
+          className="grid grid-cols-3 gap-2 sm:gap-4 mb-6 sm:mb-8 max-w-lg mx-auto w-full px-1 sm:px-0"
+        >
           {stats.map((stat) => (
-            <div
+            <motion.div
               key={stat.label}
-              className="flex flex-col items-center justify-center text-center p-2.5 sm:p-3.5 rounded-xl bg-white border border-slate-200/90 shadow-xs dark:bg-white/[0.03] dark:border-white/5 backdrop-blur-sm min-w-0 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-sm hover:border-primary/40 dark:hover:border-purple-500/30"
+              variants={statCardVariants}
+              whileHover={reducedMotion ? undefined : { y: -2 }}
+              transition={{ duration: 0.25, ease: "easeOut" }}
+              className="flex flex-col items-center justify-center text-center p-2.5 sm:p-3.5 rounded-xl bg-white border border-slate-200/90 shadow-xs dark:bg-white/[0.03] dark:border-white/5 backdrop-blur-sm min-w-0 transition-all duration-300 hover:shadow-sm hover:border-primary/40 dark:hover:border-purple-500/30"
             >
               <div className="text-base sm:text-xl md:text-2xl font-bold text-slate-900 dark:text-foreground tabular-nums dark:drop-shadow-[0_0_10px_rgba(255,255,255,0.15)]">
                 <AnimatedCounter value={stat.value} suffix={stat.suffix} />
@@ -216,12 +273,17 @@ export function Hero() {
               <div className="text-[10px] sm:text-xs text-slate-600 dark:text-muted-foreground uppercase tracking-wider font-semibold mt-1 truncate max-w-full">
                 {stat.label}
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
 
         {/* Social Icons with Smooth Scale Feedback */}
-        <div className="flex items-center justify-center gap-3 sm:gap-4 mb-5 sm:mb-6">
+        <motion.div
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.85, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+          className="flex items-center justify-center gap-3 sm:gap-4 mb-5 sm:mb-6"
+        >
           {socialIcons.map(({ label, href, Icon }) => (
             <a
               key={label}
@@ -234,11 +296,14 @@ export function Hero() {
               <Icon className="h-4 w-4 sm:h-5 sm:w-5 transition-transform duration-300 group-hover:scale-110" />
             </a>
           ))}
-        </div>
+        </motion.div>
 
         {/* Scroll Indicator */}
-        <button
+        <motion.button
           type="button"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1.0, duration: 0.5 }}
           onClick={() => {
             const nextSection = document.getElementById("about");
             if (nextSection) {
@@ -252,8 +317,8 @@ export function Hero() {
         >
           <span className="text-[10px] sm:text-xs tracking-[0.3em] uppercase">Scroll</span>
           <ChevronDown className="h-4 w-4 animate-bounce" />
-        </button>
-      </motion.div>
+        </motion.button>
+      </div>
     </section>
   );
 }

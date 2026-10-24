@@ -33,19 +33,25 @@ export function Certificates() {
       aria-labelledby="certificates-heading"
     >
       <div className="max-w-7xl mx-auto">
-        <header className="text-center mb-10">
+        <motion.header
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+          className="text-center mb-10"
+        >
           <h2 id="certificates-heading" className="text-2xl sm:text-3xl font-bold text-foreground mb-4">
             Certifications
           </h2>
           <p className="text-sm text-muted-foreground max-w-2xl mx-auto">
             Verified certificates from Edunet Foundation × AICTE × IBM SkillsBuild.
           </p>
-        </header>
+        </motion.header>
 
         <motion.div
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: "-40px" }}
+          viewport={{ once: true, amount: 0.15 }}
           variants={containerVariants}
           className="grid md:grid-cols-2 gap-6"
         >

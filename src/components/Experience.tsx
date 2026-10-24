@@ -31,7 +31,13 @@ export function Experience() {
       aria-labelledby="experience-heading"
     >
       <div className="max-w-7xl mx-auto">
-        <header className="text-center mb-10">
+        <motion.header
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+          className="text-center mb-10"
+        >
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-purple-500/10 border border-purple-500/30 text-purple-700 dark:text-purple-400 text-sm font-medium mb-6">
             <span className="relative animate-pulse">
               <span className="absolute inline-flex rounded-full h-1.5 w-1.5 bg-purple-500" />
@@ -50,7 +56,7 @@ export function Experience() {
           <p className="text-muted-foreground dark:text-purple-300 text-base sm:text-lg md:text-lg leading-relaxed">
             Internships in AI, cloud, and full-stack development.
           </p>
-        </header>
+        </motion.header>
 
         <div className="relative">
           <div className="absolute left-4 sm:left-8 top-0 bottom-0 w-0.5 bg-border" aria-hidden="true" />
@@ -58,7 +64,7 @@ export function Experience() {
           <motion.div
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, margin: "-40px"}}
+            viewport={{ once: true, amount: 0.15 }}
             variants={containerVariants}
             className="space-y-8"
           >

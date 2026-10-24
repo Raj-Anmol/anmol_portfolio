@@ -78,14 +78,20 @@ export function Contact() {
       aria-labelledby="contact-heading"
     >
       <div className="max-w-7xl mx-auto">
-        <header className="text-center mb-10">
+        <motion.header
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+          className="text-center mb-10"
+        >
           <h2 id="contact-heading" className="text-2xl sm:text-3xl font-bold text-foreground mb-4">
             Get In Touch
           </h2>
           <p className="text-sm text-muted-foreground max-w-2xl mx-auto">
             Available for software development internships, entry-level jobs, and junior developer opportunities. Feel free to reach out!
           </p>
-        </header>
+        </motion.header>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 max-w-4xl mx-auto">
           {contactItems.map((item, index) => (
@@ -93,7 +99,7 @@ export function Contact() {
               key={item.label}
               initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-40px" }}
+              viewport={{ once: true, amount: 0.15 }}
               whileHover={reducedMotion ? undefined : { y: -3 }}
               transition={{ delay: index * 0.05, duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
             >

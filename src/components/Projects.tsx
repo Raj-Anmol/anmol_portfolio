@@ -30,19 +30,25 @@ export function Projects() {
       aria-labelledby="projects-heading"
     >
       <div className="max-w-7xl mx-auto">
-        <header className="text-center mb-10">
+        <motion.header
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+          className="text-center mb-10"
+        >
           <h2 id="projects-heading" className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-4 tracking-tight text-balance">
             Featured Projects
           </h2>
           <p className="text-sm sm:text-base text-muted-foreground max-w-2xl mx-auto leading-relaxed text-pretty">
             Real-world apps showcasing full-stack and AI integration skills.
           </p>
-        </header>
+        </motion.header>
 
         <motion.div
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: "-40px" }}
+          viewport={{ once: true, amount: 0.15 }}
           variants={{
             hidden: {},
             visible: { transition: { staggerChildren: 0.1, delayChildren: 0.05 } },
@@ -55,17 +61,17 @@ export function Projects() {
               variants={itemVariants}
               whileHover={reducedMotion ? undefined : { y: -4 }}
               transition={{ duration: 0.25, ease: "easeOut" }}
-              className="group"
+              className="group rounded-2xl transition-all duration-300 hover:shadow-[0_12px_36px_-6px_rgba(168,85,247,0.25)] dark:hover:shadow-[0_12px_40px_-6px_rgba(168,85,247,0.35)]"
             >
-              <SpotlightCard className="h-full rounded-xl">
-                <Card className="h-full border-border bg-card/80 backdrop-blur-sm transition-all duration-300 hover:border-purple-500/50 hover:shadow-[0_12px_32px_-8px_rgba(124,58,237,0.18)] dark:hover:border-purple-400/50 dark:hover:shadow-[0_12px_32px_-8px_rgba(168,85,247,0.22)] overflow-hidden">
+              <SpotlightCard className="h-full rounded-2xl" spotlightColor="rgba(168, 85, 247, 0.2)">
+                <Card className="h-full border border-border bg-card/80 backdrop-blur-sm transition-all duration-300 group-hover:border-purple-500/60 dark:group-hover:border-purple-400/60 rounded-2xl overflow-hidden">
 
                 <div className="relative aspect-[16/10] overflow-hidden">
                   <Image
                     src={project.image}
                     alt={`${project.name} - Project screenshot`}
                     fill
-                    className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03] will-change-transform"
+                    className="object-cover transition-transform duration-500 ease-out group-hover:scale-105 will-change-transform"
                     sizes="(max-width: 768px) 100vw, 50vw"
                     quality={75}
                   />

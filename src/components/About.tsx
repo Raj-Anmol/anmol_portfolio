@@ -112,7 +112,7 @@ export function About() {
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: "-40px" }}
+          viewport={{ once: true, amount: 0.15 }}
           className="relative grid grid-cols-1 lg:grid-cols-2 gap-5 sm:gap-6 pt-4 sm:pt-6 items-stretch"
         >
 
