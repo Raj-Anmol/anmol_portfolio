@@ -51,24 +51,20 @@ export function Certificates() {
           </p>
         </motion.header>
 
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.15 }}
-          variants={containerVariants}
-          className="grid md:grid-cols-2 gap-6"
-        >
+        <div className="grid md:grid-cols-2 gap-6">
           {certificates.map((cert, index) => (
             <motion.article
               key={index}
-              variants={itemVariants}
-              whileHover={reducedMotion ? undefined : { y: -4 }}
-              transition={{ duration: 0.25, ease: "easeOut" }}
+              initial={reducedMotion ? false : { opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "100px 0px" }}
+              transition={{ duration: 0.5, delay: index * 0.1, ease: [0.16, 1, 0.3, 1] }}
+              className="group h-full"
             >
-              <Card className="h-full border-border bg-card/80 backdrop-blur-sm transition-all duration-300 hover:border-purple-500/50 hover:shadow-[0_8px_30px_rgba(168,85,247,0.18)] dark:hover:border-purple-400/50 dark:hover:shadow-[0_8px_30px_rgba(168,85,247,0.25)]">
+              <Card className="h-full border-border bg-card/80 backdrop-blur-sm transition-all duration-300 ease-out hover:-translate-y-1.5 hover:border-purple-500/50 hover:shadow-[0_12px_30px_-6px_rgba(124,58,237,0.2)] dark:hover:border-purple-400/50 dark:hover:shadow-[0_12px_30px_-6px_rgba(168,85,247,0.28)] will-change-transform">
                 <CardHeader className="pb-3">
                   <div className="flex items-center justify-between mb-3">
-                    <div className="p-2.5 bg-primary/10 rounded-lg text-primary">
+                    <div className="p-2.5 bg-primary/10 rounded-lg text-primary group-hover:scale-110 transition-transform duration-300">
                       <Award className="h-5 w-5" />
                     </div>
                     <Badge variant="secondary" className="text-xs">
@@ -133,7 +129,7 @@ export function Certificates() {
                   <Button
                     variant="default"
                     size="lg"
-                    className="w-full gap-2"
+                    className="w-full gap-2 hover:scale-[1.01] active:scale-[0.98] transition-all shadow-sm hover:shadow-purple-500/20"
                     asChild
                   >
                     <a
@@ -151,7 +147,7 @@ export function Certificates() {
               </Card>
             </motion.article>
           ))}
-        </motion.div>
+        </div>
 
         <div className="mt-10 p-5 bg-card rounded-2xl border border-border text-center">
           <div className="flex items-center justify-center gap-3 text-primary mb-3">

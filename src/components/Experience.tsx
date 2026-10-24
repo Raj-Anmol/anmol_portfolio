@@ -61,23 +61,18 @@ export function Experience() {
         <div className="relative">
           <div className="absolute left-4 sm:left-8 top-0 bottom-0 w-0.5 bg-border" aria-hidden="true" />
 
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.15 }}
-            variants={containerVariants}
-            className="space-y-8"
-          >
+          <div className="space-y-8">
             {experience.map((exp, index) => (
               <motion.article
                 key={index}
-                variants={itemVariants}
-                whileHover={reducedMotion ? undefined : { y: -3 }}
-                transition={{ duration: 0.25, ease: "easeOut" }}
+                initial={reducedMotion ? false : { opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "100px 0px" }}
+                transition={{ duration: 0.5, delay: index * 0.12, ease: [0.16, 1, 0.3, 1] }}
                 className="relative pl-10 sm:pl-16 group"
               >
                 <div className="absolute left-0 top-1">
-                  <div className="relative flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-tr from-purple-600 to-indigo-500">
+                  <div className="relative flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-tr from-purple-600 to-indigo-500 shadow-md shadow-purple-500/20 group-hover:scale-110 transition-transform duration-300">
                     <span className="text-white font-bold text-xs">
                       {exp.role.charAt(0).toUpperCase() + exp.role.slice(1).substring(0, 3)}
                     </span>
@@ -85,7 +80,7 @@ export function Experience() {
                   <div className="absolute left-1/2 top-8 bottom-0 w-0.5 bg-border -translate-x-1/2" aria-hidden="true" />
                 </div>
 
-                <div className="bg-card border border-border shadow-xs hover:shadow-md dark:bg-gradient-to-b dark:from-white/[0.07] dark:to-white/[0.02] dark:border-purple-500/20 backdrop-blur-xl rounded-2xl p-4 sm:p-6 hover:border-primary/50 dark:hover:border-purple-500/60 dark:hover:shadow-[0_4px_25px_rgba(168,85,247,0.25)] transition-all duration-300">
+                <div className="bg-card border border-border shadow-xs dark:bg-gradient-to-b dark:from-white/[0.07] dark:to-white/[0.02] dark:border-purple-500/20 backdrop-blur-xl rounded-2xl p-4 sm:p-6 hover:border-purple-500/50 dark:hover:border-purple-500/60 hover:shadow-[0_12px_30px_-6px_rgba(124,58,237,0.2)] dark:hover:shadow-[0_12px_30px_-6px_rgba(168,85,247,0.28)] hover:-translate-y-1.5 will-change-transform transition-all duration-300 ease-out">
                   <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3 mb-3">
                     <div>
                       <div className="flex flex-wrap items-center gap-2">
@@ -128,7 +123,7 @@ export function Experience() {
                       asChild
                       size="sm"
                       variant="outline"
-                      className="w-full rounded-full border border-slate-300 bg-white text-slate-800 hover:bg-slate-100 hover:text-slate-900 hover:border-primary/50 dark:border-purple-500/20 dark:bg-transparent dark:text-purple-300 dark:hover:border-purple-500/60 dark:hover:shadow-[0_4px_25px_rgba(168,85,247,0.25)] transition-colors py-2 text-sm font-medium">
+                      className="w-full rounded-full border border-slate-300 bg-white text-slate-800 hover:bg-slate-100 hover:text-slate-900 hover:border-purple-500/50 hover:shadow-sm dark:border-purple-500/20 dark:bg-transparent dark:text-purple-300 dark:hover:border-purple-500/60 dark:hover:shadow-[0_4px_25px_rgba(168,85,247,0.25)] hover:scale-[1.01] active:scale-[0.98] transition-all py-2 text-sm font-medium">
                       <a href={exp.certificateUrl} target="_blank" rel="noopener noreferrer">
                         Verify Certificate
                         <ArrowRight className="h-4 w-4 ml-2" />
@@ -138,7 +133,7 @@ export function Experience() {
                 </div>
               </motion.article>
             ))}
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>

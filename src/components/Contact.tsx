@@ -100,15 +100,15 @@ export function Contact() {
           {contactItems.map((item, index) => (
             <motion.div
               key={item.label}
-              initial={{ opacity: 0, y: 16 }}
+              initial={reducedMotion ? false : { opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.15 }}
-              whileHover={reducedMotion ? undefined : { y: -3 }}
-              transition={{ delay: index * 0.05, duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
+              viewport={{ once: true, margin: "100px 0px" }}
+              transition={{ delay: index * 0.06, duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
+              className="h-full group"
             >
               <Card
                 className={cn(
-                  "border-border transition-all duration-300 hover:border-purple-500/50 hover:shadow-[0_8px_25px_rgba(168,85,247,0.15)] dark:hover:border-purple-400/50 dark:hover:shadow-[0_8px_25px_rgba(168,85,247,0.22)] group h-full",
+                  "border-border transition-all duration-300 ease-out hover:-translate-y-1.5 hover:border-purple-500/50 hover:shadow-[0_12px_28px_-6px_rgba(124,58,237,0.2)] dark:hover:border-purple-400/50 dark:hover:shadow-[0_12px_28px_-6px_rgba(168,85,247,0.28)] will-change-transform h-full",
                   item.external ? "cursor-pointer" : ""
                 )}
               >

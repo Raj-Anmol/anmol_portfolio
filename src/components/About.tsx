@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, type Variants } from "motion/react";
+import { motion } from "motion/react";
 import { cn } from "@/lib/utils";
 import { profile, socialLinks } from "@/lib/constants";
 import { GraduationCap, Sparkles, Check, ArrowUpDown, Globe } from "lucide-react";
@@ -73,22 +73,6 @@ export function FAQ() {
 }
 
 
-const containerVariants: Variants = {
-  hidden: {},
-  visible: {
-    transition: { staggerChildren: 0.08, delayChildren: 0.05 },
-  },
-};
-
-const cardVariants: Variants = {
-  hidden: { opacity: 0, y: 18 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.5, ease: [0.16, 1, 0.3, 1] },
-  },
-};
-
 export function About() {
   const reducedMotion = useReducedMotion();
 
@@ -111,23 +95,19 @@ export function About() {
         </div>
 
         {/* Bento Grid Container */}
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.15 }}
-          className="relative grid grid-cols-1 lg:grid-cols-2 gap-5 sm:gap-6 pt-4 sm:pt-6 items-stretch"
-        >
+        <div className="relative grid grid-cols-1 lg:grid-cols-2 gap-5 sm:gap-6 pt-4 sm:pt-6 items-stretch">
 
           {/* Card 1: Professional Summary & What I Do */}
           <motion.div
-            variants={cardVariants}
-            whileHover={reducedMotion ? undefined : { y: -4 }}
+            initial={reducedMotion ? false : { opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "100px 0px" }}
+            transition={{ duration: 0.5, delay: 0.05, ease: [0.16, 1, 0.3, 1] }}
             className={cn(
               "group bg-card border border-border rounded-2xl sm:rounded-3xl p-5 sm:p-6 md:p-7 shadow-xs hover:shadow-md flex flex-col justify-between",
               "dark:bg-[#0c0c12]/80 dark:border-purple-500/20 dark:shadow-[0_4px_30px_rgba(0,0,0,0.5)]",
-              "hover:border-purple-500/40 dark:hover:border-purple-500/50",
-              "transition-all duration-300"
+              "hover:border-purple-500/50 dark:hover:border-purple-500/60",
+              "hover:-translate-y-1.5 hover:shadow-[0_12px_30px_-6px_rgba(124,58,237,0.2)] dark:hover:shadow-[0_12px_30px_-6px_rgba(168,85,247,0.28)] will-change-transform transition-all duration-300 ease-out"
             )}
           >
             <div>
@@ -186,13 +166,15 @@ export function About() {
 
           {/* Card 2: Core Competencies */}
           <motion.div
-            variants={cardVariants}
-            whileHover={reducedMotion ? undefined : { y: -4 }}
+            initial={reducedMotion ? false : { opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "100px 0px" }}
+            transition={{ duration: 0.5, delay: 0.12, ease: [0.16, 1, 0.3, 1] }}
             className={cn(
               "group bg-card border border-border rounded-2xl sm:rounded-3xl p-5 sm:p-6 md:p-7 shadow-xs hover:shadow-md flex flex-col justify-between",
               "dark:bg-[#0c0c12]/80 dark:border-emerald-500/20 dark:shadow-[0_4px_30px_rgba(0,0,0,0.5)]",
-              "hover:border-emerald-500/40 dark:hover:border-emerald-500/50",
-              "transition-all duration-300"
+              "hover:border-emerald-500/50 dark:hover:border-emerald-500/60",
+              "hover:-translate-y-1.5 hover:shadow-[0_12px_30px_-6px_rgba(16,185,129,0.2)] dark:hover:shadow-[0_12px_30px_-6px_rgba(16,185,129,0.28)] will-change-transform transition-all duration-300 ease-out"
             )}
           >
             <div>
@@ -245,13 +227,15 @@ export function About() {
 
           {/* Card 3: Education */}
           <motion.div
-            variants={cardVariants}
-            whileHover={reducedMotion ? undefined : { y: -4 }}
+            initial={reducedMotion ? false : { opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "100px 0px" }}
+            transition={{ duration: 0.5, delay: 0.19, ease: [0.16, 1, 0.3, 1] }}
             className={cn(
               "group bg-card border border-border rounded-2xl sm:rounded-3xl p-5 sm:p-6 md:p-7 shadow-xs hover:shadow-md flex flex-col justify-between",
               "dark:bg-[#0c0c12]/80 dark:border-blue-500/20 dark:shadow-[0_4px_30px_rgba(0,0,0,0.5)]",
-              "hover:border-indigo-500/40 dark:hover:border-indigo-500/50",
-              "transition-all duration-300"
+              "hover:border-indigo-500/50 dark:hover:border-indigo-500/60",
+              "hover:-translate-y-1.5 hover:shadow-[0_12px_30px_-6px_rgba(99,102,241,0.2)] dark:hover:shadow-[0_12px_30px_-6px_rgba(99,102,241,0.28)] will-change-transform transition-all duration-300 ease-out"
             )}
           >
             {/* Glowing University Badge */}
@@ -288,13 +272,15 @@ export function About() {
 
           {/* Card 4: Social Connect */}
           <motion.div
-            variants={cardVariants}
-            whileHover={reducedMotion ? undefined : { y: -4 }}
+            initial={reducedMotion ? false : { opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "100px 0px" }}
+            transition={{ duration: 0.5, delay: 0.26, ease: [0.16, 1, 0.3, 1] }}
             className={cn(
               "group bg-card border border-border rounded-2xl sm:rounded-3xl p-5 sm:p-6 md:p-7 shadow-xs hover:shadow-md flex flex-col justify-between",
               "dark:bg-[#0c0c12]/80 dark:border-purple-500/20 dark:shadow-[0_4px_30px_rgba(0,0,0,0.5)]",
-              "hover:border-purple-500/40 dark:hover:border-purple-500/50",
-              "transition-all duration-300"
+              "hover:border-purple-500/50 dark:hover:border-purple-500/60",
+              "hover:-translate-y-1.5 hover:shadow-[0_12px_30px_-6px_rgba(124,58,237,0.2)] dark:hover:shadow-[0_12px_30px_-6px_rgba(168,85,247,0.28)] will-change-transform transition-all duration-300 ease-out"
             )}
           >
             <div className="flex items-center justify-between gap-2 mb-3">
@@ -338,7 +324,7 @@ export function About() {
               )}
             </div>
           </motion.div>
-        </motion.div>
+        </div>
 
         {/* Scroll Indicator */}
         <div className="mt-12 sm:mt-16 text-center">

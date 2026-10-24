@@ -117,22 +117,17 @@ export function Skills() {
           </p>
         </motion.header>
 
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.15 }}
-          variants={containerVariants}
-          className="space-y-8"
-        >
-          {skillCategories.map((category) => {
+        <div className="space-y-8">
+          {skillCategories.map((category, index) => {
             const data = skills[category.key as keyof typeof skills];
             return (
               <motion.div
                 key={category.key}
-                variants={categoryVariants}
-                whileHover={reducedMotion ? undefined : { y: -3 }}
-                transition={{ duration: 0.25, ease: "easeOut" }}
-                className="border border-border bg-card/80 backdrop-blur-sm rounded-xl p-5 hover:border-purple-500/50 hover:shadow-[0_8px_25px_rgba(168,85,247,0.15)] dark:hover:border-purple-400/50 dark:hover:shadow-[0_8px_25px_rgba(168,85,247,0.2)] transition-all duration-300"
+                initial={reducedMotion ? false : { opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "100px 0px" }}
+                transition={{ duration: 0.45, delay: index * 0.08, ease: [0.16, 1, 0.3, 1] }}
+                className="border border-border bg-card/80 backdrop-blur-sm rounded-xl p-5 hover:border-purple-500/50 hover:shadow-[0_12px_30px_-6px_rgba(124,58,237,0.18)] dark:hover:border-purple-400/50 dark:hover:shadow-[0_12px_30px_-6px_rgba(168,85,247,0.25)] hover:-translate-y-1.5 will-change-transform transition-all duration-300 ease-out"
               >
                 <div className="flex items-center justify-between gap-3 mb-4 flex-wrap">
                   <div className="flex items-center gap-3">
@@ -150,7 +145,7 @@ export function Skills() {
                       key={skillIndex}
                       variant="outline"
                       className={cn(
-                        "text-xs px-2.5 py-1 text-slate-800 dark:text-foreground bg-white dark:bg-transparent border-slate-200/90 dark:border-border hover:bg-primary/10 hover:border-primary/50 hover:text-primary hover:-translate-y-0.5 hover:shadow-xs active:scale-95 transition-all duration-200 cursor-default"
+                        "text-xs px-2.5 py-1 text-slate-800 dark:text-foreground bg-white dark:bg-transparent border-slate-200/90 dark:border-border hover:bg-purple-500/10 hover:border-purple-500/50 hover:text-purple-700 dark:hover:text-purple-300 hover:-translate-y-0.5 hover:shadow-xs active:scale-95 transition-all duration-200 cursor-default"
                       )}
                     >
                       {skill}
@@ -160,7 +155,7 @@ export function Skills() {
               </motion.div>
             );
           })}
-        </motion.div>
+        </div>
       </div>
     </section>
   );

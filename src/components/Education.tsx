@@ -50,23 +50,18 @@ export function Education() {
           </p>
         </motion.header>
 
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.15 }}
-          className="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto"
-        >
+        <div className="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto">
           {education.map((edu, index) => (
             <motion.article
               key={index}
-              variants={itemVariants}
-              whileHover={reducedMotion ? undefined : { y: -4 }}
-              transition={{ duration: 0.25, ease: "easeOut" }}
-              className="relative bg-card rounded-2xl border border-border p-5 hover:border-purple-500/50 hover:shadow-[0_8px_30px_rgba(168,85,247,0.18)] dark:hover:border-purple-400/50 dark:hover:shadow-[0_8px_30px_rgba(168,85,247,0.25)] transition-all duration-300"
+              initial={reducedMotion ? false : { opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "100px 0px" }}
+              transition={{ duration: 0.5, delay: index * 0.12, ease: [0.16, 1, 0.3, 1] }}
+              className="group relative bg-card rounded-2xl border border-border p-5 hover:border-purple-500/50 hover:shadow-[0_12px_30px_-6px_rgba(124,58,237,0.2)] dark:hover:border-purple-400/50 dark:hover:shadow-[0_12px_30px_-6px_rgba(168,85,247,0.28)] hover:-translate-y-1.5 will-change-transform transition-all duration-300 ease-out"
             >
               <div className="absolute -top-3 left-6">
-                <div className="p-2 bg-primary rounded-full text-primary-foreground shadow-lg shadow-purple-500/20">
+                <div className="p-2 bg-primary rounded-full text-primary-foreground shadow-lg shadow-purple-500/25 group-hover:scale-110 transition-transform duration-300">
                   <GraduationCap className="h-5 w-5" />
                 </div>
               </div>
@@ -148,7 +143,7 @@ export function Education() {
               </div>
             </motion.article>
           ))}
-        </motion.div>
+        </div>
 
         <div className="mt-12 text-center">
           <p className="text-muted-foreground mb-4">
