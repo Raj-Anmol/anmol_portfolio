@@ -1,11 +1,12 @@
 "use client";
 
-import { motion } from "motion/react";
+import { motion, type Variants } from "motion/react";
 import { cn } from "@/lib/utils";
 import { profile, socialLinks } from "@/lib/constants";
 import { GraduationCap, Sparkles, Check, ArrowUpDown, Globe } from "lucide-react";
 import { GithubIcon as GithubIconComponent } from "@/components/icons/GithubIcon";
 import { LinkedinIcon as LinkedinIconComponent } from "@/components/icons/LinkedinIcon";
+import { useReducedMotion } from "@/lib/hooks/use-reduced-motion";
 
 
 export function FAQ() {
@@ -72,7 +73,25 @@ export function FAQ() {
 }
 
 
+const containerVariants: Variants = {
+  hidden: {},
+  visible: {
+    transition: { staggerChildren: 0.08, delayChildren: 0.05 },
+  },
+};
+
+const cardVariants: Variants = {
+  hidden: { opacity: 0, y: 18 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.5, ease: [0.16, 1, 0.3, 1] },
+  },
+};
+
 export function About() {
+  const reducedMotion = useReducedMotion();
+
   return (
     <section
       id="about"
@@ -81,7 +100,7 @@ export function About() {
       <div className="max-w-7xl mx-auto">
 
         {/* Ambient Orb Background */}
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute inset-0 overflow-hidden pointer-events-none -z-10" aria-hidden="true">
           <div className="relative">
             <div className="absolute -inset-2 rounded-3xl opacity-20 blur-[80%] bg-gradient-to-br from-purple-300 dark:from-purple-900 to-transparent" />
             <div className="absolute -inset-4 rounded-2xl opacity-15 blur-[60%] bg-gradient-to-br from-purple-400/30 dark:from-purple-500/30 to-transparent" />
@@ -89,14 +108,22 @@ export function About() {
         </div>
 
         {/* Bento Grid Container */}
-        <div className="relative grid grid-cols-1 lg:grid-cols-2 gap-5 sm:gap-6 pt-4 sm:pt-6 items-stretch">
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-40px" }}
+          className="relative grid grid-cols-1 lg:grid-cols-2 gap-5 sm:gap-6 pt-4 sm:pt-6 items-stretch"
+        >
 
           {/* Card 1: Professional Summary & What I Do */}
           <motion.div
+            variants={cardVariants}
+            whileHover={reducedMotion ? undefined : { y: -4 }}
             className={cn(
               "group bg-card border border-border rounded-2xl sm:rounded-3xl p-5 sm:p-6 md:p-7 shadow-xs hover:shadow-md flex flex-col justify-between",
               "dark:bg-[#0c0c12]/80 dark:border-purple-500/20 dark:shadow-[0_4px_30px_rgba(0,0,0,0.5)]",
-              "group-hover:scale-[1.01]",
+              "hover:border-purple-500/40 dark:hover:border-purple-500/50",
               "transition-all duration-300"
             )}
           >
@@ -156,10 +183,12 @@ export function About() {
 
           {/* Card 2: Core Competencies */}
           <motion.div
+            variants={cardVariants}
+            whileHover={reducedMotion ? undefined : { y: -4 }}
             className={cn(
               "group bg-card border border-border rounded-2xl sm:rounded-3xl p-5 sm:p-6 md:p-7 shadow-xs hover:shadow-md flex flex-col justify-between",
               "dark:bg-[#0c0c12]/80 dark:border-emerald-500/20 dark:shadow-[0_4px_30px_rgba(0,0,0,0.5)]",
-              "group-hover:scale-[1.01]",
+              "hover:border-emerald-500/40 dark:hover:border-emerald-500/50",
               "transition-all duration-300"
             )}
           >
@@ -213,10 +242,12 @@ export function About() {
 
           {/* Card 3: Education */}
           <motion.div
+            variants={cardVariants}
+            whileHover={reducedMotion ? undefined : { y: -4 }}
             className={cn(
               "group bg-card border border-border rounded-2xl sm:rounded-3xl p-5 sm:p-6 md:p-7 shadow-xs hover:shadow-md flex flex-col justify-between",
               "dark:bg-[#0c0c12]/80 dark:border-blue-500/20 dark:shadow-[0_4px_30px_rgba(0,0,0,0.5)]",
-              "group-hover:scale-[1.01]",
+              "hover:border-indigo-500/40 dark:hover:border-indigo-500/50",
               "transition-all duration-300"
             )}
           >
@@ -254,10 +285,12 @@ export function About() {
 
           {/* Card 4: Social Connect */}
           <motion.div
+            variants={cardVariants}
+            whileHover={reducedMotion ? undefined : { y: -4 }}
             className={cn(
               "group bg-card border border-border rounded-2xl sm:rounded-3xl p-5 sm:p-6 md:p-7 shadow-xs hover:shadow-md flex flex-col justify-between",
               "dark:bg-[#0c0c12]/80 dark:border-purple-500/20 dark:shadow-[0_4px_30px_rgba(0,0,0,0.5)]",
-              "group-hover:scale-[1.01]",
+              "hover:border-purple-500/40 dark:hover:border-purple-500/50",
               "transition-all duration-300"
             )}
           >
@@ -302,7 +335,7 @@ export function About() {
               )}
             </div>
           </motion.div>
-        </div>
+        </motion.div>
 
         {/* Scroll Indicator */}
         <div className="mt-12 sm:mt-16 text-center">

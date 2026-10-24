@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { motion } from "motion/react";
+import { motion, type Variants } from "motion/react";
 import { Button } from "@/components/ui/button";
 import { AnimatedCounter } from "@/components/ui/animated-counter";
 import { Mail, Eye, ChevronDown, FolderGit2 } from "lucide-react";
@@ -10,27 +10,28 @@ import { GithubIcon } from "@/components/icons/GithubIcon";
 import { LinkedinIcon } from "@/components/icons/LinkedinIcon";
 import { TwitterOfficialIcon } from "@/components/icons/TwitterOfficialIcon";
 import { profile, stats, socialLinks } from "@/lib/constants";
+import { useReducedMotion } from "@/lib/hooks/use-reduced-motion";
 
 const BLUR_DATA_URL =
   "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=";
 
-const wordVariants = {
-  hidden: { opacity: 0, y: 15 },
+const wordVariants: Variants = {
+  hidden: { opacity: 0, y: 14 },
   visible: (i: number) => ({
     opacity: 1,
     y: 0,
-    transition: { delay: 0.1 + i * 0.08, duration: 0.5, ease: "easeOut" as const },
+    transition: { delay: 0.15 + i * 0.06, duration: 0.45, ease: [0.16, 1, 0.3, 1] },
   }),
 };
 
-const containerVariants = {
+const containerVariants: Variants = {
   hidden: {},
   visible: { transition: { staggerChildren: 0.08, delayChildren: 0.1 } },
 };
 
-const itemVariants = {
-  hidden: { opacity: 0, y: 15 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" as const } },
+const itemVariants: Variants = {
+  hidden: { opacity: 0, y: 16 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: [0.16, 1, 0.3, 1] } },
 };
 
 const socialIcons = [
@@ -42,43 +43,67 @@ const socialIcons = [
 ];
 
 export function Hero() {
+  const reducedMotion = useReducedMotion();
+
   return (
     <section
       id="hero"
-      className="relative min-h-[100dvh] flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8 pt-20 sm:pt-24 pb-12 sm:pb-16 bg-background bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-purple-100/70 via-background to-background dark:bg-black/95 dark:from-purple-900/30 dark:via-black dark:to-black overflow-x-hidden transition-colors duration-300"
+      className="relative min-h-[100dvh] flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8 pt-20 sm:pt-24 pb-12 sm:pb-16 bg-background bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-purple-100/70 via-background to-background dark:bg-black/95 dark:from-purple-900/30 dark:via-black dark:to-black overflow-hidden transition-colors duration-300"
       aria-labelledby="hero-heading"
     >
-      <div className="max-w-4xl mx-auto w-full flex-1 flex flex-col items-center justify-center">
+      {/* Ambient Purple Gradient Orbs (Non-intrusive, pure CSS compositor animations) */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none -z-10" aria-hidden="true">
+        {/* Orb 1: Upper Right */}
+        <div className="absolute -top-16 -right-16 sm:top-10 sm:right-1/4 w-72 h-72 sm:w-[460px] sm:h-[460px] rounded-full bg-gradient-to-br from-purple-400/20 to-indigo-500/15 dark:from-purple-600/15 dark:to-indigo-500/10 blur-[70px] sm:blur-[110px] animate-orb-1" />
+
+        {/* Orb 2: Upper Left */}
+        <div className="absolute -top-20 -left-20 sm:top-24 sm:left-1/4 w-64 h-64 sm:w-[400px] sm:h-[400px] rounded-full bg-gradient-to-tr from-violet-300/20 to-purple-500/15 dark:from-indigo-600/15 dark:to-purple-700/10 blur-[60px] sm:blur-[100px] animate-orb-2" />
+
+        {/* Orb 3: Center Bottom (Subtle anchor, desktop only for peak mobile performance) */}
+        <div className="hidden sm:block absolute bottom-12 left-1/2 -translate-x-1/2 w-[340px] h-[340px] rounded-full bg-gradient-to-t from-fuchsia-300/15 to-purple-400/10 dark:from-purple-900/15 dark:to-transparent blur-[90px] animate-orb-3" />
+      </div>
+
+      <div className="max-w-4xl mx-auto w-full flex-1 flex flex-col items-center justify-center relative z-10">
         <motion.div
           variants={containerVariants}
           initial="hidden"
           animate="visible"
           className="flex flex-col items-center text-center w-full"
         >
-          {/* Profile Photo */}
+          {/* Profile Photo with Entrance Scale and Gentle Ambient Float */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
+            initial={{ opacity: 0, scale: 0.94 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.7, ease: "easeOut" }}
-            className="relative w-32 h-32 sm:w-44 sm:h-44 md:w-52 md:h-52 mb-4 sm:mb-5"
+            transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
+            className="mb-4 sm:mb-5"
           >
-            <Image
-              src={profile.profileImage}
-              alt="Anmol Raj - Full Stack Developer"
-              fill
-              className="rounded-full object-cover ring-2 ring-purple-500/50 shadow-[0_0_25px_rgba(168,85,247,0.35)]"
-              priority
-              sizes="(max-width: 640px) 128px, (max-width: 768px) 176px, 208px"
-              quality={85}
-              placeholder="blur"
-              blurDataURL={BLUR_DATA_URL}
-            />
+            <motion.div
+              animate={reducedMotion ? undefined : { y: [-3, 3, -3] }}
+              transition={
+                reducedMotion
+                  ? undefined
+                  : { duration: 5.5, repeat: Infinity, ease: "easeInOut" }
+              }
+              className="relative w-32 h-32 sm:w-44 sm:h-44 md:w-52 md:h-52 will-change-transform"
+            >
+              <Image
+                src={profile.profileImage}
+                alt="Anmol Raj - Full Stack Developer"
+                fill
+                className="rounded-full object-cover ring-2 ring-purple-500/50 shadow-[0_0_25px_rgba(168,85,247,0.35)]"
+                priority
+                sizes="(max-width: 640px) 128px, (max-width: 768px) 176px, 208px"
+                quality={85}
+                placeholder="blur"
+                blurDataURL={BLUR_DATA_URL}
+              />
+            </motion.div>
           </motion.div>
 
           {/* Availability Badge */}
           <motion.div
             variants={itemVariants}
-            className="inline-flex items-center gap-2 px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-full bg-emerald-500/10 border border-emerald-500/25 text-emerald-700 dark:bg-green-500/10 dark:border-green-500/30 dark:text-green-400 text-xs sm:text-sm font-medium mb-4 sm:mb-5"
+            className="inline-flex items-center gap-2 px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-full bg-emerald-500/10 border border-emerald-500/25 text-emerald-700 dark:bg-green-500/10 dark:border-green-500/30 dark:text-green-400 text-xs sm:text-sm font-medium mb-4 sm:mb-5 transition-transform hover:scale-[1.02]"
             aria-live="polite"
           >
             <span className="relative flex h-2 w-2">
@@ -88,7 +113,7 @@ export function Hero() {
             Available for Internships & Junior Roles
           </motion.div>
 
-          {/* Main Heading */}
+          {/* Main Heading with Subtle Shimmer Accent */}
           <h1
             id="hero-heading"
             className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-slate-900 dark:text-foreground mb-3 sm:mb-4 text-center leading-[1.15]"
@@ -101,7 +126,7 @@ export function Hero() {
                 I&apos;m
               </motion.span>
             </span>{" "}
-            <span className="inline-block whitespace-nowrap bg-gradient-to-r from-purple-700 via-indigo-600 to-purple-800 dark:from-white dark:via-purple-200 dark:to-purple-400 bg-clip-text text-transparent">
+            <span className="inline-block whitespace-nowrap bg-gradient-to-r from-purple-700 via-indigo-600 to-purple-800 dark:from-white dark:via-purple-200 dark:to-purple-400 bg-clip-text text-transparent animate-shimmer-text">
               <motion.span custom={2} variants={wordVariants} initial="hidden" animate="visible" className="inline-block mr-1.5 sm:mr-2.5">
                 Anmol
               </motion.span>
@@ -127,7 +152,7 @@ export function Hero() {
             <Button
               asChild
               size="lg"
-              className="h-11 px-6 rounded-xl font-medium w-full sm:w-auto gap-2 bg-primary text-primary-foreground hover:bg-primary/90 shadow-md shadow-purple-500/20 active:scale-[0.98] transition-all"
+              className="h-11 px-6 rounded-xl font-medium w-full sm:w-auto gap-2 bg-primary text-primary-foreground hover:bg-primary/90 shadow-md shadow-purple-500/20 active:scale-[0.98] transition-all hover:shadow-lg hover:shadow-purple-500/25"
             >
               <Link href="#projects" className="inline-flex items-center justify-center gap-2">
                 <FolderGit2 className="h-4 w-4" />
@@ -173,17 +198,17 @@ export function Hero() {
 
       {/* Statistics & Bottom Controls */}
       <motion.div
-        initial={{ opacity: 0, y: 20 }}
+        initial={{ opacity: 0, y: 18 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 0.8 }}
-        className="w-full max-w-3xl mx-auto mt-8 sm:mt-12"
+        transition={{ duration: 0.55, delay: 0.55, ease: [0.16, 1, 0.3, 1] }}
+        className="w-full max-w-3xl mx-auto mt-8 sm:mt-12 relative z-10"
       >
-        {/* Responsive Statistics Grid */}
+        {/* Responsive Statistics Grid with Refined Lift */}
         <div className="grid grid-cols-3 gap-2 sm:gap-4 mb-6 sm:mb-8 max-w-lg mx-auto w-full px-1 sm:px-0">
           {stats.map((stat) => (
             <div
               key={stat.label}
-              className="flex flex-col items-center justify-center text-center p-2.5 sm:p-3.5 rounded-xl bg-white border border-slate-200/90 shadow-xs dark:bg-white/[0.03] dark:border-white/5 backdrop-blur-sm min-w-0"
+              className="flex flex-col items-center justify-center text-center p-2.5 sm:p-3.5 rounded-xl bg-white border border-slate-200/90 shadow-xs dark:bg-white/[0.03] dark:border-white/5 backdrop-blur-sm min-w-0 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-sm hover:border-primary/40 dark:hover:border-purple-500/30"
             >
               <div className="text-base sm:text-xl md:text-2xl font-bold text-slate-900 dark:text-foreground tabular-nums dark:drop-shadow-[0_0_10px_rgba(255,255,255,0.15)]">
                 <AnimatedCounter value={stat.value} suffix={stat.suffix} />
@@ -195,7 +220,7 @@ export function Hero() {
           ))}
         </div>
 
-        {/* Social Icons */}
+        {/* Social Icons with Smooth Scale Feedback */}
         <div className="flex items-center justify-center gap-3 sm:gap-4 mb-5 sm:mb-6">
           {socialIcons.map(({ label, href, Icon }) => (
             <a
@@ -204,9 +229,9 @@ export function Hero() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label={label}
-              className="group relative flex items-center justify-center w-9 h-9 sm:w-11 sm:h-11 rounded-full bg-white border border-slate-200/90 shadow-xs text-slate-600 hover:text-slate-900 hover:border-primary/50 hover:bg-slate-50 dark:bg-white/5 dark:border-white/10 dark:text-muted-foreground dark:hover:text-foreground dark:hover:border-purple-500/50 dark:hover:bg-white/10 dark:hover:shadow-[0_0_20px_rgba(168,85,247,0.3)] active:scale-95 transition-all duration-300"
+              className="group relative flex items-center justify-center w-9 h-9 sm:w-11 sm:h-11 rounded-full bg-white border border-slate-200/90 shadow-xs text-slate-600 hover:text-slate-900 hover:border-primary/50 hover:bg-slate-50 dark:bg-white/5 dark:border-white/10 dark:text-muted-foreground dark:hover:text-foreground dark:hover:border-purple-500/50 dark:hover:bg-white/10 dark:hover:shadow-[0_0_20px_rgba(168,85,247,0.3)] active:scale-90 transition-all duration-300 hover:-translate-y-0.5"
             >
-              <Icon className="h-4 w-4 sm:h-5 sm:w-5" />
+              <Icon className="h-4 w-4 sm:h-5 sm:w-5 transition-transform duration-300 group-hover:scale-110" />
             </a>
           ))}
         </div>
@@ -222,7 +247,7 @@ export function Hero() {
               window.scrollBy({ top: window.innerHeight, behavior: "smooth" });
             }
           }}
-          className="flex flex-col items-center gap-1 mx-auto text-muted-foreground hover:text-foreground transition-colors duration-300 focus:outline-none focus-visible:text-foreground"
+          className="flex flex-col items-center gap-1 mx-auto text-muted-foreground hover:text-foreground transition-colors duration-300 focus:outline-none focus-visible:text-foreground active:scale-95"
           aria-label="Scroll to next section"
         >
           <span className="text-[10px] sm:text-xs tracking-[0.3em] uppercase">Scroll</span>

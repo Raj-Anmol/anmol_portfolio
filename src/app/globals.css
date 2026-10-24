@@ -97,6 +97,14 @@
   }
   html {
     scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+  }
+  section[id] {
+    scroll-margin-top: 5rem;
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
   }
 }
 
@@ -115,6 +123,74 @@
     to {
       opacity: 1;
       transform: translateY(0);
+    }
+  }
+
+  @keyframes orb-float-1 {
+    0%, 100% {
+      transform: translate(0px, 0px) scale(1);
+    }
+    50% {
+      transform: translate(25px, -18px) scale(1.04);
+    }
+  }
+
+  @keyframes orb-float-2 {
+    0%, 100% {
+      transform: translate(0px, 0px) scale(1);
+    }
+    50% {
+      transform: translate(-20px, 20px) scale(0.96);
+    }
+  }
+
+  @keyframes orb-float-3 {
+    0%, 100% {
+      transform: translate(0px, 0px) scale(1);
+    }
+    50% {
+      transform: translate(15px, 15px) scale(1.02);
+    }
+  }
+
+  @keyframes text-shimmer {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+  .animate-shimmer-text {
+    background-size: 200% auto;
+    animation: text-shimmer 8s ease-in-out infinite;
+  }
+
+  @media (min-width: 640px) and (prefers-reduced-motion: no-preference) {
+    .animate-orb-1 {
+      animation: orb-float-1 16s ease-in-out infinite;
+      will-change: transform;
+    }
+    .animate-orb-2 {
+      animation: orb-float-2 20s ease-in-out infinite;
+      will-change: transform;
+    }
+    .animate-orb-3 {
+      animation: orb-float-3 18s ease-in-out infinite;
+      will-change: transform;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .animate-shimmer-text,
+    .animate-orb-1,
+    .animate-orb-2,
+    .animate-orb-3 {
+      animation: none !important;
     }
   }
 }

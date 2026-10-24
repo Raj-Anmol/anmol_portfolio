@@ -5,6 +5,7 @@ import { cn } from "@/lib/utils";
 import { skills } from "@/lib/constants";
 import { Badge } from "@/components/ui/badge";
 import { Code, Layout, Server, Database, Cloud } from "lucide-react";
+import { useReducedMotion } from "@/lib/hooks/use-reduced-motion";
 
 const skillCategories = [
   {
@@ -60,11 +61,11 @@ const containerVariants: Variants = {
 };
 
 const categoryVariants: Variants = {
-  hidden: { opacity: 0, y: 25 },
+  hidden: { opacity: 0, y: 18 },
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.5, ease: "easeOut" },
+    transition: { duration: 0.5, ease: [0.16, 1, 0.3, 1] },
   },
 };
 
@@ -77,7 +78,7 @@ function ProficiencyDots({ level, dotColor }: { level: number; dotColor: string 
           initial={{ scale: 0 }}
           whileInView={{ scale: 1 }}
           viewport={{ once: true }}
-          transition={{ delay: 0.3 + i * 0.05, type: "spring", stiffness: 300 }}
+          transition={{ delay: 0.2 + i * 0.04, type: "spring", stiffness: 320, damping: 24 }}
           className={cn(
             "h-1.5 w-1.5 rounded-full",
             i <= level ? dotColor : "bg-slate-200 dark:bg-muted"
@@ -89,6 +90,8 @@ function ProficiencyDots({ level, dotColor }: { level: number; dotColor: string 
 }
 
 export function Skills() {
+  const reducedMotion = useReducedMotion();
+
   return (
     <section
       id="skills"
@@ -118,11 +121,13 @@ export function Skills() {
               <motion.div
                 key={category.key}
                 variants={categoryVariants}
-                className="border border-border bg-card/80 backdrop-blur-sm rounded-xl p-5 hover:border-primary/50 transition-colors"
+                whileHover={reducedMotion ? undefined : { y: -3 }}
+                transition={{ duration: 0.25, ease: "easeOut" }}
+                className="border border-border bg-card/80 backdrop-blur-sm rounded-xl p-5 hover:border-primary/50 hover:shadow-md transition-all duration-300"
               >
                 <div className="flex items-center justify-between gap-3 mb-4 flex-wrap">
                   <div className="flex items-center gap-3">
-                    <div className={cn("p-2.5 rounded-lg", category.bgColor, category.borderColor)}>
+                    <div className={cn("p-2.5 rounded-lg transition-transform duration-200 group-hover:scale-105", category.bgColor, category.borderColor)}>
                       <category.icon className={cn("h-5 w-5", category.color)} />
                     </div>
                     <h3 className="text-lg font-bold text-slate-900 dark:text-foreground">{category.label}</h3>
@@ -136,7 +141,7 @@ export function Skills() {
                       key={skillIndex}
                       variant="outline"
                       className={cn(
-                        "text-xs px-2.5 py-1 text-slate-800 dark:text-foreground bg-white dark:bg-transparent border-slate-200/90 dark:border-border hover:bg-primary/10 hover:border-primary/50 hover:text-primary transition-all duration-200 cursor-default"
+                        "text-xs px-2.5 py-1 text-slate-800 dark:text-foreground bg-white dark:bg-transparent border-slate-200/90 dark:border-border hover:bg-primary/10 hover:border-primary/50 hover:text-primary hover:-translate-y-0.5 hover:shadow-xs active:scale-95 transition-all duration-200 cursor-default"
                       )}
                     >
                       {skill}

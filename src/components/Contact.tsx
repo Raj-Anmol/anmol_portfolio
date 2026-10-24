@@ -8,6 +8,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Mail, MapPin, ExternalLink, Send, FileText } from "lucide-react";
 import { GithubIcon } from "@/components/icons/GithubIcon";
 import { LinkedinIcon } from "@/components/icons/LinkedinIcon";
+import { useReducedMotion } from "@/lib/hooks/use-reduced-motion";
 
 const contactItems = [
   {
@@ -68,6 +69,8 @@ const contactItems = [
 ];
 
 export function Contact() {
+  const reducedMotion = useReducedMotion();
+
   return (
     <section
       id="contact"
@@ -88,14 +91,15 @@ export function Contact() {
           {contactItems.map((item, index) => (
             <motion.div
               key={item.label}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-40px" }}
-              transition={{ delay: index * 0.05, duration: 0.4 }}
+              whileHover={reducedMotion ? undefined : { y: -3 }}
+              transition={{ delay: index * 0.05, duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
             >
               <Card
                 className={cn(
-                  "border-border hover:border-primary/50 transition-colors group h-full",
+                  "border-border transition-all duration-300 hover:border-purple-500/40 hover:shadow-md group h-full",
                   item.external ? "cursor-pointer" : ""
                 )}
               >

@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { profile, siteConfig, socialLinks } from "@/lib/constants";
-import { Mail, Heart, FileText, MapPin } from "lucide-react";
+import { Mail, Heart, FileText, MapPin, ArrowUp } from "lucide-react";
 import { GithubIcon } from "@/components/icons/GithubIcon";
 import { LinkedinIcon } from "@/components/icons/LinkedinIcon";
 import { TwitterIcon } from "@/components/icons/TwitterIcon";
@@ -149,14 +149,25 @@ export function Footer() {
         </div>
 
         <div className="pt-5 border-t border-border">
-          <div className="flex flex-col sm:flex-row items-center justify-between gap-2">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-3">
             <p className="text-xs text-muted-foreground">
               © {currentYear} {siteConfig.name}. All rights reserved.
             </p>
-            <span className="flex items-center gap-1 text-xs text-muted-foreground">
-              <Heart className="h-3 w-3 text-red-500" />
-              Made with care
-            </span>
+            <div className="flex items-center gap-4">
+              <span className="flex items-center gap-1 text-xs text-muted-foreground">
+                <Heart className="h-3 w-3 text-red-500" />
+                Made with care
+              </span>
+              <button
+                type="button"
+                onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+                className="inline-flex items-center gap-1.5 px-2.5 py-1 text-xs font-medium rounded-lg text-muted-foreground hover:text-foreground bg-muted/50 hover:bg-muted border border-border/60 transition-all duration-200 active:scale-95"
+                aria-label="Back to top"
+              >
+                <span>Top</span>
+                <ArrowUp className="h-3 w-3" />
+              </button>
+            </div>
           </div>
         </div>
       </div>

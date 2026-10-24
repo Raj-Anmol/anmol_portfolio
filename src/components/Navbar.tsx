@@ -3,12 +3,14 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { motion } from "motion/react";
 import { cn } from "@/lib/utils";
 import { Eye, Search, X, Menu } from "lucide-react";
 import { GithubIcon } from "@/components/icons/GithubIcon";
 import { LinkedinIcon } from "@/components/icons/LinkedinIcon";
 import { profile } from "@/lib/constants";
 import { ThemeToggle } from "@/components/ThemeToggle";
+import { useReducedMotion } from "@/lib/hooks/use-reduced-motion";
 
 const navItems = [
   { label: "Home", href: "/" },
@@ -26,6 +28,7 @@ export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const pathname = usePathname();
+  const reducedMotion = useReducedMotion();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -109,7 +112,7 @@ export function Navbar() {
                     key={item.label}
                     href={item.href}
                     className={cn(
-                      "relative px-2.5 py-1.5 text-xs lg:text-sm font-medium transition-colors rounded-md",
+                      "relative px-2.5 py-1.5 text-xs lg:text-sm font-medium transition-colors rounded-md active:scale-95",
                       active
                         ? "text-primary font-semibold"
                         : "text-muted-foreground hover:text-foreground hover:bg-muted/40"
@@ -118,7 +121,11 @@ export function Navbar() {
                   >
                     {item.label}
                     {active && (
-                      <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-1/2 h-0.5 bg-primary rounded-full" />
+                      <motion.span
+                        layoutId={reducedMotion ? undefined : "navbar-active-pill"}
+                        className="absolute bottom-0 left-1.5 right-1.5 h-0.5 bg-primary rounded-full"
+                        transition={{ type: "spring", stiffness: 420, damping: 32 }}
+                      />
                     )}
                   </Link>
                 );

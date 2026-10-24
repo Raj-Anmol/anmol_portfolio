@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Award, Clock, Building2, ExternalLink, CheckCircle, FileText } from "lucide-react";
+import { useReducedMotion } from "@/lib/hooks/use-reduced-motion";
 
 const containerVariants: Variants = {
   hidden: {},
@@ -15,15 +16,16 @@ const containerVariants: Variants = {
 };
 
 const itemVariants: Variants = {
-  hidden: { opacity: 0, y: 25 },
+  hidden: { opacity: 0, y: 18 },
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.5, ease: [0.21, 0.47, 0.32, 0.98] },
+    transition: { duration: 0.5, ease: [0.16, 1, 0.3, 1] },
   },
 };
 
 export function Certificates() {
+  const reducedMotion = useReducedMotion();
   return (
     <section
       id="certificates"
@@ -51,9 +53,10 @@ export function Certificates() {
             <motion.article
               key={index}
               variants={itemVariants}
-              whileHover={{ y: -5, scale: 1.01 }}
+              whileHover={reducedMotion ? undefined : { y: -4 }}
+              transition={{ duration: 0.25, ease: "easeOut" }}
             >
-              <Card className="h-full border-border bg-card/80 backdrop-blur-sm hover:border-primary/50 transition-colors">
+              <Card className="h-full border-border bg-card/80 backdrop-blur-sm transition-all duration-300 hover:border-purple-500/40 hover:shadow-md">
                 <CardHeader className="pb-3">
                   <div className="flex items-center justify-between mb-3">
                     <div className="p-2.5 bg-primary/10 rounded-lg text-primary">

@@ -10,17 +10,19 @@ import { Badge } from "@/components/ui/badge";
 import { SpotlightCard } from "@/components/ui/spotlight-card";
 import { ExternalLink, Code, ArrowRight } from "lucide-react";
 import { GithubIcon } from "@/components/icons/GithubIcon";
+import { useReducedMotion } from "@/lib/hooks/use-reduced-motion";
 
 const itemVariants: Variants = {
-  hidden: { opacity: 0, y: 25 },
+  hidden: { opacity: 0, y: 18 },
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.5, ease: [0.21, 0.47, 0.32, 0.98] },
+    transition: { duration: 0.5, ease: [0.16, 1, 0.3, 1] },
   },
 };
 
 export function Projects() {
+  const reducedMotion = useReducedMotion();
   return (
     <section
       id="projects"
@@ -51,19 +53,19 @@ export function Projects() {
             <motion.article
               key={project.id}
               variants={itemVariants}
-              whileHover={{ y: -5, scale: 1.01 }}
+              whileHover={reducedMotion ? undefined : { y: -4 }}
+              transition={{ duration: 0.25, ease: "easeOut" }}
               className="group"
             >
               <SpotlightCard className="h-full rounded-xl">
-                <Card className="h-full border-border bg-card/80 backdrop-blur-sm hover:border-primary/50 transition-colors overflow-hidden">
-
+                <Card className="h-full border-border bg-card/80 backdrop-blur-sm transition-all duration-300 hover:border-purple-500/50 hover:shadow-[0_12px_32px_-8px_rgba(124,58,237,0.18)] dark:hover:border-purple-400/50 dark:hover:shadow-[0_12px_32px_-8px_rgba(168,85,247,0.22)] overflow-hidden">
 
                 <div className="relative aspect-[16/10] overflow-hidden">
                   <Image
                     src={project.image}
                     alt={`${project.name} - Project screenshot`}
                     fill
-                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                    className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03] will-change-transform"
                     sizes="(max-width: 768px) 100vw, 50vw"
                     quality={75}
                   />

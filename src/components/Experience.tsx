@@ -4,24 +4,26 @@ import { motion, type Variants } from "motion/react";
 import { experience } from "@/lib/constants";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, MapPin, Clock } from "lucide-react";
+import { useReducedMotion } from "@/lib/hooks/use-reduced-motion";
 
 const containerVariants: Variants = {
   hidden: {},
   visible: {
-    transition: { staggerChildren: 0.12, delayChildren: 0.05 },
+    transition: { staggerChildren: 0.1, delayChildren: 0.05 },
   },
 };
 
 const itemVariants: Variants = {
-  hidden: { opacity: 0, y: 25 },
+  hidden: { opacity: 0, y: 18 },
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.55, ease: [0.21, 0.47, 0.32, 0.98] },
+    transition: { duration: 0.5, ease: [0.16, 1, 0.3, 1] },
   },
 };
 
 export function Experience() {
+  const reducedMotion = useReducedMotion();
   return (
     <section
       id="experience"
@@ -64,7 +66,8 @@ export function Experience() {
               <motion.article
                 key={index}
                 variants={itemVariants}
-                whileHover={{ y: -8, scale: 1.03 }}
+                whileHover={reducedMotion ? undefined : { y: -3 }}
+                transition={{ duration: 0.25, ease: "easeOut" }}
                 className="relative pl-10 sm:pl-16 group"
               >
                 <div className="absolute left-0 top-1">

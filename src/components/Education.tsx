@@ -1,8 +1,30 @@
+"use client";
+
+import { motion, type Variants } from "motion/react";
 import { education } from "@/lib/constants";
 import { Badge } from "@/components/ui/badge";
 import { GraduationCap, MapPin, Calendar, Award, Building2 } from "lucide-react";
+import { useReducedMotion } from "@/lib/hooks/use-reduced-motion";
+
+const containerVariants: Variants = {
+  hidden: {},
+  visible: {
+    transition: { staggerChildren: 0.1, delayChildren: 0.05 },
+  },
+};
+
+const itemVariants: Variants = {
+  hidden: { opacity: 0, y: 18 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.5, ease: [0.16, 1, 0.3, 1] },
+  },
+};
 
 export function Education() {
+  const reducedMotion = useReducedMotion();
+
   return (
     <section
       id="education"
@@ -19,15 +41,23 @@ export function Education() {
           </p>
         </header>
 
-        <div className="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto">
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-40px" }}
+          className="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto"
+        >
           {education.map((edu, index) => (
-            <article
+            <motion.article
               key={index}
-              className="relative bg-card rounded-2xl border border-border p-5 hover:border-primary/50 transition-colors animate-in"
-              style={{ animationDelay: `${index * 100}ms` }}
+              variants={itemVariants}
+              whileHover={reducedMotion ? undefined : { y: -4 }}
+              transition={{ duration: 0.25, ease: "easeOut" }}
+              className="relative bg-card rounded-2xl border border-border p-5 hover:border-primary/50 transition-all duration-300 hover:shadow-md"
             >
               <div className="absolute -top-3 left-6">
-                <div className="p-2 bg-primary rounded-full text-primary-foreground shadow-lg">
+                <div className="p-2 bg-primary rounded-full text-primary-foreground shadow-lg shadow-purple-500/20">
                   <GraduationCap className="h-5 w-5" />
                 </div>
               </div>
@@ -81,7 +111,7 @@ export function Education() {
                       "Web Technologies",
                       "Machine Learning Basics",
                     ].map((course, courseIndex) => (
-                      <Badge key={courseIndex} variant="outline" className="text-xs">
+                      <Badge key={courseIndex} variant="outline" className="text-xs transition-colors hover:border-primary/40 hover:text-primary">
                         {course}
                       </Badge>
                     ))}
@@ -107,9 +137,9 @@ export function Education() {
                   </ul>
                 </div>
               </div>
-            </article>
+            </motion.article>
           ))}
-        </div>
+        </motion.div>
 
         <div className="mt-12 text-center">
           <p className="text-muted-foreground mb-4">
